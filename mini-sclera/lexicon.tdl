@@ -16,15 +16,15 @@
 ; zij
 
 
-hond := femmasc-count-sg-noun-lex &
+dog := femmasc-count-sg-noun-lex &
   [ STEM < "hond" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
 
-meisje := neutr-count-sg-noun-lex &
+girl := neutr-count-sg-noun-lex &
   [ STEM < "meisje" >,
     SYNSEM.LKEYS.KEYREL.PRED "_meisje_n_rel" ].
 
-liefde := no-spr-noun-lex &
+love := no-spr-noun-lex &
   [ STEM < "liefde" >,
     SYNSEM.LKEYS.KEYREL.PRED "_liefde_n_rel" ].
 
@@ -45,6 +45,8 @@ liefde := no-spr-noun-lex &
 
 ; springen := &
 ; wandelen := &
+
+; douchen := -> een douche nemen
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Complex Situations
@@ -69,7 +71,7 @@ liefde := no-spr-noun-lex &
 
 ;;; deontic
 
-; mogen :=  &
+; mogen :=  &   ; used for questions
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Determiners (do not exist in this grammar)
 
