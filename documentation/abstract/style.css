@@ -1,0 +1,45 @@
+body {
+    font-family: "Source Sans Pro";
+    /*background-color: rgba(120, 168, 179, 0.61);*/
+    background-color: #fafafa;
+    color: #333333;
+    padding: 0px;
+    margin: 0px;
+    text-align: justify;
+    line-height: 150%;
+    font-size: 120%;
+}
+
+#header {
+    font-family: "Bookman Old Style";
+}
+
+h1,h2, h3 {
+    font-family: "Droid Serif";
+    color: rgb(82, 80, 80)
+}
+
+h1 {
+    text-align: left;
+}
+
+h2 {
+    color: rgb(105, 102, 102)
+}
+
+#container {
+     width: 700px;
+     margin-left: auto;
+     margin-right: auto;
+     height: auto;
+     background-color: #fafafa;
+     padding: 20;
+ }
+
+table {
+    width: 100%;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+}
+td {padding: 6px;
+}
