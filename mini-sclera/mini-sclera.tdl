@@ -1,0 +1,23 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+
+sclera-basic-insert-definite-det-rule := head-only &
+  [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+			   SUBJ < >,
+			   COMPS < >,
+			   SPEC < > ],
+    HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun,
+				  VAL [ SPR < [ LOCAL.CAT.HEAD det,
+						OPT - ] >,
+					SUBJ < >,
+					COMPS < > ] ],
+			    CONT.HOOK [ INDEX #index,
+					LTOP #larg ] ],
+    C-CONT [ RELS <! quant-relation &
+              [ PRED "_def_q_rel",
+		        ARG0 #index,
+		        RSTR #harg ] !>,
+	         HCONS <! qeq &
+		      [ HARG #harg,
+		        LARG #larg ] !>,
+	     ICONS <! !>,
+	     HOOK [ INDEX #index ] ] ].
