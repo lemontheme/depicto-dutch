@@ -19,3 +19,12 @@
 #
 # # 2. (as a test) parse input & generate from MRS
 # ace -g mini-sclera.dat -T parsethis | ace -g mini-dutch.dat -e;
+
+
+
+# scrap
+# 1. (works)
+# echo "meisje slaap" | ./ace -g mini-sclera.dat -T | ./ace -g mini-dutch.dat -e;
+# 2. ..
+
+# echo "meisje slaap" | ./ace -g mini-sclera.dat

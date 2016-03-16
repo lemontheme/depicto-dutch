@@ -11,7 +11,7 @@
 
 :include "../matrix-main/head-types".
 :include "../matrix-main/matrix".
-:include "mini-dutch".
+:include "../mini-dutch/mini-dutch".
 :include "mini-sclera".
 :include "../matrix-main/mtr".
 

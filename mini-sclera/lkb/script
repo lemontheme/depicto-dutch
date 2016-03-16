@@ -46,9 +46,9 @@
 (list
 (lkb-pathname (grandparent-directory) "matrix-main/matrix.tdl")
 ; (lkb-pathname (parent-directory) "head-types.tdl")
-  (lkb-pathname (parent-directory) "mini-dutch.tdl")
+  (lkb-pathname (grandparent-directory) "mini-dutch/mini-dutch.tdl") ; temporary
   (lkb-pathname (grandparent-directory) "matrix-main/mtr.tdl")
-  ; new
+  ; unique and essential to mini-sclera: 
   (lkb-pathname (parent-directory) "mini-sclera.tdl")
 ))
 
