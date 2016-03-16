@@ -1,0 +1,79 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+
+;;; Nouns
+
+; ik :=
+
+hond := femmasc-count-sg-noun-lex &
+  [ STEM < "hond" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
+
+meisje := neutr-count-sg-noun-lex &
+  [ STEM < "meisje" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_meisje_n_rel" ].
+
+liefde := no-spr-noun-lex &
+  [ STEM < "liefde" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_liefde_n_rel" ].
+
+;;; Adjectives
+
+;;; Verbs
+
+;blaffen := intrans-verb-lex &
+;  [ STEM < "blaf" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+
+blaft := intrans-3rd-sg-verb-lex &
+  [ STEM < "blaft" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+
+;blaf := intrans-verb-lex &
+;  [ STEM < "blaf" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+
+;slapen := intrans-verb-lex &
+;  [ STEM < "slaap" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+slaapt := intrans-3rd-sg-verb-lex &
+  [ STEM < "slaapt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+;slaap := intrans-verb-lex &
+;  [ STEM < "slaap" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+koopt := trans-3rd-sg-verb-lex &
+  [ STEM < "koopt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
+
+;;; Auxiliaries
+
+;is :=  3rd-sg-cop-lex &
+;  [ STEM < "is" > ].
+
+;;; Determiners
+
+de := definite-determiner-lex &
+  [ STEM < "de" >,
+    SYNSEM [ LKEYS.KEYREL.PRED "_def_q_rel" ,
+             LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter ] ] ] .
+
+
+het := definite-determiner-lex &
+  [ STEM < "het" >,
+    SYNSEM [ LKEYS.KEYREL.PRED "_def_q_rel" ,
+             LOCAL.CONT.HOOK.INDEX.PNG [ GEND neuter ] ] ] .
+
+
+
+een := indefinite-determiner-lex &
+  [ STEM < "een" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_indef_q_rel" ].
+
+
+en := conj-lex &
+  [ STEM < "en" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "1" ].

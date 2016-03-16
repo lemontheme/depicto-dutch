@@ -1,6 +1,0 @@
-;;; -*- Mode: TDL; Coding: utf-8 -*-
-;;; Inflecting Lexical Rule Instances
-
-;finite-lex-rule-suffix :=
-;%suffix (* t)
-;finite-lex-rule.

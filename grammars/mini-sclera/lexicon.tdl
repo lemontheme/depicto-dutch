@@ -1,0 +1,104 @@
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Nouns
+
+; ik :=  &
+
+; jij :=  &
+; jou :=  &
+
+; hij :=  &
+; zij :=  &
+
+; wij :=  &
+; jullie
+; zij
+
+
+dog := femmasc-count-sg-noun-lex &
+  [ STEM < "hond" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
+
+girl := neutr-count-sg-noun-lex &
+  [ STEM < "meisje" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_meisje_n_rel" ].
+
+love := no-spr-noun-lex &
+  [ STEM < "liefde" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_liefde_n_rel" ].
+
+;flesje-water-prik := &
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adjectives
+
+; ziek :=  &
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Verbs
+
+slapen := intrans-verb-lex &
+ [ STEM < "slaap" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+; springen := &
+; wandelen := &
+
+; douchen := -> een douche nemen
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Complex Situations
+
+; blaffen := intrans-verb-lex &
+;  [ STEM < "blaf" >,
+;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+; \\
+;NEEDS TO BECOME
+;               \_.-> hond-blaffen ; subject = hond
+
+; hond-borstelen ; object = hond
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Auxiliaries
+
+;;;;;; copula
+
+; zijn :=  3rd-sg-cop-lex &
+;   [ STEM < "is" > ].
+
+;;;;;; modality
+
+;;; deontic
+
+; mogen :=  &   ; used for questions
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Determiners (do not exist in this grammar)
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Negation
+;;; (using negative adverb symbolized by 'kruis-rood')
+
+; not :=  &
+;  [ STEM < "kruis-rood" > ].
+
+; no :=  &
+;  [ STEM < "kruis-rood" > ].
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Conjunction
+
+en := conj-lex &
+  [ STEM < "plus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
+    CFORM "1" ].
+
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; experimental: interaction
+;;;;; (mostly minor clause-items and idiomatic cxns)
+
+; hey
+; goeiemorgen
+; hoe-gaat-het-met-je
+; tot-ziens
