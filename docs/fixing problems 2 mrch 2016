@@ -1,0 +1,9 @@
+plan of action (2-03-2016)
+==============
+
+1. fill out customization questionnaire on http://www.delph-in.net/matrix/customize/matrix.cgi
+    - use 'choices' files in current mini-dutch grammar and original fokkens file
+    - assume SVO order for the time being
+    - keep it simple
+    - add a few lexical entries
+2. try parsing with resulting grammar

@@ -39,9 +39,9 @@ love := no-spr-noun-lex &
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Verbs
 
-; slapen := intrans-verb-lex &
-;  [ STEM < "slaap" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+slapen := intrans-verb-lex &
+ [ STEM < "slaap" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
 
 ; springen := &
 ; wandelen := &
