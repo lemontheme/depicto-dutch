@@ -1,0 +1,1629 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=latex 2016.1.2)  16 MAR 2016 15:42
+entering extended mode
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**userguide.tex
+(./userguide.tex
+LaTeX2e <2015/01/01>
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2014/09/29 v1.4h Standard LaTeX document class
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/size12.clo
+File: size12.clo 2014/09/29 v1.4h Standard LaTeX file (size option)
+)
+\c@part=\count79
+\c@section=\count80
+\c@subsection=\count81
+\c@subsubsection=\count82
+\c@paragraph=\count83
+\c@subparagraph=\count84
+\c@figure=\count85
+\c@table=\count86
+\abovecaptionskip=\skip41
+\belowcaptionskip=\skip42
+\bibindent=\dimen102
+) (./avm.sty
+\avmdimen=\dimen103
+\avmboxone=\box26
+\avmboxthree=\box27
+)
+(./lingmacros.sty
+\c@enums=\count87
+\widelabel=\dimen104
+\c@tempcnt=\count88
+\c@enumsi=\count89
+\eeindent=\dimen105
+) (./robbib.sty
+\bibhang=\skip43
+
+Rob's Bibliography and Citation Style -- released 02 Feb 1996
+) (./rtrees.sty
+Package: rtrees 1998/28/01 Rob's tree macros
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/pst-tree/pst-tree.sty
+(./pstricks.sty
+Package: pstricks 2015/11/14 v0.62 LaTeX wrapper for `PSTricks' (RN,HV)
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
+(/usr/local/texlive/2015/texmf-dist/tex/latex/latexconfig/color.cfg
+File: color.cfg 2007/01/18 v1.5 color configuration of teTeX/TeXLive
+)
+Package xcolor Info: Driver file: dvips.def on input line 225.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 2014/10/14 v3.0j Driver-dependent file (DPC,SPQR)
+)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
+Package xcolor Info: Model `RGB' extended on input line 1353.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1357.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pstricks.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/pst-xkey.tex
+File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkeyval.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks14
+\XKV@tempa@toks=\toks15
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/xkeyval/keyval.tex))
+\XKV@depth=\count90
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pst-fp.tex
+`pst-fp' v0.05, 2010/01/17 (hv)
+\pstFP@xs=\count91
+\pstFP@xia=\count92
+\pstFP@xib=\count93
+\pstFP@xfa=\count94
+\pstFP@xfb=\count95
+\pstFP@rega=\count96
+\pstFP@regb=\count97
+\pstFP@regs=\count98
+\pstFP@times=\count99
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
+x
+\pgfutil@everybye=\toks16
+\pgfutil@tempdima=\dimen106
+\pgfutil@tempdimb=\dimen107
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
+sts.tex))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks17
+\pgfkeys@temptoks=\toks18
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
+ode.tex
+\pgfkeys@tmptoks=\toks19
+))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
+\pgf@x=\dimen108
+\pgf@xa=\dimen109
+\pgf@xb=\dimen110
+\pgf@xc=\dimen111
+\pgf@y=\dimen112
+\pgf@ya=\dimen113
+\pgf@yb=\dimen114
+\pgf@yc=\dimen115
+\c@pgf@counta=\count100
+\c@pgf@countb=\count101
+\c@pgf@countc=\count102
+\c@pgf@countd=\count103
+\pgfutil@tempcnta=\count104
+\pgfutil@tempcntb=\count105
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen116
+\pgfmath@count=\count106
+\pgfmath@box=\box28
+\pgfmath@toks=\toks20
+\pgfmath@stack@operand=\toks21
+\pgfmath@stack@operation=\toks22
+)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
+tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigo
+nometric.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.rando
+m.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.compa
+rison.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round
+.code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.
+code.tex)
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integ
+erarithmetics.code.tex)))
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count107
+))
+\pgffor@iter=\dimen117
+\pgffor@skip=\dimen118
+\pgffor@stack=\toks23
+\pgffor@toks=\toks24
+)
+\psLoopIndex=\count108
+
+`PSTricks' v2.60  <2014/10/25> (tvz)
+\pst@dima=\dimen119
+\pst@dimb=\dimen120
+\pst@dimc=\dimen121
+\pst@dimd=\dimen122
+\pst@dimg=\dimen123
+\pst@dimh=\dimen124
+\pst@dimm=\dimen125
+\pst@dimn=\dimen126
+\pst@dimo=\dimen127
+\pst@dimp=\dimen128
+\pst@hbox=\box29
+\pst@ibox=\box30
+\pst@boxg=\box31
+\pst@cnta=\count109
+\pst@cntb=\count110
+\pst@cntc=\count111
+\pst@cntd=\count112
+\pst@cntg=\count113
+\pst@cnth=\count114
+\pst@cntm=\count115
+\pst@cntn=\count116
+\pst@cnto=\count117
+\pst@cntp=\count118
+\@zero=\count119
+\pst@toks=\toks25
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pstricks.con)
+\psunit=\dimen129
+\psxunit=\dimen130
+\psyunit=\dimen131
+\pst@C@@rType=\count120
+\pslinewidth=\dimen132
+\psk@startLW=\dimen133
+\psk@endLW=\dimen134
+\pst@customdefs=\toks26
+\pslinearc=\dimen135
+\pst@symbolStep=\dimen136
+\pst@symbolWidth=\dimen137
+\pst@symbolLinewidth=\dimen138
+\everypsbox=\toks27
+\psframesep=\dimen139
+\pslabelsep=\dimen140
+\sh@wgridXunit=\dimen141
+\sh@wgridYunit=\dimen142
+\pst@shift=\dimen143
+)
+File: pstricks.tex 2014/10/25 v2.60 `PSTricks' (tvz,hv)
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pstricks/pst-fp.tex)
+File: pst-fp.tex 2014/10/25 v2.60 `PST-fp' (hv)
+)
+Package: pst-tree 2009/01/25 package wrapper for pst-tree.tex
+
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pst-tree/pst-tree.tex
+(/usr/local/texlive/2015/texmf-dist/tex/generic/pst-node/pst-node.tex
+ v1.35, 2014/08/04
+\psrow=\count121
+\pscol=\count122
+\psmatrixcnt=\count123
+\psrowsep=\skip44
+\pscolsep=\skip45
+\pst@args=\count124
+\num@pts=\count125
+\pst@argcnt=\count126
+)  v1.12, 2011/02/28(tvz,dg,hv)
+\pstree@rootbox=\box32
+\pstree@box=\box33
+\psnodecnt=\count127
+\pstreelevel=\count128
+\pstreecnt=\count129
+\pstree@cnt=\count130
+\pstree@stop=\count131
+)
+File: pst-tree.tex 2011/02/28 1.12 `pst-tree' (tvz,hv)
+)
+\arcno=\count132
+) (./fullpage.sty
+Using full size pages: 'fullpage' documentstyle option
+) (./tree-dvips.sty
+tree-dvips version .91 of May 16, 1995
+\nodemargin=\dimen144
+\treelinewidth=\dimen145
+\dashlength=\dimen146
+\arrowwidth=\dimen147
+\arrowlength=\dimen148
+\arrowinset=\dimen149
+\pos@t=\toks28
+\pos@b=\toks29
+\pos@l=\toks30
+\pos@r=\toks31
+\pos@tl=\toks32
+\pos@tr=\toks33
+\pos@bl=\toks34
+\pos@br=\toks35
+\@arrow=\count133
+\@tempdimc=\dimen150
+) (./userguide.aux)
+\openout1 = `userguide.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 73.
+LaTeX Font Info:    ... okay on input line 73.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <14.4> on input line 74.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <7> on input line 74.
+ (./userguide.toc)
+\tf@toc=\write3
+\openout3 = `userguide.toc'.
+
+ [1
+
+]
+
+LaTeX Warning: Citation `Cop:Fli:Sag:Pol:03' on page 2 undefined on input line 
+84.
+
+
+LaTeX Warning: Citation `Cop:Las:Fli:01' on page 2 undefined on input line 84.
+
+
+LaTeX Warning: Reference `backmot' on page 2 undefined on input line 89.
+
+
+LaTeX Warning: Reference `basicobj' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Reference `synsem-i' on page 2 undefined on input line 90.
+
+
+LaTeX Warning: Reference `verif' on page 2 undefined on input line 94.
+
+
+LaTeX Warning: Reference `semisec' on page 2 undefined on input line 96.
+
+
+LaTeX Warning: Citation `Ben:Fli:Oep:02' on page 2 undefined on input line 103.
+
+
+
+LaTeX Warning: Citation `Fli:Ben:03' on page 2 undefined on input line 103.
+
+
+LaTeX Warning: Citation `Ben:Fli:05' on page 2 undefined on input line 103.
+
+
+LaTeX Warning: Citation `Dre:Ben:05' on page 2 undefined on input line 103.
+
+
+Underfull \hbox (badness 1931) in paragraph at lines 119--119
+[]\OT1/cmr/m/n/6 Update to re-
+ []
+
+
+LaTeX Warning: Citation `Copestake:02' on page 2 undefined on input line 129.
+
+
+LaTeX Warning: Citation `Oep:Fli:Tsu:02' on page 2 undefined on input line 132.
+
+
+
+LaTeX Warning: Citation `Carpenter:92' on page 2 undefined on input line 135.
+
+
+LaTeX Warning: Citation `Cop:Las:Fli:01' on page 2 undefined on input line 144.
+
+
+[2]
+
+LaTeX Warning: Citation `Flickinger00' on page 3 undefined on input line 160.
+
+
+LaTeX Warning: Citation `Sie:Ben:02' on page 3 undefined on input line 161.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+[]\OT1/cmr/m/n/6 This will
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 be re-placed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 with broader
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 dis-cus-sion of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 where these
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 rep-re-sen-ta-tions
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 come from,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 163--163
+\OT1/cmr/m/n/6 to projects
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+[]\OT1/cmr/m/n/6 Read & cite
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+\OT1/cmr/m/n/6 Goss-Grubbs
+ []
+
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 174.
+
+(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
+
+
+LaTeX Warning: Reference `AgrTAM' on page 3 undefined on input line 174.
+
+
+LaTeX Warning: Citation `Cop:Fli:Sag:Pol:03' on page 3 undefined on input line 
+174.
+
+
+LaTeX Warning: Marginpar on page 3 moved.
+
+
+LaTeX Warning: Reference `mrsobj' on page 3 undefined on input line 184.
+
+
+Overfull \hbox (52.53465pt too wide) in paragraph at lines 203--206
+ [] 
+ []
+
+[3]
+
+LaTeX Warning: Reference `mrs-cons' on page 4 undefined on input line 232.
+
+
+Overfull \hbox (17.17613pt too wide) in paragraph at lines 230--233
+[]\OT1/cmr/m/n/12 Thus ob-jects of type \OT1/cmr/m/it/12 mrs \OT1/cmr/m/n/12 (i
+.e., the value of the fea-tures \OT1/cmr/m/sc/12 cont(ent) \OT1/cmr/m/n/12 and 
+\OT1/cmr/m/sc/12 c(onstructional)-
+ []
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <10.95> on input line 240.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8> on input line 240.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 240.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <12> on input line 242.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <5> on input line 244.
+
+LaTeX Warning: Reference `reltypesec' on page 4 undefined on input line 244.
+
+
+LaTeX Warning: Reference `qeqsec' on page 4 undefined on input line 246.
+
+
+LaTeX Warning: Reference `hooksec' on page 4 undefined on input line 247.
+
+
+LaTeX Warning: Reference `msgsec' on page 4 undefined on input line 249.
+
+
+LaTeX Warning: Citation `Pol:Sag:94' on page 4 undefined on input line 252.
+
+
+LaTeX Warning: Reference `semargsec' on page 4 undefined on input line 255.
+
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 257.
+
+LaTeX Warning: Reference `hooksec' on page 4 undefined on input line 257.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--262
+\OT1/cmr/m/n/6 us-ing these
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 262--262
+\OT1/cmr/m/n/6 for any-thing?
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+[]\OT1/cmr/m/n/6 Actually, it
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 rels-list, and
+ []
+
+
+Underfull \hbox (badness 3977) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 have value of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 RELS be [
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 LIST rels-list
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 ]. Like-wise
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 for hcons-list,
+ []
+
+
+Underfull \hbox (badness 1867) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 where we add
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 an ad-di-tional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 type hcons
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 su-per-type to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 qeq to al-low
+ []
+
+
+Underfull \hbox (badness 1127) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 other kinds of
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 281--281
+\OT1/cmr/m/n/6 hcons on an
+ []
+
+
+LaTeX Warning: Reference `relation' on page 4 undefined on input line 283.
+
+[4]
+
+LaTeX Warning: Reference `qeqsec' on page 5 undefined on input line 299.
+
+
+LaTeX Warning: Reference `hooksec' on page 5 undefined on input line 300.
+
+
+LaTeX Warning: Reference `msgsec' on page 5 undefined on input line 311.
+
+
+LaTeX Warning: Reference `relarg' on page 5 undefined on input line 322.
+
+
+LaTeX Warning: Citation `Cop:03' on page 5 undefined on input line 328.
+
+[5]
+Underfull \hbox (badness 2662) in paragraph at lines 351--351
+[]\OT1/cmr/m/n/6 what about a
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 351--351
+\OT1/cmr/m/n/6 (ad-jec-tive or
+ []
+
+
+Underfull \hbox (badness 1527) in paragraph at lines 351--351
+\OT1/cmr/m/n/6 ad-verb) and s
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+[]\OT1/cmr/m/n/6 Create a
+ []
+
+
+Underfull \hbox (badness 8132) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 lan-guage with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 dif-fer-ent pos
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 dis-tinc-tions;
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 em-pha-size
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 that the
+ []
+
+
+Underfull \hbox (badness 7133) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 point here is
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 coarse-grained
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 354--354
+\OT1/cmr/m/n/6 uni-ver-sal pos
+ []
+
+
+LaTeX Warning: Marginpar on page 6 moved.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 375--375
+[]\OT1/cmr/m/n/6 Illustrate
+ []
+
+
+Underfull \hbox (badness 7221) in paragraph at lines 375--375
+\OT1/cmr/m/n/6 with ex-am-ple,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--391
+[]\OT1/cmr/m/n/6 Add ex-am-ple
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 391--391
+\OT1/cmr/m/n/6 strings for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 400--400
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 402--407
+
+ []
+
+[6]
+Underfull \hbox (badness 10000) in paragraph at lines 427--427
+[]\OT1/cmr/m/n/6 Update to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--427
+\OT1/cmr/m/n/6 LNK and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 427--427
+\OT1/cmr/m/n/6 CFROM/CTO,
+ []
+
+
+Underfull \hbox (badness 4366) in paragraph at lines 427--427
+\OT1/cmr/m/n/6 pro-vide ac-tual
+ []
+
+
+LaTeX Warning: Reference `quantsec' on page 7 undefined on input line 435.
+
+
+LaTeX Warning: Citation `Cop:Fli:Sag:Pol:03' on page 7 undefined on input line 
+445.
+
+
+LaTeX Warning: Reference `dlfn' on page 7 undefined on input line 465.
+
+[7]
+
+LaTeX Warning: Reference `hconssec' on page 8 undefined on input line 479.
+
+
+LaTeX Warning: Citation `Cop:Fli:Sag:Pol:03' on page 8 undefined on input line 
+481.
+
+
+LaTeX Warning: Citation `Wahl:Karg:00' on page 8 undefined on input line 490.
+
+
+LaTeX Warning: Citation `Cop:03' on page 8 undefined on input line 490.
+
+
+LaTeX Warning: Reference `db1' on page 8 undefined on input line 502.
+
+
+LaTeX Warning: Citation `Kri:Sch:94' on page 8 undefined on input line 505.
+
+[8]
+
+LaTeX Warning: Reference `mrssec' on page 9 undefined on input line 578.
+
+
+LaTeX Warning: Reference `semargsec' on page 9 undefined on input line 579.
+
+
+LaTeX Warning: Reference `xargsec' on page 9 undefined on input line 592.
+
+
+LaTeX Warning: Reference `relarg' on page 9 undefined on input line 598.
+
+
+LaTeX Warning: Reference `semarghier' on page 9 undefined on input line 603.
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+[]\OT1/cmr/m/n/6 Add handle-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+\OT1/cmr/m/n/6 or-ref-ind (p)
+ []
+
+
+LaTeX Warning: Reference `coordsec' on page 10 undefined on input line 652.
+
+
+LaTeX Warning: Citation `Ben:Fli:99' on page 10 undefined on input line 680.
+
+[10]
+
+LaTeX Warning: Reference `evref' on page 11 undefined on input line 683.
+
+
+LaTeX Warning: Citation `Pol:Sag:94' on page 11 undefined on input line 698.
+
+
+LaTeX Warning: Reference `AgrTAM' on page 11 undefined on input line 704.
+
+
+LaTeX Warning: Citation `Flickinger00' on page 11 undefined on input line 721.
+
+
+LaTeX Warning: Citation `Ben:Fli:99' on page 11 undefined on input line 738.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+[]\OT1/cmr/m/n/6 This sec-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 needs to be
+ []
+
+
+Underfull \hbox (badness 6927) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 fixed: SORT
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 and sem-sort
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 should be
+ []
+
+
+Underfull \hbox (badness 1087) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 axed, the rest
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 of it used
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 to il-lus-trate
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 KEYS/KEY
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 and pred-sort.
+ []
+
+
+Underfull \hbox (badness 8000) in paragraph at lines 743--743
+\OT1/cmr/m/n/6 Com-bine with
+ []
+
+[11]
+Underfull \hbox (badness 2393) in paragraph at lines 764--764
+\OT1/cmr/m/n/6 this point, or
+ []
+
+
+LaTeX Warning: Reference `keys' on page 12 undefined on input line 805.
+
+[12]
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+[]\OT1/cmr/m/n/6 Actually, we
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 KEYREL and
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 AL-TKEYREL
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 ing lin-guis-tic
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 work. In
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 fa-cil-i-tate the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 lex-i-cal types
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 into dif-fer-ent
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 di-men-sions,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 in-clud-ing a
+ []
+
+
+Underfull \hbox (badness 2762) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 link-ing di-men-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 sion which
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 the ac-tual
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 RELS list.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 Sep-a-rate ``not
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 lin-guis-ti-cally
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 in-ter-est-ing''
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 from ``not
+ []
+
+
+Underfull \hbox (badness 7344) in paragraph at lines 852--852
+\OT1/cmr/m/n/6 pro-jected into
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 891--891
+[]\OT1/cmr/m/n/6 Update:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 891--891
+\OT1/cmr/m/n/6 Now treat-ing
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 891--891
+\OT1/cmr/m/n/6 se-man-ti-cally
+ []
+
+[13] [14]
+
+LaTeX Warning: Reference `relhier' on page 15 undefined on input line 946.
+
+
+LaTeX Warning: Reference `ordpred' on page 15 undefined on input line 968.
+
+
+LaTeX Warning: Reference `quantsec' on page 15 undefined on input line 969.
+
+
+LaTeX Warning: Reference `msgrelsec' on page 15 undefined on input line 969.
+
+
+LaTeX Warning: Reference `coordsec' on page 15 undefined on input line 970.
+
+
+LaTeX Warning: Reference `reltypesec' on page 15 undefined on input line 976.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1006
+[]\OT1/cmr/m/n/6 This is now
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1006--1006
+\OT1/cmr/m/n/6 done in
+ []
+
+[15]
+
+LaTeX Warning: Reference `semargsec' on page 16 undefined on input line 1023.
+
+
+LaTeX Warning: Citation `Ben:Fli:99' on page 16 undefined on input line 1030.
+
+
+LaTeX Warning: Reference `semargsec' on page 16 undefined on input line 1048.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+[]\OT1/cmr/m/n/6 Move to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+\OT1/cmr/m/n/6 quantifier-less
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+\OT1/cmr/m/n/6 rep-re-sen-ta-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+\OT1/cmr/m/n/6 of proper
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1067--1067
+\OT1/cmr/m/n/6 names and
+ []
+
+[16]
+
+LaTeX Warning: Reference `arg0sec' on page 17 undefined on input line 1096.
+
+
+LaTeX Warning: Reference `semisec' on page 17 undefined on input line 1109.
+
+
+LaTeX Warning: Reference `arg1234fig' on page 17 undefined on input line 1111.
+
+
+LaTeX Warning: Reference `relhier' on page 17 undefined on input line 1114.
+
+
+LaTeX Warning: Reference `argavm' on page 17 undefined on input line 1116.
+
+
+LaTeX Warning: Reference `linksec' on page 17 undefined on input line 1193.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1195--1195
+[]\OT1/cmr/m/n/6 Oblique isn't
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1195--1195
+\OT1/cmr/m/n/6 to do with
+ []
+
+
+Underfull \hbox (badness 2302) in paragraph at lines 1195--1195
+\OT1/cmr/m/n/6 `deep sub-ject',
+ []
+
+
+Underfull \hbox (badness 1043) in paragraph at lines 1195--1195
+\OT1/cmr/m/n/6 etc. Fix and
+ []
+
+
+Underfull \hbox (badness 5939) in paragraph at lines 1195--1195
+\OT1/cmr/m/n/6 point to new
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1195--1195
+\OT1/cmr/m/n/6 de-scrip-tion of
+ []
+
+[17]
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1213
+[]\OT1/cmr/m/n/6 What is the
+ []
+
+
+Underfull \hbox (badness 5726) in paragraph at lines 1213--1213
+\OT1/cmr/m/n/6 cur-rent anal-y-
+ []
+
+
+Underfull \hbox (badness 2452) in paragraph at lines 1213--1213
+\OT1/cmr/m/n/6 nouns? This
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1213
+\OT1/cmr/m/n/6 sounds like
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1213
+\OT1/cmr/m/n/6 some-thing to
+ []
+
+
+Underfull \hbox (badness 1430) in paragraph at lines 1213--1213
+\OT1/cmr/m/n/6 in-clude in the
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1213--1213
+\OT1/cmr/m/n/6 phe-nom-ena
+ []
+
+[18]
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1244
+\OT1/cmr/m/n/6 is just too
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1244
+\OT1/cmr/m/n/6 in chap-ter
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1244
+\OT1/cmr/m/n/6 on spe-cific
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1244
+\OT1/cmr/m/n/6 anal-y-ses,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1244--1244
+\OT1/cmr/m/n/6 for-ward and
+ []
+
+
+LaTeX Warning: Reference `qqeq' on page 19 undefined on input line 1291.
+
+
+LaTeX Warning: Citation `Cop:Fli:Sag:Pol:03' on page 19 undefined on input line
+ 1294.
+
+
+LaTeX Warning: Reference `bvsec' on page 19 undefined on input line 1295.
+
+[19]
+Underfull \hbox (badness 7081) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 to pa-pers on
+ []
+
+
+Underfull \hbox (badness 3209) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 dif-fer-ent kinds
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 of quan-ti-fiers,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 re-la-tion-ship
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 be-tween our
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 quan-ti-fier rels
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1314
+\OT1/cmr/m/n/6 se-man-tic side
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1335
+[]\OT1/cmr/m/n/6 Out of date:
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1335--1335
+\OT1/cmr/m/n/6 sub-ord now
+ []
+
+
+LaTeX Warning: Reference `conjrel' on page 20 undefined on input line 1354.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1354--1354
+\OT1/cmr/m/n/6 on col-lec-tive
+ []
+
+[20]
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1374
+[]\OT1/cmr/m/n/6 Give ex-am-ple
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1374
+\OT1/cmr/m/n/6 in spe-cific
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1374
+\OT1/cmr/m/n/6 anal-y-ses
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1374--1374
+\OT1/cmr/m/n/6 chap-ter with
+ []
+
+
+Underfull \hbox (badness 2799) in paragraph at lines 1385--1385
+[]\OT1/cmr/m/n/6 See what Rui
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1385--1385
+\OT1/cmr/m/n/6 has to say
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+[]\OT1/cmr/m/n/6 No need for
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/n/6 these types.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/n/6 In-tro-duce
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/n/6 in-stead as
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/n/6 dis-tin-guished
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/sc/6 pred \OT1/cmr/m/n/6 val-ues
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/n/6 in spe-cific
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1401--1401
+\OT1/cmr/m/n/6 anal-y-ses
+ []
+
+
+Underfull \hbox (badness 6625) in paragraph at lines 1429--1429
+\OT1/cmr/m/n/6 these in spe-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1429--1429
+\OT1/cmr/m/n/6 cific anal-y-ses
+ []
+
+[21]
+
+LaTeX Warning: Reference `semisec' on page 22 undefined on input line 1435.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1448--1448
+[]\OT1/cmr/m/n/6 Add COG-ST
+ []
+
+
+LaTeX Warning: Reference `pernumfig' on page 22 undefined on input line 1455.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1450--1458
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1464--1464
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1506
+[]\OT1/cmr/m/n/6 Update with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1506
+\OT1/cmr/m/n/6 point-ers to
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1506--1506
+\OT1/cmr/m/n/6 Lau-rie and
+ []
+
+[22]
+
+LaTeX Warning: Reference `basicobj' on page 23 undefined on input line 1517.
+
+
+LaTeX Warning: Reference `relarg' on page 23 undefined on input line 1518.
+
+
+LaTeX Warning: Reference `semprinsec' on page 23 undefined on input line 1526.
+
+
+LaTeX Warning: Reference `semheadsec' on page 23 undefined on input line 1527.
+
+
+LaTeX Warning: Reference `ccontsec' on page 23 undefined on input line 1528.
+
+
+LaTeX Warning: Reference `linksec' on page 23 undefined on input line 1530.
+
+
+LaTeX Warning: Reference `bvsec' on page 23 undefined on input line 1534.
+
+
+LaTeX Warning: Reference `hconssec' on page 23 undefined on input line 1535.
+
+
+LaTeX Warning: Reference `xargsec' on page 23 undefined on input line 1543.
+
+
+LaTeX Warning: Citation `Cop:Las:Fli:01' on page 23 undefined on input line 155
+4.
+
+[23]
+
+LaTeX Warning: Reference `signhier' on page 24 undefined on input line 1569.
+
+
+LaTeX Warning: Reference `ccontsec' on page 24 undefined on input line 1573.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1575
+[]\OT1/cmr/m/n/6 Add ternary
+ []
+
+
+Underfull \hbox (badness 2020) in paragraph at lines 1575--1575
+\OT1/cmr/m/n/6 phrases! Ex-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1575--1575
+\OT1/cmr/m/n/6 plain pur-pose
+ []
+
+
+LaTeX Warning: Marginpar on page 24 moved.
+
+
+LaTeX Warning: Reference `dla' on page 24 undefined on input line 1610.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+[]\OT1/cmr/m/n/6 Explain or
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 point to
+ []
+
+
+Underfull \hbox (badness 4366) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 ex-pla-na-tion of
+ []
+
+
+Underfull \hbox (badness 1286) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 C-CONT here.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 Some-where
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 men-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 Fregean com-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 po-si-tion-al-ity
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 `and how
+ []
+
+
+Underfull \hbox (badness 8056) in paragraph at lines 1613--1613
+\OT1/cmr/m/n/6 they are put
+ []
+
+[24]
+Underfull \hbox (badness 10000) in paragraph at lines 1638--1638
+[]\OT1/cmr/m/n/6 Add in-tro:
+ []
+
+
+LaTeX Warning: Reference `ccontsec' on page 25 undefined on input line 1657.
+
+
+Underfull \hbox (badness 3815) in paragraph at lines 1657--1657
+[]\OT1/cmr/m/n/6 More ex-pla-na-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1657--1657
+\OT1/cmr/m/n/6 tion of what
+ []
+
+[25]
+
+LaTeX Warning: Reference `dla' on page 26 undefined on input line 1714.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+[]\OT1/cmr/m/n/6 Why are we
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 do-ing this?
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 over just
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 hav-ing head-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 compositional
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 iden-tify
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 mother's
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1728--1728
+\OT1/cmr/m/n/6 HOOK with
+ []
+
+
+LaTeX Warning: Reference `compound' on page 26 undefined on input line 1738.
+
+
+LaTeX Warning: Reference `compsem' on page 26 undefined on input line 1742.
+
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 1753--1753
+
+ []
+
+
+LaTeX Warning: Reference `nnc' on page 27 undefined on input line 1852.
+
+[27]
+Underfull \hbox (badness 10000) in paragraph at lines 1908--1908
+[]\OT1/cmr/m/n/6 Update this
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1908--1908
+\OT1/cmr/m/n/6 whole sec-tion
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1908--1908
+\OT1/cmr/m/n/6 with point-ers
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1908--1908
+\OT1/cmr/m/n/6 to Ma-trix
+ []
+
+[28]
+
+LaTeX Warning: Reference `semisec' on page 29 undefined on input line 1918.
+
+
+LaTeX Warning: Reference `msgsec' on page 29 undefined on input line 1963.
+
+
+LaTeX Warning: Reference `argsfn' on page 29 undefined on input line 1967.
+
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 2051--2051
+[]\OT1/cmr/m/n/6 Reconsider?
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2051--2051
+\OT1/cmr/m/n/6 Check in
+ []
+
+[30]
+Underfull \hbox (badness 10000) in paragraph at lines 2085--2085
+[]\OT1/cmr/m/n/6 Update this
+ []
+
+
+LaTeX Warning: Reference `qeqsec' on page 31 undefined on input line 2091.
+
+[31]
+
+LaTeX Warning: Citation `Cop:Fli:Sag:Pol:03' on page 32 undefined on input line
+ 2146.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2166--2166
+\OT1/cmr/m/n/6 that these
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2166--2166
+\OT1/cmr/m/n/6 are less
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2166--2166
+\OT1/cmr/m/n/6 com-mon than
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2166--2166
+\OT1/cmr/m/n/6 in-ter-sec-tive
+ []
+
+[32]
+Underfull \hbox (badness 10000) in paragraph at lines 2171--2171
+[]\OT1/cmr/m/n/6 Update this
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2171--2171
+\OT1/cmr/m/n/6 sec-tion with
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2171--2171
+\OT1/cmr/m/n/6 ac-tual Ma-trix
+ []
+
+
+LaTeX Warning: Citation `Ben:Fli:99' on page 33 undefined on input line 2194.
+
+
+LaTeX Warning: Reference `control' on page 33 undefined on input line 2195.
+
+
+LaTeX Warning: Reference `seq' on page 33 undefined on input line 2196.
+
+[33]
+
+LaTeX Warning: Reference `csem' on page 34 undefined on input line 2253.
+
+[34] [35] [36]
+
+LaTeX Warning: Citation `Copestake:02' on page 37 undefined on input line 2514.
+
+
+[37] [38]
+Overfull \hbox (2.32646pt too wide) in paragraph at lines 2590--2597
+[][]  
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2624--2625
+
+ []
+
+
+Overfull \hbox (12.18625pt too wide) in paragraph at lines 2626--2633
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 2626--2633
+
+ []
+
+[39] [40]
+
+LaTeX Warning: Citation `Fli:Ben:03' on page 41 undefined on input line 2742.
+
+[41]
+No file userguide.bbl.
+[42]
+
+! LaTeX Error: Float(s) lost.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.2763 \end{document}
+                     
+? 
+! Emergency stop.
+ ...                                              
+                                                  
+l.2763 \end{document}
+                     
+You've lost some text.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+ 
+Here is how much of TeX's memory you used:
+ 8459 strings out of 493090
+ 147143 string characters out of 6134869
+ 231131 words of memory out of 5000000
+ 11876 multiletter control sequences out of 15000+600000
+ 13747 words of font info for 47 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 49i,69n,44p,665b,827s stack positions out of 5000i,500n,10000p,200000b,80000s
+Output written on userguide.dvi (42 pages, 237616 bytes).
