@@ -4,8 +4,10 @@ This is a work in progress. Any functionality is restricted to specific test cas
 
 Dutch speakers are referred to an [extended abstract](https://github.com/lemontheme/depicto-dutch/blob/master/docs/abstract/lemmens%2Cadriaan_abstract_masterproefpresentatie_2016_nl.pdf) for general information about the project. 
 
-; ## Structure
+<!-- ## Structure
 
 ; ### Mini-sclera
 
 ; ### Mini-dutch
+
+-->
