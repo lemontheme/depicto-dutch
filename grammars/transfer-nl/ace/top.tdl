@@ -1,0 +1,123 @@
+;;; -*- Mode: TDL; Package: DISCO -*-
+;;;
+;;; $Id: pet.tdl,v 1.2 2008-05-23 01:44:21 sfd Exp $
+;;;
+
+:begin :type.
+
+;;
+;; type hierarchy
+;;
+
+;:include "../matrix-main/head-types".
+
+:include "../mrs.tdl".
+:include "../mtr.tdl".
+; :include "../matrix.tdl".
+; :include "mini-dutch.tdl".
+
+
+:end :type.
+
+
+:begin :instance :status rule.
+:include "../transfer.mtr".
+:end :instance.
+
+;;; -- not mine ;;;
+
+;;
+;; lexicon entries (instances of status lex-entry or generic-lex-entry)
+;;
+
+; :begin :instance :status lex-entry.
+; :include "lexicon.tdl".
+; :end :instance.
+
+;;
+;; grammar rules and lexical rules (instances of status rule)
+;;
+
+; :begin :instance :status rule.
+; :include "rules.tdl".
+; :end :instance.
+
+; :begin :instance :status lex-rule.
+; :include "lrules.tdl".
+; :include "irules.tdl".
+; :end :instance.
+
+;;
+;; parse-tree labels (instances)
+;;
+
+; :begin :instance.
+; :include "../matrix-main/labels.tdl".
+; :end :instance.
+
+;;
+;; start symbols of the grammar (instances)
+;;
+
+; :begin :instance.
+; :include "../matrix-main/roots.tdl".
+; :end :instance.
+
+;
+; :begin :type.
+; :include "../../mrs.tdl".
+; :include "../../mtr.tdl".
+; :include "../mrs.tdl".
+; :include "../mtr.tdl".
+; :include "../predicates.tdl".
+; :include "../../predicates.tdl".
+; :include "../../predicates.erg.tdl".
+; :include "../../predicates.jacy.tdl".
+; :end :type.
+;
+; :begin :instance :status rule.
+;
+; ;;;
+; ;;; transfer operates in three phases: (i) source-specific accomodation, (ii.
+; ;;; core transfer, and (iii) target-specific accomodation.
+; ;;;
+; :include "../jacy.mtr".
+; :include "../mwe.mtr".
+;   ;; automatically generated MWE rules
+; ;; :include "../names.mtr".
+;   ; Experimental rules for IWSLT06 data -- eric-n
+; :include "../lex-exp.mtr".
+;   ;; hand built lexicons of core words
+; :include "../lex-verb.mtr".
+; :include "../lex-noun.mtr".
+; :include "../lex-pnoun.mtr".
+; :include "../lex-ad.mtr".
+; :include "../lexicon.mtr".
+; :include "../time.mtr". ;;; date/times
+; :include "../lex-mrs-jaen.mtr".
+;
+;   ;; automatically generated single word rules
+; :include "../auto/lex-auto-jaen.single.mrs-tab.mtr".
+;
+;   ;; Rules that assume content words have been translated
+;   ;; must come after auto-rules
+; :include "../rel-nouns.mtr".
+; :include "../prepositions.mtr".
+; :include "../quantifiers.mtr".
+;   ;;(lkb-pathname (parent-directory) "unknowns.mtr".
+; :include "../zero-pronouns.mtr".
+;  ;;
+;   ;; at this point, for further fine-tuning, infuse information from the TL
+;   ;; SEM-I, at this point marking predicates that are strictly countable or
+;   ;; strictly non-countable.  then invoke the global `snugging' rules (which
+;   ;; provide reasonably generic mechanisms for processes like splitting up or
+;   ;; joining variables), followed by further snugging rules, specific to this
+;   ;; language pair.
+;   ;;
+; :include "../../semi.erg.mtr".
+; :include "../../snug.mtr".
+; :include "../snug.mtr".
+; :include "../../erg.mtr".
+; :include "../erg.mtr".
+; :include "../../finale.mtr".
+; :end :instance.

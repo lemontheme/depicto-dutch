@@ -1,0 +1,11 @@
+de_mtr := monotonic_mtr  &
+ [ INPUT.RELS < [ PRED "sclera:_def_q_rel" ] >,
+   OUTPUT.RELS <[ PRED "_de_q_rel" ] > ].
+
+hond_mtr := monotonic_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_hond_n_rel" ] >,
+   OUTPUT.RELS < [ PRED "_hond_n_rel" ] > ].
+
+blaft_mtr := monotonic_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_blaffen_v_rel" ] >,
+   OUTPUT.RELS <[ PRED "_blaffen_v_rel" ] > ].

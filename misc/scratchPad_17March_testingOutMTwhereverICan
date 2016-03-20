@@ -1,0 +1,13 @@
+echo "anjing menggonggong" | ./ace -g ind.dat | ./ace -g inen.dat | ./ace -g erg.dat -e
+
+echo "anjing menggonggong" | ./ace -g ind.dat -Tf -vv | less
+
+echo "anjing menggonggong" | ./ace -g ind.dat | ./ace -g inen.dat -Tf -vv
+
+svn checkout http://svn.emmtee.net/trunk/uio/tm/ logon
+
+svn checkout http://svn.emmtee.net/trunk/dfki/jacy/ logon
+
+echo "犬 が 猫 を 食べる" | ./ace -g jacy.dat -1Tf 2>/dev/null | ./ace -g jaen.dat 2>/dev/null | ./ace -g erg.dat -e1 2>/dev/null
+
+echo "犬 が 猫 を 食べる" | ./ace -g jacy.dat -1Tf | ./ace -g jaen.dat | ./ace -g erg.dat -e1
