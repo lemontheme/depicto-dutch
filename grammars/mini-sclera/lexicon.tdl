@@ -17,8 +17,8 @@
 
 
 dog := femmasc-count-sg-noun-lex &
-  [ STEM < "hond" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
+  [ STEM < "dog" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
 
 girl := neutr-count-sg-noun-lex &
   [ STEM < "meisje" >,
@@ -40,8 +40,8 @@ love := no-spr-noun-lex &
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Verbs
 
 slapen := intrans-verb-lex &
- [ STEM < "slapen" >,
-   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+ [ STEM < "sleep" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
 ; springen := &
 ; wandelen := &
