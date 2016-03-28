@@ -1,36 +1,59 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
-
+;;; Mini-Sclera lexicon
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Nouns
 
-; ik :=  &
+I := 1st-sg-pronoun-noun-lex &
+  [ STEM < "I" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-; jij :=  &
-; jou :=  &
+me := 1st-sg-pronoun-noun-lex &
+  [ STEM < "me" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-; hij :=  &
-; zij :=  &
+you_1 := 2nd-sg-pronoun-noun-lex &
+  [ STEM < "you" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-; wij :=  &
-; jullie
-; zij
+; you_acc :=  &
+
+; he :=  &
+; him := &
+; she :=  &
+; her := &
+
+; we :=  &
+; us := &
+; you_pl_nom
+; you_sg_acc
+
+; they_nom
+; they_acc
+
+; my :=
+;   [ STEM < "my" >,
+;     SYNSEM.LOCAL.CAT.HEAD.CASE gen,
+;     SYNSEM.LKEYS.KEYREL.PRED "_my_n_poss_1sg_rel" ]. ; ehhhh
 
 
-dog := femmasc-count-sg-noun-lex &
+;;
+
+dog := common-noun-lex &
   [ STEM < "dog" >,
     SYNSEM.LKEYS.KEYREL.PRED "_dog_n_rel" ].
 
-girl := neutr-count-sg-noun-lex &
-  [ STEM < "meisje" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_meisje_n_rel" ].
+girl := common-noun-lex &
+  [ STEM < "girl" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_girl_n_rel" ].
 
-love := no-spr-noun-lex &
-  [ STEM < "liefde" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_liefde_n_rel" ].
+love := common-noun-lex &
+  [ STEM < "love" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_love_n_rel" ].
 
 ;flesje-water-prik := &
-
-
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adjectives
 
@@ -39,21 +62,23 @@ love := no-spr-noun-lex &
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Verbs
 
-slapen := intrans-verb-lex &
+sleep := intrans-verb-lex &
  [ STEM < "sleep" >,
    SYNSEM.LKEYS.KEYREL.PRED "_sleep_v_rel" ].
 
-; springen := &
-; wandelen := &
+bark := intrans-verb-lex &
+  [ STEM < "bark" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bark_v_rel" ].
 
-; douchen := -> een douche nemen
+buy := trans-verb-lex &
+  [ STEM < "buy" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_buy_v_rel" ].
 
+; douchen := -> een douche nemen/take+a+shower
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Complex Situations
 
-; blaffen := intrans-verb-lex &
-;  [ STEM < "blaf" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+
 ; \\
 ;NEEDS TO BECOME
 ;               \_.-> hond-blaffen ; subject = hond
@@ -92,13 +117,11 @@ en := conj-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "1" ].
 
-
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; experimental: interaction
+
 ;;;;; (mostly minor clause-items and idiomatic cxns)
 
 ; hey
-; goeiemorgen
-; hoe-gaat-het-met-je
-; tot-ziens
+; goeiemorgen/good+morning
+; hoe-gaat-het-met-je/how+are+you
+; tot-ziens/see+you

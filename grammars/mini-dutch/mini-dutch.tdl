@@ -99,6 +99,13 @@ present := non-past.
 perfective := aspect.
 imperfective := aspect.
 
+;;; Quantification (test, 28-March-2016)
+
+_q_rel_min := predsort.
+_def_q_rel := _q_rel_min.
+_indef_q_rel := _q_rel_min.
+
+
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
 ;;;;;;;;;;;;;;;;;;;
@@ -129,9 +136,14 @@ no-spr-noun-lex := noun-lex &
 
 common-noun-lex := obl-spr-noun-lex.
 
-1sg-pronoun-noun-lex := no-spr-noun-lex &
+1st-sg-pronoun-noun-lex := no-spr-noun-lex &
  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
                                       NUM singular ] ].
+
+2nd-sg-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
+                                       NUM singular ]]. 
+
 
 
 femmasc-count-sg-noun-lex := obl-spr-noun-lex &

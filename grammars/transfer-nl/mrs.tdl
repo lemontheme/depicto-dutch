@@ -298,6 +298,13 @@ null := list.
 
 string := predsort.
 
+;;my additions (28-March-2016)
+_q_rel_min := predsort.
+_def_q_rel := _q_rel_min.
+_indef_q_rel := _q_rel_min.
+;;
+
+
 flags := *top* &
 [ OPTIONAL luk,
   PERMUTE luk,

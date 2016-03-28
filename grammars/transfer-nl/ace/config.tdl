@@ -4,14 +4,11 @@ transfer := yes.
 
 grammar-top               := "top.tdl".
 
-; input-vpm                 := "../in.vpm".
-; output-vpm                := "../out.vpm".
-
-input-vpm                 := "../semi.vpm".
-output-vpm                := "../semi.vpm".
-
-
 version                   := "../Version.lsp".
+
+input-vpm                 := "../in.vpm".
+output-vpm                := "../out.vpm".
+
 
 
 ; variable-property-mapping := "../../matrix-main/semi.vpm".
@@ -29,7 +26,7 @@ version                   := "../Version.lsp".
 ; lex-carg-path             := SYNSEM LKEYS KEYREL CARG.
 ; lex-pred-path             := SYNSEM LKEYS KEYREL PRED.
 ; rule-rels-path            := C-CONT RELS.
-; label-path                := LABEL-NAME.
+;label-path                := LABEL-NAME.
 
 ; parsing-roots             := root.
 ; generation-roots          := root.
@@ -41,8 +38,6 @@ list-type                 := list.
 cons-type                 := cons.
 null-type                 := null.
 diff-list-type            := diff-list.
-
-
 
 mrs-rels-list := RELS.
 mrs-hcons-list := HCONS.

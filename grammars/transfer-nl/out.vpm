@@ -1,41 +1,69 @@
-;;;
-;;; adjust target-language index properties post-transfer
-;;;
+;;; -*- Mode: TDL; Coding: utf-8 -*-
+; A basic VPM for Matrix grammars.
 
-TENSE : TENSE
-  tense => tensed
-  * >> *
+event          >> e
+ref-ind        >> x
+individual     >> i
+handle         >> h
+non_event      >> p
+*              << u
+semarg         >> u
 
-MOOD : MOOD
-  * >> *
-
-PERF : PERF
-  * >> *
-
-PROG : PROG
-  * >> *
-
-PERS : PERS
-  * >> *
-
-NUM : NUM
-  no_number => !
-  * >> *
-
-GEND : GEND
-  gender => !
-  * >> *
-
-DIV : DIV
-  * => !
-
-PRONTYPE : PRONTYPE
-  prontype => !
-  * >> *
+; SPECI : SPECI
+;   * >> *
 
 SF : SF
+  prop >> prop
+  ques >> ques
+  prop-or-ques >> prop-or-ques
+  prop >> prop-or-ques
+  comm >> comm
   * >> *
 
-; We don't need this, passive is now handled by a relation in the ERG
-;PASS : PASS
-;  * >> *
+; COG-ST : COG-ST
+;   type-id >> type-id
+;   uniq-id >> uniq-id
+;   familiar >> familiar
+;   activated >> activated
+;   in-foc >> in-foc
+;   activ+fam >> activ+fam
+;   uniq+fam >> uniq+fam
+;   activ-or-more >> activ-or-more
+;   uniq-or-less >> uniq-or-less
+;   uniq+fam+act >> uniq+fam+act
+;   fam-or-more >> fam-or-more
+;   fam-or-less >> fam-or-less
+;   uniq-or-more >> uniq-or-more
+;   activ-or-less >> activ-or-less
+;   * >> *
+
+
+; PERS : PNG.PER
+;   3 >> 3rd
+;   2 >> 2nd
+;   1 >> 1st
+;   * >> *
+
+NUM : PNG.NUM
+  pl >> plural
+  sg >> singular
+  * >> *
+
+GEND : PNG.GEND
+  feminine >> feminine
+  non-neuter >> non-neuter
+  neuter >> neuter
+  masculine >> masculine
+  * >> *
+
+TENSE : E.TENSE
+  present >> pwresent
+  past >> past
+  future >> future
+  * >> *
+
+ASPECT : E.ASPECT
+  * >> *
+
+MOOD : E.MOOD
+  * >> *

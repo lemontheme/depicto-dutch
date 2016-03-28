@@ -13,7 +13,7 @@ sclera-basic-insert-definite-det-rule := head-only &
 			    CONT.HOOK [ INDEX #index,
 					LTOP #larg ] ],
     C-CONT [ RELS <! quant-relation &
-              [ PRED "_def_q_rel",
+              [ PRED "_q_rel_min",
 		        ARG0 #index,
 		        RSTR #harg ] !>,
 	         HCONS <! qeq &

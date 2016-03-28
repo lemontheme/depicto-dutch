@@ -1,11 +1,33 @@
-de_mtr := monotonic_mtr  &
- [ INPUT.RELS < [ PRED "sclera:_def_q_rel" ] >,
-   OUTPUT.RELS <[ PRED "_de_q_rel" ] > ].
+exist_mtr := quantifier_mtr &
+ [ INPUT.RELS < [ PRED "sclera:exist_q_rel" ] >,
+   OUTPUT.RELS <[ PRED "exist_q_rel" ] > ].
 
-hond_mtr := monotonic_mtr &
- [ INPUT.RELS < [ PRED "sclera:_hond_n_rel" ] >,
+
+quant_mtr := quantifier_mtr  &
+ [ INPUT.RELS < [ PRED "sclera:_q_rel_min" ] >,
+   OUTPUT.RELS <[ PRED _q_rel_min ] > ].
+
+hond_mtr := noun_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_dog_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_hond_n_rel" ] > ].
 
-blaft_mtr := monotonic_mtr &
- [ INPUT.RELS < [ PRED "sclera:_blaffen_v_rel" ] >,
+meisje_mtr := noun_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_girl_n_rel" ] >,
+   OUTPUT.RELS < [ PRED "_meisje_n_rel" ] > ].
+
+pronoun_mtr := noun_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_pronoun_n_rel" ] >,
+   OUTPUT.RELS < [ PRED "_pronoun_n_rel" ] > ].
+
+
+blaffen_mtr := arg1_v_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_bark_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_blaffen_v_rel" ] > ].
+
+slapen_mtr := arg1_v_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_sleep_v_rel" ] >,
+   OUTPUT.RELS <[ PRED "_slapen_v_rel" ] > ].
+
+kopen_mtr := arg1_v_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_buy_v_rel" ] >,
+   OUTPUT.RELS <[ PRED "_kopen_v_rel" ] > ].
