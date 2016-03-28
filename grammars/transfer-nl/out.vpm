@@ -38,11 +38,11 @@ SF : SF
 ;   * >> *
 
 
-; PERS : PNG.PER
-;   3 >> 3rd
-;   2 >> 2nd
-;   1 >> 1st
-;   * >> *
+PERS : PNG.PER
+  3 >> 3rd
+  2 >> 2nd
+  1 >> 1st
+  * >> *
 
 NUM : PNG.NUM
   pl >> plural

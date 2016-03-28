@@ -13,10 +13,16 @@ me := 1st-sg-pronoun-noun-lex &
     SYNSEM.LOCAL.CAT.HEAD.CASE acc,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-you_1 := 2nd-sg-pronoun-noun-lex &
+you_sg_1 := 2nd-sg-pronoun-noun-lex &
   [ STEM < "you" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+you_pl_1 :=  2nd-pl-pronoun-noun-lex &
+  [ STEM < "you" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
 
 ; you_acc :=  &
 

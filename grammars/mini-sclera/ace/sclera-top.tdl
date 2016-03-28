@@ -9,11 +9,11 @@
 ;; type hierarchy
 ;;
 
-;:include "../matrix-main/head-types".
-:include "../matrix-main/matrix".
-:include "mini-dutch".
-:include "../matrix-main/mtr".
-
+:include "../../matrix-main/head-types".
+:include "../../matrix-main/matrix".
+:include "../../mini-dutch/mini-dutch".
+:include "../mini-sclera".
+:include "../../matrix-main/mtr".
 
 :end :type.
 
@@ -22,7 +22,7 @@
 ;;
 
 :begin :instance :status lex-entry.
-:include "lexicon".
+:include "../lexicon".
 :end :instance.
 
 ;;
@@ -30,12 +30,12 @@
 ;;
 
 :begin :instance :status rule.
-:include "rules".
+:include "../rules".
 :end :instance.
 
 :begin :instance :status lex-rule.
-:include "lrules".
-:include "irules".
+:include "../lrules".
+;:include "irules".
 :end :instance.
 
 ;;
@@ -43,7 +43,7 @@
 ;;
 
 :begin :instance.
-:include "../matrix-main/labels".
+:include "../../matrix-main/labels".
 :end :instance.
 
 ;;
@@ -51,5 +51,5 @@
 ;;
 
 :begin :instance.
-:include "../matrix-main/roots".
+:include "../../matrix-main/roots".
 :end :instance.

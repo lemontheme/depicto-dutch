@@ -62,10 +62,10 @@ acc := case.  ; accusative
 ;;; Person
 
 person := *top*.
-non-1st := person.
+2nd-or-3rd := person.
 1st := person.
-2nd := non-1st.
-3rd := non-1st.
+2nd := 2nd-or-3rd.
+3rd := 2nd-or-3rd.
 
 ;;; Number
 
@@ -142,7 +142,11 @@ common-noun-lex := obl-spr-noun-lex.
 
 2nd-sg-pronoun-noun-lex := no-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
-                                       NUM singular ]]. 
+                                       NUM singular ]].
+
+2nd-pl-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
+                                       NUM plural ]].
 
 
 
@@ -246,19 +250,42 @@ nom-acc-acc-ditransitive-verb-lex := ditransitive-verb-lex &
 intrans-verb-lex := nom-intransitive-verb-lex.
 trans-verb-lex := nom-acc-transitive-verb-lex.
 
-
-
-intrans-3rd-sg-verb-lex := nom-intransitive-verb-lex &
+intrans-1st-sg-verb-lex := nom-intransitive-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
                                                                     NUM singular ],
                          HEAD.FORM finite ] ] ].
 
-trans-3rd-sg-verb-lex := nom-acc-transitive-verb-lex &
+intrans-2nd-or-3rd-sg-verb-lex := nom-intransitive-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
+                                                                    NUM singular ],
+                         HEAD.FORM finite ] ] ].
+
+intrans-pl-verb-lex := nom-intransitive-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
+                         HEAD.FORM finite ] ] ].
+
+
+trans-1st-sg-verb-lex := nom-acc-transitive-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
+                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
                                                                       NUM singular ] ],
+                         HEAD.FORM finite ] ] ].
+
+trans-2nd-or-3rd-sg-verb-lex := nom-acc-transitive-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                   CAT [ VAL [ COMPS.FIRST.OPT -,
+                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
+                                                                      NUM singular ] ],
+                         HEAD.FORM finite ] ] ].
+
+trans-pl-verb-lex := nom-acc-transitive-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                   CAT [ VAL [ COMPS.FIRST.OPT -,
+                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
                          HEAD.FORM finite ] ] ].
 
 ditrans-3rd-sg-verb-lex := nom-acc-acc-ditransitive-verb-lex &

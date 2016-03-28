@@ -37,7 +37,12 @@ je_1 := 2nd-sg-pronoun-noun-lex &
 ; zij :=  &
 
 ; wij :=  &
-; jullie
+
+jullie_1 := 2nd-pl-pronoun-noun-lex &
+  [ STEM < "jullie" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
 ; zij
 
 
@@ -57,21 +62,18 @@ liefde := no-spr-noun-lex &
 
 ;;; Verbs
 
-;blaffen := intrans-verb-lex &
-;  [ STEM < "blaf" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
 
-; blaf := intrans-3rd-sg-verb-lex &
-;   [ STEM < "blaf" >,
-;     SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+blaf := intrans-1st-sg-verb-lex &
+  [ STEM < "blaf" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
 
-blaft := intrans-3rd-sg-verb-lex &
+blaft := intrans-2nd-or-3rd-sg-verb-lex &
   [ STEM < "blaft" >,
     SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
 
-; blaffen := intrans-3rd-sg-verb-lex &
-;   [ STEM < "blaffen" >,
-;     SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+blaffen := intrans-pl-verb-lex &
+ [ STEM < "blaffen" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
 
 
 
@@ -83,16 +85,30 @@ blaft := intrans-3rd-sg-verb-lex &
 ;  [ STEM < "slaap" >,
 ;    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
 
-slaapt := intrans-3rd-sg-verb-lex &
+slaap := intrans-1st-sg-verb-lex &
+ [ STEM < "slaap" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+slaapt := intrans-2nd-or-3rd-sg-verb-lex &
   [ STEM < "slaapt" >,
     SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
 
-;slaap := intrans-verb-lex &
-;  [ STEM < "slaap" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+slapen := intrans-pl-verb-lex &
+ [ STEM < "slapen" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
 
-koopt := trans-3rd-sg-verb-lex &
+;
+
+koop := trans-1st-sg-verb-lex &
+  [ STEM < "koop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
+
+koopt := trans-2nd-or-3rd-sg-verb-lex &
   [ STEM < "koopt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
+
+kopen := trans-pl-verb-lex &
+  [ STEM < "kopen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
 ;;; Auxiliaries

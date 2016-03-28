@@ -1,6 +1,6 @@
 ;;; files to load
 
-grammar-top               := "../mini-sclera-pet.tdl".
+grammar-top               := "sclera-top.tdl".
 variable-property-mapping := "../../matrix-main/semi.vpm".
 preprocessor              := "../../matrix-main/repp/vanilla.rpp".
 ;generation-ignore-signs   := "generation.ignore".

@@ -2,7 +2,6 @@ exist_mtr := quantifier_mtr &
  [ INPUT.RELS < [ PRED "sclera:exist_q_rel" ] >,
    OUTPUT.RELS <[ PRED "exist_q_rel" ] > ].
 
-
 quant_mtr := quantifier_mtr  &
  [ INPUT.RELS < [ PRED "sclera:_q_rel_min" ] >,
    OUTPUT.RELS <[ PRED _q_rel_min ] > ].
@@ -18,7 +17,6 @@ meisje_mtr := noun_mtr &
 pronoun_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_pronoun_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_pronoun_n_rel" ] > ].
-
 
 blaffen_mtr := arg1_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_bark_v_rel" ] >,

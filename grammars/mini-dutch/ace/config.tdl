@@ -1,6 +1,6 @@
 ;;; files to load
 
-grammar-top               := "../mini-dutch-pet.tdl".
+grammar-top               := "mini-dutch-top.tdl".
 variable-property-mapping := "../../matrix-main/semi.vpm".
 preprocessor              := "../../matrix-main/repp/vanilla.rpp".
 ;generation-ignore-signs   := "generation.ignore".
