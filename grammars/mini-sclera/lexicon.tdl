@@ -55,6 +55,10 @@ girl := common-noun-lex &
   [ STEM < "girl" >,
     SYNSEM.LKEYS.KEYREL.PRED "_girl_n_rel" ].
 
+kiss_1 := common-noun-lex &
+  [ STEM < "kiss" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kiss_n_rel" ].
+
 love := common-noun-lex &
   [ STEM < "love" >,
     SYNSEM.LKEYS.KEYREL.PRED "_love_n_rel" ].
@@ -80,9 +84,19 @@ buy := trans-verb-lex &
   [ STEM < "buy" >,
     SYNSEM.LKEYS.KEYREL.PRED "_buy_v_rel" ].
 
+give_dtr := ditrans-verb-lex &
+  [ STEM < "give" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
+
+give_tr := trans-verb-lex &
+  [ STEM < "give" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
+
 ; douchen := -> een douche nemen/take+a+shower
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Complex Situations
+
+; borstelen_hond := 
 
 
 ; \\

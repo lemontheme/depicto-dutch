@@ -50,13 +50,31 @@ hond := femmasc-count-sg-noun-lex &
   [ STEM < "hond" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
 
+honden := femmasc-count-pl-noun-lex &
+  [ STEM < "honden" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
+
 meisje := neutr-count-sg-noun-lex &
   [ STEM < "meisje" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_meisje_n_rel" ].
+
+meisjes := neutr-count-pl-noun-lex &
+  [ STEM < "meisjes" >,
     SYNSEM.LKEYS.KEYREL.PRED "_meisje_n_rel" ].
 
 liefde := no-spr-noun-lex &
   [ STEM < "liefde" >,
     SYNSEM.LKEYS.KEYREL.PRED "_liefde_n_rel" ].
+
+kusje := neutr-count-sg-noun-lex &
+  [ STEM < "kusje" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kus_n_rel" ].
+
+kusjes := neutr-count-pl-noun-lex &
+  [ STEM < "kusjes" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kus_n_rel" ].
+
+
 
 ;;; Adjectives
 
@@ -74,8 +92,6 @@ blaft := intrans-2nd-or-3rd-sg-verb-lex &
 blaffen := intrans-pl-verb-lex &
  [ STEM < "blaffen" >,
    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
-
-
 
 ;blaf := intrans-verb-lex &
 ;  [ STEM < "blaf" >,
@@ -111,6 +127,24 @@ kopen := trans-pl-verb-lex &
   [ STEM < "kopen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
+;
+
+geeft_tr := trans-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "geeft" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+geven_tr := trans-pl-verb-lex &
+  [ STEM < "geven" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+geeft_dtr := ditrans-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "geeft" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+geven_dtr := ditrans-pl-verb-lex &
+  [ STEM < "geven" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
 ;;; Auxiliaries
 
 ;is :=  3rd-sg-cop-lex &
@@ -118,23 +152,30 @@ kopen := trans-pl-verb-lex &
 
 ;;; Determiners
 
-de := definite-determiner-lex &
+de_sg := definite-determiner-lex &
   [ STEM < "de" >,
-    SYNSEM [ LKEYS.KEYREL.PRED _def_q_rel, ;"_def_q_rel"
-             LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter ] ] ] .
+    SYNSEM [ LKEYS.KEYREL.PRED def_q_rel, ;"_def_q_rel"
+             LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter,
+                                         NUM  singular ] ] ] .
 
+de_pl := definite-determiner-lex &
+  [ STEM < "de" >,
+    SYNSEM [ LKEYS.KEYREL.PRED def_q_rel, ;"_def_q_rel"
+             LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ] ] .
 
 het := definite-determiner-lex &
   [ STEM < "het" >,
-    SYNSEM [ LKEYS.KEYREL.PRED _def_q_rel,
-             LOCAL.CONT.HOOK.INDEX.PNG [ GEND neuter ] ] ] .
-
-
+    SYNSEM [ LKEYS.KEYREL.PRED def_q_rel,
+             LOCAL.CONT.HOOK.INDEX.PNG [ GEND neuter,
+                                         NUM singular] ] ] .
 
 een := indefinite-determiner-lex &
   [ STEM < "een" >,
-    SYNSEM.LKEYS.KEYREL.PRED _indef_q_rel ]. ;"_indef_q_rel"
+    SYNSEM [ LKEYS.KEYREL.PRED indef_q_rel,
+             LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ] ] ]. ;"_indef_q_rel"
 
+; hack to produce bare NPs
+; zero_det := indefinite-determiner-lex;
 
 en := conj-lex &
   [ STEM < "en" >,

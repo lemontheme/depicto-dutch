@@ -101,10 +101,10 @@ imperfective := aspect.
 
 ;;; Quantification (test, 28-March-2016)
 
-_q_rel_min := predsort.
-_def_q_rel := _q_rel_min.
-_indef_q_rel := _q_rel_min.
-
+q_rel_min := predsort.
+def_q_rel := q_rel_min.
+indef_q_rel := q_rel_min.
+exist_q_rel := q_rel_min.
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
@@ -149,7 +149,6 @@ common-noun-lex := obl-spr-noun-lex.
                                        NUM plural ]].
 
 
-
 femmasc-count-sg-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter,
                                        NUM singular,
@@ -160,7 +159,7 @@ neutr-count-sg-noun-lex := obl-spr-noun-lex &
                                        NUM singular,
                                        PER 3rd ] ].
 
-fem-masc-count-pl-noun-lex := noun-lex &
+femmasc-count-pl-noun-lex := noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter,
                                        NUM plural,
                                        PER 3rd ] ].
@@ -170,7 +169,7 @@ neutr-count-pl-noun-lex := noun-lex &
                                        NUM plural,
                                        PER 3rd ] ].
 
-fem-mass-noun-lex := noun-lex &
+femmasc-mass-noun-lex := noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter,
                                        NUM singular,
                                        PER 3rd ] ].
@@ -249,6 +248,7 @@ nom-acc-acc-ditransitive-verb-lex := ditransitive-verb-lex &
 
 intrans-verb-lex := nom-intransitive-verb-lex.
 trans-verb-lex := nom-acc-transitive-verb-lex.
+ditrans-verb-lex := nom-acc-acc-ditransitive-verb-lex.
 
 intrans-1st-sg-verb-lex := nom-intransitive-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
@@ -288,7 +288,7 @@ trans-pl-verb-lex := nom-acc-transitive-verb-lex &
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
                          HEAD.FORM finite ] ] ].
 
-ditrans-3rd-sg-verb-lex := nom-acc-acc-ditransitive-verb-lex &
+ditrans-2nd-or-3rd-sg-verb-lex := nom-acc-acc-ditransitive-verb-lex &
   [ ARG-ST < [ ],
              [ ],
              [ OPT - ] >,
@@ -296,6 +296,16 @@ ditrans-3rd-sg-verb-lex := nom-acc-acc-ditransitive-verb-lex &
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
                                                                       NUM singular ] ],
+                         HEAD.FORM finite ] ] ].
+
+ditrans-pl-verb-lex := nom-acc-acc-ditransitive-verb-lex &
+  [ ARG-ST < [ ],
+             [ ],
+             [ OPT - ] >,
+    SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                   CAT [ VAL [ COMPS.FIRST.OPT -,
+                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
+                                                                      NUM plural ] ],
                          HEAD.FORM finite ] ] ].
 
 ;;;; Auxiliaries
@@ -458,8 +468,12 @@ subj-head-phrase := decl-head-subj-phrase & head-final &
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.
 
+; bare-np-phrase := basic-bare-np-phrase &
+;   [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
+
 bare-np-phrase := basic-bare-np-phrase &
-  [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
+  [ C-CONT.RELS <! [ PRED exist_q_rel ] !> ].
+
 
 ; This rule takes [MC na] inverted phrases and licenses them as main clauses with question semantics.
 ;
