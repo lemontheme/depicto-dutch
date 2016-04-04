@@ -19,8 +19,6 @@ kusje_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_kiss_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_kus_n_rel" ] > ].
 
-
-
 ;
 pronoun_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_pronoun_n_rel" ] >,

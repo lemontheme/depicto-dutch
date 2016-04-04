@@ -94,14 +94,31 @@ give_tr := trans-verb-lex &
 
 ; douchen := -> een douche nemen/take+a+shower
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Complex Situations
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Pictograms encoding complex SoA's
 
-; borstelen_hond := 
+; dog_bark := main-S-V-picto-lex & ; change
+;     [ STEM < "dog_bark" >,
+;       SYNSEM.LOCAL.CONT [ HOOK.INDEX #event,
+;                           RELS <! noun-relation &
+;                                     [ PRED "_dog_n_rel",
+;                                       LBL #noun,
+;                                       ARG0 #x1 ],
+;                                   event-relation &
+;                                     [ PRED "_bark_v_rel",
+;                                       ARG0 event & #event,
+;                                       ARG1 #x1 ],
+;                                     [ PRED "q_rel_min",
+;                                       ARG0 #x1,
+;                                       RSTR #rstr ] !>,
+;                           HCONS <! qeq & [ HARG #rstr ,
+;                                            LARG #noun ] !> ] ].
 
+                                ;   SYNSEM.LKEYS.KEYREL.PRED "_dog+bark_v_rel" ].
 
-; \\
-;NEEDS TO BECOME
-;               \_.-> hond-blaffen ; subject = hond
+dog_bark := main-S-V-picto-lex & ; change
+    [ STEM < "dog_bark" >,
+      SYNSEM.LKEYS.KEYREL.PRED "_dog+bark_v_rel" ].
+
 
 ; hond-borstelen ; object = hond
 

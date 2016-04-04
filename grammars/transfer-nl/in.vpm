@@ -17,7 +17,7 @@ SF : SF
   prop-or-ques >> prop-or-ques
   prop >> prop-or-ques
   comm >> comm
-  * >> *
+  * >> !
 
 ; COG-ST : COG-ST
 ;   type-id >> type-id

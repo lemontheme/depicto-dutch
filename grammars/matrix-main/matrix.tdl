@@ -857,12 +857,12 @@ diff-list := avm &
 ; of diff-list append will involve different features in different
 ; relationships to each other & the feature geometry.
 
-dl-append := avm & [APPARG1 [LIST #first,
-                             LAST #between],
-                    APPARG2 [LIST #between,
-                             LAST #last],
-                    RESULT  [LIST #first,
-                             LAST #last]].
+dl-append := avm & [ APPARG1 [ LIST #first,
+                               LAST #between],
+                    APPARG2 [ LIST #between,
+                              LAST #last],
+                    RESULT  [ LIST #first,
+                              LAST #last]].
 
 integer := atom.
 

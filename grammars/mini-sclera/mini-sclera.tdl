@@ -21,3 +21,34 @@ sclera-basic-insert-definite-det-rule := head-only &
 		        LARG #larg ] !>,
 	     ICONS <! !>,
 	     HOOK [ INDEX #index ] ] ].
+
+;;; complex S-V pictos
+
+;; experiment 1:
+
+; verb :+ [COMPLEX bool].
+
+; cat :+ [ COMPLEX bool ].
+
+complex_v_picto := verb.
+
+main-S-V-picto-lex := lex-item & ; originally main-verb-lex
+  [ SYNSEM.LOCAL [ CAT [ HEAD complex_v_picto,
+                         VAL  [ SPR < >,
+                                SPEC < >,
+                                SUBJ < >, ; removed subject requirement
+                                COMPS < > ] ] ],
+    SYNSEM.LKEYS.KEYREL event-relation ].
+
+sclera-basic-allow-SV-complex-rule := head-only &
+  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+                       VAL [ SPR < >,
+			                 SUBJ < >,
+			                 COMPS < >,
+			                 SPEC < > ] ],
+    SYNSEM.LOCAL.CONT [ HOOK.INDEX #event ],
+    HEAD-DTR.SYNSEM.LOCAL [ CONT.HOOK.INDEX #event,
+                            CAT [ HEAD complex_v_picto,
+        				          VAL [ SPR < >,
+        					            SUBJ < >,
+        					            COMPS < > ] ] ] ].

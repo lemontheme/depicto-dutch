@@ -29,7 +29,7 @@ n-bottom-label := label &
                              COORD + ],
               LABEL-NAME "NP-B" ].
 
-n-label := label & 
+n-label := label &
 	   [ SYNSEM.LOCAL [ CAT [ HEAD noun,
                                   VAL.SPR < [ ] > ],
                             COORD-STRAT "" ],
@@ -53,13 +53,13 @@ np-bottom-label := label &
                              COORD + ],
               LABEL-NAME "NP-B" ].
 
-np-label := label & 
+np-label := label &
             [ SYNSEM.LOCAL [ CAT [ HEAD noun,
                                    VAL.SPR < > ],
                              COORD-STRAT "" ],
               LABEL-NAME "NP" ].
 
-np-top-label := label & 
+np-top-label := label &
 	    [ SYNSEM.LOCAL.CAT [ HEAD noun,
 				 VAL.SPR < > ],
 	      LABEL-NAME "NP-T" ].
@@ -77,13 +77,13 @@ v-bottom-label := label &
                             COORD + ],
              LABEL-NAME "V-B" ].
 
-v-label := label & 
+v-label := label &
            [ SYNSEM.LOCAL [ CAT [ HEAD verb,
                                   VAL.COMPS < [ ], ... > ],
                             COORD-STRAT "" ],
              LABEL-NAME "V" ].
 
-v-top-label := label & 
+v-top-label := label &
 	   [ SYNSEM.LOCAL.CAT [ HEAD verb,
 				VAL.COMPS < [ ], ... > ],
 	     LABEL-NAME "V-T" ].
@@ -103,18 +103,27 @@ vp-bottom-label := label &
                              COORD + ],
               LABEL-NAME "VP-B" ].
 
-vp-label := label & 
+vp-label := label &
             [ SYNSEM.LOCAL [ CAT [ HEAD verb,
                                    VAL [ COMPS < >,
                                          SUBJ < [ ] > ]],
                              COORD-STRAT "" ],
               LABEL-NAME "VP" ].
 
-vp-top-label := label & 
+vp-top-label := label &
 	    [ SYNSEM.LOCAL.CAT [ HEAD verb,
 				 VAL [ COMPS < >,
 				       SUBJ < [ ] > ]],
 	      LABEL-NAME "VP-T" ].
+
+; ; test 30-March-2016
+; vp-top-label_2 := label &
+; 	    [ SYNSEM.LOCAL.CAT [ HEAD verb,
+; 				 VAL [ COMPS < >,
+; 				       SUBJ < > ],
+;                   COMPLEX - ],
+; 	      LABEL-NAME "VP-T" ].
+
 
 s-mid-label := label &
 	   [ SYNSEM.LOCAL [ CAT [ HEAD verb,
@@ -144,12 +153,12 @@ s-top-label := label &
 				      SUBJ < > ] ],
 	     LABEL-NAME "S-T"].
 
-p-label := label & 
+p-label := label &
 	   [ SYNSEM.LOCAL.CAT [ HEAD adp,
 				VAL.COMPS < [ ], ... > ],
 	     LABEL-NAME "P" ].
 
-pp-label := label & 
+pp-label := label &
 	    [ SYNSEM.LOCAL.CAT [ HEAD adp,
 				 VAL.COMPS < > ],
 	      LABEL-NAME "PP" ].
@@ -168,51 +177,51 @@ det-label := label &
 	     [ SYNSEM.LOCAL.CAT.HEAD det,
 	       LABEL-NAME "D"].
 
-adv-mid-label := label & 
+adv-mid-label := label &
 	   [ SYNSEM.LOCAL [ CAT.HEAD adv,
                             COORD +,
                             COORD-REL implicit-coord-rel ],
 	     LABEL-NAME "ADV-M" ].
 
-adv-bottom-label := label & 
+adv-bottom-label := label &
 	   [ SYNSEM.LOCAL [ CAT.HEAD adv,
                             COORD + ],
 	     LABEL-NAME "ADV-B" ].
 
-adv-label := label & 
+adv-label := label &
 	     [ SYNSEM.LOCAL [ CAT.HEAD adv,
                               COORD-STRAT "" ],
                LABEL-NAME "ADV" ].
 
-adv-top-label := label & 
+adv-top-label := label &
 	     [ SYNSEM.LOCAL.CAT.HEAD adv,
 	       LABEL-NAME "ADV-T" ].
 
-adj-mid-label := label & 
+adj-mid-label := label &
 	   [ SYNSEM.LOCAL [ CAT.HEAD adj,
                             COORD +,
                             COORD-REL implicit-coord-rel ],
 	     LABEL-NAME "ADJ-M" ].
 
-adj-bottom-label := label & 
+adj-bottom-label := label &
 	   [ SYNSEM.LOCAL [ CAT.HEAD adj,
                             COORD + ],
 	     LABEL-NAME "ADJ-B" ].
 
-adj-label := label & 
+adj-label := label &
 	   [ SYNSEM.LOCAL[ CAT.HEAD adj,
                            COORD-STRAT "" ],
 	     LABEL-NAME "ADJ" ].
 
-adj-top-label := label & 
+adj-top-label := label &
 	   [ SYNSEM.LOCAL.CAT.HEAD adj,
 	     LABEL-NAME "ADJ-T" ].
 
-conj-label := label & 
+conj-label := label &
 	      [ SYNSEM.LOCAL.CAT.HEAD conj,
 		LABEL-NAME "CONJ" ].
 
-num-label := label & 
+num-label := label &
 	     [ SYNSEM.LOCAL.CAT [ HEAD num,
 				  VAL.COMPS < [ ], ... > ],
 	       LABEL-NAME "NUM" ].
