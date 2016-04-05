@@ -23,6 +23,7 @@ head :+ [ AUX bool,
 
 noun :+ [ CASE case ].
 
+; verb :+ [ COMPLEX - ].
 
 ;is this necessary?
 ; +nvcdmo :+ [ MOD < > ].
@@ -184,10 +185,13 @@ neutr-mass-noun-lex := noun-lex &
 
 ;;; Verbs
 
+cat :+ [ COMPLEX bool ].
+
 verb-lex := lex-item &
   [ SYNSEM.LOCAL.CAT [ HEAD verb,
                        HC-LIGHT - ],
     INFLECTED.PERNUM-FLAG - ].
+    ; SYNSEM.LOCAL.CAT [ COMPLEX - ] ].
 
 main-verb-lex := verb-lex & basic-verb-lex &
   [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
