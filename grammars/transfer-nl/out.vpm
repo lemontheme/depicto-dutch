@@ -57,7 +57,7 @@ GEND : PNG.GEND
   * >> *
 
 TENSE : E.TENSE
-  present >> pwresent
+  present >> present
   past >> past
   future >> future
   * >> *

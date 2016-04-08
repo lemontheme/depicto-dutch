@@ -1,14 +1,75 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 
+;; head types
 
 complex-picto := head.
-
+complex-subj+vp-picto := complex-picto & verb.
 complex-vp-picto := complex-picto & verb.
+
+;;; complex S-V pictos
+
+;; experiment 1:
 
 cat :+ [ COMPLEX bool ].
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;
+;;; lexical types
 
+main-complex-v-picto-lex := lex-item &
+  [ SYNSEM.LOCAL [ CAT [ VAL  [ SPR < >,
+                                SPEC < >,
+                                COMPS < > ],
+                         COMPLEX + ] ] ].
+    ; SYNSEM.LKEYS.KEYREL event-relation ].
+
+; e.g. "brush_dog"
+; Rest is taken care of by subject-head rule
+complex-vp-picto-lex := main-complex-v-picto-lex &
+  [ SYNSEM.LOCAL [ CAT  [ HEAD complex-vp-picto,
+                          VAL.SUBJ < #subject > ],
+                   CONT [ HOOK [ LTOP #lbl_head,
+                                 INDEX #event,
+                                 XARG  #xarg-subj ], ; optional
+                          RELS.LIST.FIRST [ LBL #lbl_head,
+                                            ARG0 event & #event,
+                                            ARG1 #xarg-subj ] ] ],
+    ARG-ST.FIRST #subject &
+                 [ LOCAL [ CAT.HEAD noun,
+                           CONT.HOOK.INDEX #xarg-subj ] ] ].
+
+; e.g. "dog_bark"
+complex-subj+vp-picto-lex := main-complex-v-picto-lex &
+  [ SYNSEM.LOCAL [ CAT  [ HEAD complex-subj+vp-picto,
+                          VAL.SUBJ < > ],
+                   CONT [ HOOK [ LTOP #lbl_head,
+                                 INDEX #event],
+                          RELS.LIST.FIRST [ ARG0 event & #event,
+                                            LBL #lbl_head ] ] ] ].
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;;
+;;; rules
+
+; e.g. "dog_bark" -> "the dog barks"
+complex-subj+vp-picto-rule := head-only &
+  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+                       VAL [ SPR < >,
+			                 SUBJ < >,
+			                 COMPS < >,
+			                 SPEC < > ],
+                       COMPLEX - ],
+    SYNSEM.LOCAL.CONT.HOOK #hook,
+    HEAD-DTR lex-item &
+        [ SYNSEM.LOCAL [ CONT.HOOK #hook,
+                         CAT [ HEAD complex-subj+vp-picto,
+    				           VAL [ SPR < >,
+    					             SUBJ < >,
+    					             COMPS < > ],
+                               COMPLEX + ] ] ] ].
+
+; based on basic-bare-np-phrase (matrix.tdl, 2055)
+; e.g. { dog_n_rel(x) } => { DET(d, x) dog_n_rel(x)}
 sclera-basic-insert-definite-det-rule := head-only &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
 			   SUBJ < >,
@@ -20,7 +81,7 @@ sclera-basic-insert-definite-det-rule := head-only &
 					SUBJ < >,
 					COMPS < > ] ],
 			    CONT.HOOK [ INDEX #index,
-					LTOP #larg ] ],
+					        LTOP #larg ] ],
     C-CONT [ RELS <! quant-relation &
               [ PRED "q_rel_min",
 		        ARG0 #index,
@@ -28,61 +89,8 @@ sclera-basic-insert-definite-det-rule := head-only &
 	         HCONS <! qeq &
 		      [ HARG #harg,
 		        LARG #larg ] !>,
-	     ICONS <! !>,
-	     HOOK [ INDEX #index ] ] ].
+	         ICONS <! !>,
+	         HOOK [ INDEX #index ] ] ].
 
-;;; complex S-V pictos
-
-;; experiment 1:
-
-cat :+ [ COMPLEX bool ].
-
-main-S-V-picto-lex := lex-item &
-  [ SYNSEM.LOCAL [ CAT [ HEAD complex-vp-picto,
-                         VAL  [ SPR < >,
-                                SPEC < >,
-                                SUBJ < >,
-                                COMPS < > ],
-                         COMPLEX + ] ],
-    SYNSEM.LKEYS.KEYREL event-relation ].
-
-; main-S-V-picto-lex := lex-item &
-;   [ SYNSEM.LOCAL [ CAT [ HEAD complex-vp-picto,
-;                          VAL  [ SPR < >,
-;                                 SPEC < >,
-;                                 SUBJ < >,
-;                                 COMPS < > ] ] ],
-;     SYNSEM.LKEYS.KEYREL event-relation ].
-;
-sclera-basic-allow-SV-complex-rule := head-only &
-  [ SYNSEM.LOCAL.CAT [ HEAD verb,
-                       VAL [ SPR < >,
-			                 SUBJ < >,
-			                 COMPS < >,
-			                 SPEC < > ],
-                       COMPLEX - ],
-    SYNSEM.LOCAL.CONT [ HOOK.INDEX #event,
-                        HOOK.LTOP #lbl_head-dtr ],
-    HEAD-DTR lex-item &
-            [ SYNSEM.LOCAL [ CONT [ HOOK.INDEX #event,
-                             RELS.LIST.FIRST.LBL #lbl_head-dtr ],
-              CAT [ HEAD complex-vp-picto,
-        				        ;   VAL [ SPR < >,
-        					    ;         SUBJ < >,
-        					    ;         COMPS < > ],
-              COMPLEX + ] ] ] ].
-
-; sclera-basic-allow-SV-complex-rule := head-only &
-;   [ SYNSEM.LOCAL.CAT [ HEAD verb,
-;                        VAL [ SPR < >,
-; 			                 SUBJ < >,
-; 			                 COMPS < >,
-; 			                 SPEC < > ] ],
-;     SYNSEM.LOCAL.CONT [ HOOK.INDEX #event,
-;                         HOOK.LTOP #lbl_head-dtr ],
-;     HEAD-DTR.SYNSEM.LOCAL [ CONT [ HOOK.INDEX #event,
-;                                    RELS.LIST.FIRST.LBL #lbl_head-dtr ],
-;                             CAT [ HEAD complex-vp-picto,
-;         				          VAL [ SPR < >,
-;         					            SUBJ < >,
-;         					            COMPS < > ] ] ] ].
+sclera-bare-np-phrase := basic-bare-np-phrase &
+  [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].

@@ -302,6 +302,8 @@ string := predsort.
 q_rel_min := predsort.
 def_q_rel := q_rel_min.
 indef_q_rel := q_rel_min.
+exist_q_rel := q_rel_min.
+
 ;;
 
 

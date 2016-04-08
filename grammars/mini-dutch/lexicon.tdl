@@ -6,13 +6,6 @@
 
 ;; nominative
 
-; ik :=  &
-; jij :=  &
-; je := &
-; hij := &
-; zij := &
-; ze := &
-;
 ik := 1st-sg-pronoun-noun-lex &
   [ STEM < "ik" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
@@ -53,6 +46,7 @@ hond := femmasc-count-sg-noun-lex &
 honden := femmasc-count-pl-noun-lex &
   [ STEM < "honden" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
+
 
 meisje := neutr-count-sg-noun-lex &
   [ STEM < "meisje" >,
@@ -144,6 +138,34 @@ geeft_dtr := ditrans-2nd-or-3rd-sg-verb-lex &
 geven_dtr := ditrans-pl-verb-lex &
   [ STEM < "geven" >,
     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+;
+
+borstel := trans-1st-sg-verb-lex &
+  [ STEM < "borstel" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+borstelt := trans-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "borstelt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+borstelen := trans-pl-verb-lex &
+  [ STEM < "borstelen" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+kam := trans-1st-sg-verb-lex &
+  [ STEM < "kam" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+kamt := trans-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "kamt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+kammen := trans-pl-verb-lex &
+  [ STEM < "kammen" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+
 
 ;;; Auxiliaries
 

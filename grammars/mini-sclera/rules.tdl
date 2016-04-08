@@ -5,14 +5,23 @@ subj-head := subj-head-phrase.
 
 head-spec := head-spec-phrase.
 
-bare-np := bare-np-phrase.
+; bare-np := bare-np-phrase.
+
+; for pronouns mostly
+sclera-bare-np := sclera-bare-np-phrase.
 
 ; my rules
 sclera-det-insert := sclera-basic-insert-definite-det-rule.
 
-; risky test
+; 5 April 2016: functional.
+; problems: might need to be changed to a lexical rule.
 
-sclera-allow-complex-test := sclera-basic-allow-SV-complex-rule. ; is loopy!
+sclera-allow-complex-subj+vp-picto-rule := complex-subj+vp-picto-rule.
+
+; next rule
+; work started on 5 Aprul 2016
+; status: in progress
+; sclera-allow-complex-vp-picto-rule := complex-vp-picto-rule.
 
 ;n1-top-coord := n1-top-coord-rule.
 ;

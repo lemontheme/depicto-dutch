@@ -92,56 +92,42 @@ give_tr := trans-verb-lex &
   [ STEM < "give" >,
     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
 
+brush_v := trans-verb-lex &
+  [ STEM < "brush" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_brush_v_rel" ].
+
 ; douchen := -> een douche nemen/take+a+shower
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Pictograms encoding complex SoA's
 
-dog_bark := main-S-V-picto-lex & ; change
+dog_bark := complex-subj+vp-picto-lex & ; change
     [ STEM < "dog_bark" >,
-      SYNSEM.LOCAL.CONT [ HOOK.INDEX #event & [ SF prop-or-ques ],
-                          RELS <! event-relation &
-                                    [ PRED "_bark_v_rel",
-                                      ARG0 event & #event,
-                                      ARG1 #subject ],
-                                  noun-relation &
-                                    [ PRED "_dog_n_rel",
-                                      LBL #noun,
-                                      ARG0 #subject ],
-                                  quant-relation &
-                                    [ PRED "q_rel_min",
-                                      ARG0 #subject,
-                                      RSTR #rstr ] !>,
-                          HCONS <! qeq & [ HARG #rstr ,
-                                           LARG #noun ] !> ] ] .
-; experimenting with LKEYS
-; dog_bark := main-S-V-picto-lex & ; change
-;     [ STEM < "dog_bark" >,
-;       SYNSEM.LOCAL.CONT [ HOOK.INDEX #event & [ SF prop-or-ques ],
-;
-;                           RELS <! noun-relation &
-;                                     [ PRED "_dog_n_rel",
-;                                       LBL #noun,
-;                                       ARG0 #subject ],
-;
-;                                   quant-relation &
-;                                     [ PRED "q_rel_min",
-;                                       ARG0 #subject,
-;                                       RSTR #rstr ] !>,
-;                           HCONS <! qeq & [ HARG #rstr ,
-;                                            LARG #noun ] !> ],
-;        SYNSEM.LKEYS.KEYREL event-relation &
-;                             [ PRED "_bark_v_rel",
-;                               ARG0 event & #event,
-;                               ARG1 #subject ] ] .
+      SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_bark_v_rel",
+                                    ARG0 #event,
+                                    ARG1 #subject ],
+                                  [ PRED "_dog_n_rel",
+                                    LBL #noun,
+                                    ARG0 #subject ],
+                                  [ PRED "q_rel_min",
+                                    ARG0 #subject,
+                                    RSTR #rstr ] !>,
+                         HCONS <! [ HARG #rstr ,
+                                    LARG #noun ] !> ] ].
 
-; dog_bark := main-S-V-picto-lex & ; change
-;     [ STEM < "dog_bark" >,
-;       SYNSEM.LKEYS.KEYREL.PRED "_dog+bark_v_rel" ].
+brush_dog := complex-vp-picto-lex &
+  [ STEM  < "brush_dog" >,
+    SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_brush_v_rel",
+                                  ARG2 #object-handle ],
+                                [ PRED "_dog_n_rel",
+                                  LBL  #noun,
+                                  ARG0 #object-handle ],
+                                [ PRED "q_rel_min",
+                                  ARG0 #object-handle,
+                                  RSTR #rstr ] !>,
+                       HCONS <! [ HARG #rstr,
+                                  LARG #noun ] !> ] ].
 
-
-; hond-borstelen ; object = hond
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Auxiliaries
+;;;;;;.;;;;;;;;;;;;;;;;;;;;;;;; Auxiliaries
 
 ;;;;;; copula
 

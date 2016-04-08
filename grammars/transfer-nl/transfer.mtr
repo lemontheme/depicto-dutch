@@ -1,11 +1,10 @@
-exist_mtr := quantifier_mtr &
- [ INPUT.RELS < [ PRED "sclera:exist_q_rel" ] >,
-   OUTPUT.RELS <[ PRED "exist_q_rel" ] > ].
-
 quant_mtr := quantifier_mtr  &
  [ INPUT.RELS < [ PRED "sclera:q_rel_min" ] >,
    OUTPUT.RELS <[ PRED q_rel_min ] > ].
-;
+
+exist_mtr := quantifier_mtr &
+ [ INPUT.RELS < [ PRED "sclera:exist_q_rel" ] >,
+   OUTPUT.RELS <[ PRED exist_q_rel ] > ].
 
 hond_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_dog_n_rel" ] >,
@@ -41,3 +40,7 @@ kopen_mtr := arg1_v_mtr &
 geven_mtr := arg1_v_mtr &
 [ INPUT.RELS < [ PRED "sclera:_give_v_rel" ] >,
   OUTPUT.RELS <[ PRED "_geven_v_rel" ] > ].
+
+borstelen_mtr := arg1_v_mtr &
+[ INPUT.RELS < [ PRED "sclera:_brush_v_rel" ] >,
+  OUTPUT.RELS <[ PRED "_borstelen_v_rel" ] > ].
