@@ -107,6 +107,19 @@ def_q_rel := q_rel_min.
 indef_q_rel := q_rel_min.
 exist_q_rel := q_rel_min.
 
+;
+
+;;;;
+; p-form := adp. ; head type (experiment)
+
+;;;;
+
+;;;;;;;;;;;
+
+
+;
+
+
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
 ;;;;;;;;;;;;;;;;;;;
@@ -254,45 +267,45 @@ intrans-verb-lex := nom-intransitive-verb-lex.
 trans-verb-lex := nom-acc-transitive-verb-lex.
 ditrans-verb-lex := nom-acc-acc-ditransitive-verb-lex.
 
-intrans-1st-sg-verb-lex := nom-intransitive-verb-lex &
+intrans-1st-sg-verb-lex := intrans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
                                                                     NUM singular ],
                          HEAD.FORM finite ] ] ].
 
-intrans-2nd-or-3rd-sg-verb-lex := nom-intransitive-verb-lex &
+intrans-2nd-or-3rd-sg-verb-lex := intrans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
                                                                     NUM singular ],
                          HEAD.FORM finite ] ] ].
 
-intrans-pl-verb-lex := nom-intransitive-verb-lex &
+intrans-pl-verb-lex := intrans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
                          HEAD.FORM finite ] ] ].
 
 
-trans-1st-sg-verb-lex := nom-acc-transitive-verb-lex &
+trans-1st-sg-verb-lex := trans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
                                                                       NUM singular ] ],
                          HEAD.FORM finite ] ] ].
 
-trans-2nd-or-3rd-sg-verb-lex := nom-acc-transitive-verb-lex &
+trans-2nd-or-3rd-sg-verb-lex := trans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
                                                                       NUM singular ] ],
                          HEAD.FORM finite ] ] ].
 
-trans-pl-verb-lex := nom-acc-transitive-verb-lex &
+trans-pl-verb-lex := trans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
                          HEAD.FORM finite ] ] ].
 
-ditrans-2nd-or-3rd-sg-verb-lex := nom-acc-acc-ditransitive-verb-lex &
+ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
   [ ARG-ST < [ ],
              [ ],
              [ OPT - ] >,
@@ -302,7 +315,7 @@ ditrans-2nd-or-3rd-sg-verb-lex := nom-acc-acc-ditransitive-verb-lex &
                                                                       NUM singular ] ],
                          HEAD.FORM finite ] ] ].
 
-ditrans-pl-verb-lex := nom-acc-acc-ditransitive-verb-lex &
+ditrans-pl-verb-lex := ditrans-verb-lex &
   [ ARG-ST < [ ],
              [ ],
              [ OPT - ] >,
@@ -311,6 +324,80 @@ ditrans-pl-verb-lex := nom-acc-acc-ditransitive-verb-lex &
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
                                                                       NUM plural ] ],
                          HEAD.FORM finite ] ] ].
+
+;;; Prepositions (experimental)
+;;
+; added 2016-April-08
+
+prep := adp. ; adp (adposition) is a head type defined in matrix-tdl.
+; prep_rel := predsort.
+; naar_p_rel := prep_rel.
+
+; prep-lex-item := basic-adposition-lex & no-hcons-lex-item &
+;   [ SYNSEM.LOCAL [ CAT [ HEAD prep,
+;                          VAL [ COMPS < [ LOCAL [ CAT [ HEAD noun & [ CASE acc ],
+;                                                        VAL [ SPR < >, ; redundant?
+;                                                              COMPS < > ] ],
+;                                                  CONT [ HOOK.INDEX #index,
+;                                                         RELS.LIST.FIRST.ARG0 #arg0
+;                                                           ] ] ] > ] ],
+;                    CONT [ HOOK.INDEX #index,
+;                           RELS <! [ PRED #pred,
+;                                     ARG2 #arg0 ] !> ] ],
+;     SYNSEM.LKEYS.KEYREL.PRED #pred ].
+
+prep-lex-item := basic-adposition-lex & no-hcons-lex-item &
+  [ SYNSEM.LOCAL [ CAT [ HEAD prep,
+                         VAL [ COMPS < #NP > ] ],
+                   CONT [ HOOK.INDEX #index,
+                          RELS <! [ PRED #pred,
+                                    ARG2 #index ] !> ] ],
+    SYNSEM.LKEYS.KEYREL.PRED #pred,
+    ARG-ST < #NP &
+            [ LOCAL [ CAT [ HEAD noun & [ CASE acc ],
+                             VAL [ SPR < >, ; redundant?
+                                  COMPS < > ] ],
+                       CONT [ HOOK.INDEX #index,
+                              RELS.LIST.FIRST.ARG0 #index ] ] ] > ].
+
+    ;
+    ;  >
+    ; ].
+
+
+;;; experimental: NEW VERB TYPE: intrans + PP
+
+intrans+pp-verb-lex := main-verb-lex & transitive-lex-item &
+  [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+                           SUBJ < #subject >,
+                           COMPS < #pp-comp > ],
+    SYNSEM.LOCAL.CONT.RELS <! [
+                                ; LBL #lbl-test,
+                                ; ARG0 #arg0-verb,
+                                ARG2 #index ] !> ,
+    ARG-ST < #subject & [ LOCAL.CAT.HEAD noun & [ CASE nom ] ],
+             #pp-comp & [ LOCAL.CAT [ HEAD prep ],
+                          LOCAL.CONT.HOOK.INDEX #index ] > ].
+                        ;   LOCAL.CONT.RELS.LIST.FIRST [ LBL #lbl-test,
+                        ;                                ARG1 #arg0-verb ] ] > ] .
+
+intrans+pp-1st-sg-verb-lex := intrans+pp-verb-lex &
+   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
+                                                                 NUM singular ],
+                      HEAD.FORM finite ] ] ].
+
+intrans+pp-2nd-or-3rd-sg-verb-lex := intrans+pp-verb-lex &
+   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
+                                                                     NUM singular ],
+                          HEAD.FORM finite ] ] ].
+
+intrans+pp-pl-verb-lex := intrans+pp-verb-lex &
+   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
+                          HEAD.FORM finite ] ] ].
+
 
 ;;;; Auxiliaries
 ;

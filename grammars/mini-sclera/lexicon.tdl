@@ -127,6 +127,45 @@ brush_dog := complex-vp-picto-lex &
                        HCONS <! [ HARG #rstr,
                                   LARG #noun ] !> ] ].
 
+; go_school := complex-vp-picto-lex &
+;   [ STEM < "go_school" >,
+;     SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_go_v_rel",
+;                                   LBL  #test, ;crucial
+;                                   ARG0 #verb-arg0, ; crucial
+;                                   ARG2 #locative-comp ],
+;                                 [ PRED "_school_n_rel",
+;                                   LBL  #noun,
+;                                   ARG0 #locative-comp ],
+;                                 [ PRED "locative_rel",
+;                                   LBL  #test, ; crucial
+;                                   ARG1 #verb-arg0, ; crucial
+;                                   ARG2 #locative-comp ],
+;                                 [ PRED "exist_q_rel",
+;                                   ARG0 #locative-comp,
+;                                   RSTR #rstr ] !>,
+;                        HCONS <! [ HARG #rstr,
+;                                   LARG #noun ]  !> ] ].
+
+go_school := complex-vp-picto-lex &
+  [ STEM < "go_school" >,
+    SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_go_v_rel",
+                                ;   LBL  #test, ;crucial
+                                ;   ARG0 #verb-arg0, ; crucial
+                                  ARG2 #locative-comp ],
+                                [ PRED "_school_n_rel",
+                                  LBL  #noun,     ; LARG handle
+                                  ARG0 #locative-comp ],
+                                [ PRED "locative_rel",
+                                ;   LBL  #test, ; crucial
+                                ;   ARG1 #verb-arg0, ; crucial
+                                  ARG2 #locative-comp ],
+                                [ PRED "exist_q_rel",
+                                  ARG0 #locative-comp,
+                                  RSTR #rstr ] !>, ; RSTR handle
+                       HCONS <! [ HARG #rstr,
+                                  LARG #noun ]  !> ] ].
+
+
 ;;;;;;.;;;;;;;;;;;;;;;;;;;;;;;; Auxiliaries
 
 ;;;;;; copula

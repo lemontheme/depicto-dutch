@@ -1,10 +1,10 @@
 quant_mtr := quantifier_mtr  &
  [ INPUT.RELS < [ PRED "sclera:q_rel_min" ] >,
-   OUTPUT.RELS <[ PRED q_rel_min ] > ].
+   OUTPUT.RELS < [ PRED q_rel_min ] > ].
 
 exist_mtr := quantifier_mtr &
  [ INPUT.RELS < [ PRED "sclera:exist_q_rel" ] >,
-   OUTPUT.RELS <[ PRED exist_q_rel ] > ].
+   OUTPUT.RELS < [ PRED exist_q_rel ] > ].
 
 hond_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_dog_n_rel" ] >,
@@ -17,6 +17,10 @@ meisje_mtr := noun_mtr &
 kusje_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_kiss_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_kus_n_rel" ] > ].
+
+school_mtr := noun_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_school_n_rel" ] >,
+   OUTPUT.RELS < [ PRED "_school_n_rel" ] > ].
 
 ;
 pronoun_mtr := noun_mtr &
@@ -33,7 +37,7 @@ slapen_mtr := arg1_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_sleep_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_slapen_v_rel" ] > ].
 
-kopen_mtr := arg1_v_mtr &
+kopen_mtr := arg12_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_buy_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_kopen_v_rel" ] > ].
 
@@ -41,6 +45,31 @@ geven_mtr := arg1_v_mtr &
 [ INPUT.RELS < [ PRED "sclera:_give_v_rel" ] >,
   OUTPUT.RELS <[ PRED "_geven_v_rel" ] > ].
 
-borstelen_mtr := arg1_v_mtr &
+borstelen_mtr := arg12_v_mtr &
 [ INPUT.RELS < [ PRED "sclera:_brush_v_rel" ] >,
   OUTPUT.RELS <[ PRED "_borstelen_v_rel" ] > ].
+
+;; Prepositions
+
+; experiment (zero abstraction)
+; go_1_mtr := arit_mtr &
+;  [ INPUT.RELS < [ PRED "sclera:_go_v_rel",
+;                   ARG2 #locative ],
+;                 [ PRED "sclera:locative_rel",
+;                   ARG1 #locative ],
+;                 [ PRED "sclera:_school_n_rel",
+;                   ARG0 #locative ] >,
+;    OUTPUT.RELS < [ PRED "_gaan_v_rel"],
+;                   PRED > ].
+
+go_1_mtr := arg12_v_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_go_v_rel" ] >,
+   OUTPUT.RELS < [ PRED "_gaan_v_rel"] > ].
+
+locative_naar_mtr := arg12_v_mtr &
+ [ INPUT.RELS < [ PRED "sclera:locative_rel" ] >,
+   OUTPUT.RELS < [ PRED "naar_p_rel" ] > ].
+
+school_n_mtr := noun_mtr &
+[ INPUT.RELS < [ PRED "sclera:_school_n_rel" ] >,
+  OUTPUT.RELS < [ PRED "_school_n_rel" ] > ].

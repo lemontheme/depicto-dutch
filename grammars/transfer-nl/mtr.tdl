@@ -114,6 +114,16 @@ arg1234_v_mtr := monotonic_mtr &
   OUTPUT.RELS < [ LBL #h1,
                   ARG0 #e1, ARG1 #x1, ARG2 #2, ARG3 #3, ARG4 #4 ] > ].
 
+
+;;;
+
+
+arit_mtr := monotonic_mtr &
+[ INPUT.RELS < [ LBL #h1,
+                 ARG0 #i1, ARG1 #x1, ARG2 #h2, ARG3 #h3 ] >,
+  OUTPUT.RELS < [ LBL #h1,
+                  ARG0 #i1, ARG1 #x1, ARG2 #h2, ARG3 #h3 ] > ].
+
 ;;;
 ;;; a few `special-purpose' types, transfer operators in a sense
 ;;;

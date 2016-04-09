@@ -35,7 +35,9 @@ complex-vp-picto-lex := main-complex-v-picto-lex &
                                             ARG0 event & #event,
                                             ARG1 #xarg-subj ] ] ],
     ARG-ST.FIRST #subject &
-                 [ LOCAL [ CAT.HEAD noun,
+                 [ LOCAL [ CAT [ HEAD noun,
+                                 VAL [ SPR < >,
+                                       COMPS < > ] ],
                            CONT.HOOK.INDEX #xarg-subj ] ] ].
 
 ; e.g. "dog_bark"

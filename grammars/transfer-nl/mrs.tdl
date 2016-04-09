@@ -304,7 +304,19 @@ def_q_rel := q_rel_min.
 indef_q_rel := q_rel_min.
 exist_q_rel := q_rel_min.
 
-;;
+;; my additions
+
+prep_rel := predsort.
+naar_p_rel := prep_rel.
+
+;
+; arg12+pp_arg12+pp_mtr := monotonic_mtr &
+; [ INPUT.RELS < [ LBL #h0, ARG0 #e1, ARG1 #x2 , ARG2 #x3 ],
+;                [ LBL #h0, ARG0 e_untensed, ARG1 #e1, ARG2 #x4 ] >,
+;   OUTPUT.RELS < [ LBL #h0, ARG0 #e1, ARG1 #x2, ARG2 #x3 ],
+; 		[ LBL #h0, ARG0 e_untensed, ARG1 #e1, ARG2 #x4 ]  > ].
+;;;
+
 
 
 flags := *top* &

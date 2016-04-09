@@ -21,6 +21,10 @@ je_1 := 2nd-sg-pronoun-noun-lex &
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
+jou_1 := 2nd-sg-pronoun-noun-lex &
+  [ STEM < "jou" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 ;; accusative
 
 ; jou :=  &
@@ -68,7 +72,9 @@ kusjes := neutr-count-pl-noun-lex &
   [ STEM < "kusjes" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kus_n_rel" ].
 
-
+school := no-spr-noun-lex &
+  [ STEM < "school" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_school_n_rel" ].
 
 ;;; Adjectives
 
@@ -165,7 +171,43 @@ kammen := trans-pl-verb-lex &
   [ STEM < "kammen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
 
+wandel := intrans+pp-1st-sg-verb-lex  &
+  [ STEM < "wandel" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
+wandelt := intrans+pp-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "wandelt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
+wandelen := intrans+pp-pl-verb-lex &
+  [ STEM < "wandelen" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
 
+ga := intrans+pp-1st-sg-verb-lex  &
+  [ STEM < "ga" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+gaat := intrans+pp-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "gaat" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+gaan := intrans+pp-pl-verb-lex &
+  [ STEM < "gaan" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+
+zie := trans-1st-sg-verb-lex &
+  [ STEM < "zie" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zien_v_rel" ].
+
+ziet := trans-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "ziet" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zien_v_rel" ].
+
+zien := trans-pl-verb-lex &
+  [ STEM < "zien" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zien_v_rel" ].
+
+;;; Prepositions
+
+naar := prep-lex-item &
+  [ STEM < "naar" >,
+    SYNSEM.LKEYS.KEYREL.PRED "naar_p_rel" ].
 
 ;;; Auxiliaries
 
