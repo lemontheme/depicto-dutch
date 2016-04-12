@@ -336,25 +336,25 @@ head := head-min &
 ; The parent types are in a separate file called head-types.tdl, with
 ; just the leaves here.
 
-;conj := +mo & +do & +co & +po & +ro & +jo & +vo & +no.
-;num := +mo & +dm & +cm & +pm & +rm & +jm & +vm & +nm.
-;det := +do & +dm & +cd & +pd & +rd & +jd & +vd & +nd.
-;comp := +co & +cm & +cd & +pc & +rc & +jc & +vc & +nc.
-;adp := +po & +pm & +pd & +pc & +rp & +jp & +vp & +np.
-;adv := +ro & +rm & +rd & +rc & +rp & +jr & +vr & +nr.
-;adj := +jo & +jm & +jd & +jc & +jp & +jr & +vj & +nj.
-;verb := +vo & +vm & +vd & +vc & +vp & +vr & +vj & +nv.
-;noun := +no & +nm & +nd & +nc & +np & +nr & +nj & +nv.
+conj := +mo & +do & +co & +po & +ro & +jo & +vo & +no.
+num := +mo & +dm & +cm & +pm & +rm & +jm & +vm & +nm.
+det := +do & +dm & +cd & +pd & +rd & +jd & +vd & +nd.
+comp := +co & +cm & +cd & +pc & +rc & +jc & +vc & +nc.
+adp := +po & +pm & +pd & +pc & +rp & +jp & +vp & +np.
+adv := +ro & +rm & +rd & +rc & +rp & +jr & +vr & +nr.
+adj := +jo & +jm & +jd & +jc & +jp & +jr & +vj & +nj.
+verb := +vo & +vm & +vd & +vc & +vp & +vr & +vj & +nv.
+noun := +no & +nm & +nd & +nc & +np & +nr & +nj & +nv.
 
-conj := head.
-num := head.
-det := head.
-comp := head.
-adp := head.
-adv := head.
-adj := head.
-verb := head.
-noun := head.
+; conj := head.
+; num := head.
+; det := head.
+; comp := head.
+; adp := head.
+; adv := head.
+; adj := head.
+; verb := head.
+; noun := head.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; VAL
@@ -1787,9 +1787,9 @@ basic-head-spec-phrase := head-valence-phrase & phrasal &
     NON-HEAD-DTR.SYNSEM #synsem &
 	 [ LOCAL [ CAT [ VAL [ SPEC < [ LOCAL [ CAT [ HEAD #head,
 	                                              VAL.COMPS #comps ],
-						CONT.HOOK #hdhook ],
-					MODIFIED #hmodif ] >,
-		               COMPS #spcomps ] ],
+						            CONT.HOOK #hdhook ],
+				                 	MODIFIED #hmodif ] >,
+            		                COMPS #spcomps ] ],
 		   CONT.HOOK #hook ],
            MODIFIED #modif ],
     C-CONT [ HOOK #hook, RELS <! !>, HCONS <! !>, ICONS <! !> ] ].
@@ -2104,8 +2104,8 @@ basic-extracted-comp-phrase := basic-extracted-arg-phrase &
 
 basic-extracted-subj-phrase := basic-extracted-arg-phrase & head-compositional &
   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ < >,
-			   SPR < >,
-			   COMPS < > ],
+			               SPR < >,
+			               COMPS < > ],
     HEAD-DTR.SYNSEM [ LOCAL.CAT [ VAL [ SUBJ < gap &
 					       [ LOCAL #local & local &
 						       [ CONT.HOOK.INDEX ref-ind ] ] >,

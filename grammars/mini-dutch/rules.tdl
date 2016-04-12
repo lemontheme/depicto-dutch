@@ -7,6 +7,8 @@ head-spec := head-spec-phrase.
 
 bare-np := bare-np-phrase.
 
+adjective-phrase := adj-head-phrase.
+
 ;n1-top-coord := n1-top-coord-rule.
 ;
 ;n1-mid-coord := n1-mid-coord-rule.

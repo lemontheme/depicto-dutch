@@ -6,6 +6,13 @@ complex-picto := head.
 complex-subj+vp-picto := complex-picto & verb.
 complex-vp-picto := complex-picto & verb.
 
+; complex-picto :+ [ SCLERA sclera-hooks ].
+; sclera-hooks := avm &
+;  [ N1 ref-ind,
+;    N2 ref-ind,
+;    V1 event,
+;    V2 event ].
+
 ;;; complex S-V pictos
 
 ;; experiment 1:
@@ -13,7 +20,7 @@ complex-vp-picto := complex-picto & verb.
 cat :+ [ COMPLEX bool ].
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
+
 ;;; lexical types
 
 main-complex-v-picto-lex := lex-item &
@@ -49,8 +56,10 @@ complex-subj+vp-picto-lex := main-complex-v-picto-lex &
                           RELS.LIST.FIRST [ ARG0 event & #event,
                                             LBL #lbl_head ] ] ] ].
 
+; complex-subj+vp-picto-lex :+ "all-in-one cannonball of expression".
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;
+
 ;;; rules
 
 ; e.g. "dog_bark" -> "the dog barks"
@@ -96,3 +105,47 @@ sclera-basic-insert-definite-det-rule := head-only &
 
 sclera-bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
+
+; experiment with open-ended lists: < ... >
+; experiment with dotted pair list: < a, b . rest >
+; delete
+
+; hook :+ [ SCLERA sclera-hooks ].
+; sclera-hooks := avm &
+;  [ N1 ref-ind,
+;    N2 ref-ind,
+;    V1 event,
+;    V2 event ].
+
+; some-test-start := phrase &
+;   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+;                            COMPS < > ],
+;     SYNSEM.LOCAL.CONT [ TEMP-RELS-REST #rels ],
+;     ARGS < [ SYNSEM.LOCAL.CONT.RELS.LIST #rels ] > ].
+;
+; some-test-loop := phrase &
+;   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+;                            COMPS < > ],
+;     SYNSEM.LOCAL.CONT [ TEMP-RELS-FIRST #first,
+;                         TEMP-RELS-REST #rest ],
+;     ARGS < [ SYNSEM.LOCAL.CONT.TEMP-RELS-REST [ FIRST #first,
+;                                                 REST  #rest & cons ] ] > ].
+
+; some-test-loop := phrase &
+;   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
+;                            COMPS < > ],
+;     SYNSEM.LOCAL.CONT [ TEMP-REL #first,
+;                         RELS [ LIST #rest,
+;                                LAST #last ] ],
+;     ARGS < [ SYNSEM.LOCAL.CONT.RELS [ LIST [ FIRST #first,
+;                                              REST  #rest ],
+;                                       LAST #last ] ] > ].
+
+                                    ;   LAST  ] ] > ].
+
+; check-noun :=
+;   [ ARGS < [] > ].
+
+; test-picto := lex-item &
+;   [ SYNSEM.LOCAL.CAT.HEAD complex-picto,
+;     SYNSEM.LOCAL.CONT.RELS <! "a", "b", "c" !> ].

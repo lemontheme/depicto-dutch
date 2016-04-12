@@ -9,7 +9,7 @@
 ;; type hierarchy
 ;;
 
-;:include "../matrix-main/head-types".
+:include "../../matrix-main/head-types".
 :include "../../matrix-main/matrix".
 :include "../mini-dutch".
 :include "../../matrix-main/mtr".

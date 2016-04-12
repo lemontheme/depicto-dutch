@@ -93,6 +93,13 @@ blaffen := intrans-pl-verb-lex &
  [ STEM < "blaffen" >,
    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
 
+blafte := intrans-sg-preterite-lex &
+ [ STEM < "blafte" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+blaften := intrans-pl-preterite-lex &
+ [ STEM < "blaften" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
+
 ;blaf := intrans-verb-lex &
 ;  [ STEM < "blaf" >,
 ;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
@@ -113,6 +120,15 @@ slapen := intrans-pl-verb-lex &
  [ STEM < "slapen" >,
    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
 
+sliep := intrans-sg-preterite-lex &
+ [ STEM < "sliep" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+sliepen := intrans-pl-preterite-lex &
+ [ STEM < "sliepen" >,
+   SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
+
+
 ;
 
 koop := trans-1st-sg-verb-lex &
@@ -127,6 +143,13 @@ kopen := trans-pl-verb-lex &
   [ STEM < "kopen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
+kocht := trans-sg-preterite-lex &
+  [ STEM < "kocht" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
+
+kochten := trans-pl-preterite-lex &
+  [ STEM < "kochten" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 ;
 
 geeft_tr := trans-2nd-or-3rd-sg-verb-lex &
@@ -184,12 +207,22 @@ wandelen := intrans+pp-pl-verb-lex &
 ga := intrans+pp-1st-sg-verb-lex  &
   [ STEM < "ga" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+
 gaat := intrans+pp-2nd-or-3rd-sg-verb-lex &
   [ STEM < "gaat" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+
 gaan := intrans+pp-pl-verb-lex &
   [ STEM < "gaan" >,
     SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+
+ging := intrans+pp-sg-preterite-lex &
+[ STEM < "ging" >,
+  SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
+
+gingen := intrans+pp-pl-preterite-lex &
+[ STEM < "gingen" >,
+  SYNSEM.LKEYS.KEYREL.PRED "_gaan_v_rel" ].
 
 zie := trans-1st-sg-verb-lex &
   [ STEM < "zie" >,
@@ -213,6 +246,22 @@ naar := prep-lex-item &
 
 ;is :=  3rd-sg-cop-lex &
 ;  [ STEM < "is" > ].
+
+;;; Adjectives
+
+blij_sg := adjective-ninflected-indef-neuter-sg-lex &
+  [ STEM < "blij" >,
+    SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
+
+blije_sg := adjective-inflected-def-sg-lex &
+  [ STEM < "blije" >,
+    SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
+
+blije_pl := adjective-inflected-def-pl-lex &
+  [ STEM < "blije" >,
+    SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
+
+
 
 ;;; Determiners
 

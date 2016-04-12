@@ -25,8 +25,7 @@ noun :+ [ CASE case ].
 
 ; verb :+ [ COMPLEX - ].
 
-;is this necessary?
-; +nvcdmo :+ [ MOD < > ].
++nvcdmo :+  [ MOD < > ].
 
 inflected :+ [ PERNUM-FLAG luk,
                NUM-FLAG luk,
@@ -193,9 +192,6 @@ neutr-mass-noun-lex := noun-lex &
                                        NUM singular,
                                        PER 3rd ] ].
 
-
-
-
 ;;; Verbs
 
 cat :+ [ COMPLEX bool ].
@@ -284,6 +280,16 @@ intrans-pl-verb-lex := intrans-verb-lex &
                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
                          HEAD.FORM finite ] ] ].
 
+intrans-sg-preterite-lex := intrans-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM singular ],
+                         HEAD.FORM finite ] ] ].
+
+intrans-pl-preterite-lex := intrans-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM plural ],
+                         HEAD.FORM finite ] ] ].
+
 
 trans-1st-sg-verb-lex := trans-verb-lex &
   [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
@@ -304,6 +310,18 @@ trans-pl-verb-lex := trans-verb-lex &
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
                          HEAD.FORM finite ] ] ].
+
+trans-sg-preterite-lex := trans-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM singular ],
+                         HEAD.FORM finite ] ] ].
+
+trans-pl-preterite-lex := trans-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM plural ],
+                         HEAD.FORM finite ] ] ].
+
+
 
 ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
   [ ARG-ST < [ ],
@@ -333,19 +351,6 @@ prep := adp. ; adp (adposition) is a head type defined in matrix-tdl.
 ; prep_rel := predsort.
 ; naar_p_rel := prep_rel.
 
-; prep-lex-item := basic-adposition-lex & no-hcons-lex-item &
-;   [ SYNSEM.LOCAL [ CAT [ HEAD prep,
-;                          VAL [ COMPS < [ LOCAL [ CAT [ HEAD noun & [ CASE acc ],
-;                                                        VAL [ SPR < >, ; redundant?
-;                                                              COMPS < > ] ],
-;                                                  CONT [ HOOK.INDEX #index,
-;                                                         RELS.LIST.FIRST.ARG0 #arg0
-;                                                           ] ] ] > ] ],
-;                    CONT [ HOOK.INDEX #index,
-;                           RELS <! [ PRED #pred,
-;                                     ARG2 #arg0 ] !> ] ],
-;     SYNSEM.LKEYS.KEYREL.PRED #pred ].
-
 prep-lex-item := basic-adposition-lex & no-hcons-lex-item &
   [ SYNSEM.LOCAL [ CAT [ HEAD prep,
                          VAL [ COMPS < #NP > ] ],
@@ -359,11 +364,6 @@ prep-lex-item := basic-adposition-lex & no-hcons-lex-item &
                                   COMPS < > ] ],
                        CONT [ HOOK.INDEX #index,
                               RELS.LIST.FIRST.ARG0 #index ] ] ] > ].
-
-    ;
-    ;  >
-    ; ].
-
 
 ;;; experimental: NEW VERB TYPE: intrans + PP
 
@@ -398,9 +398,18 @@ intrans+pp-pl-verb-lex := intrans+pp-verb-lex &
                     CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
                           HEAD.FORM finite ] ] ].
 
+intrans+pp-sg-preterite-lex := intrans+pp-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ],
+                         HEAD.FORM finite ] ] ].
+
+intrans+pp-pl-preterite-lex := intrans+pp-verb-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
+                         HEAD.FORM finite ] ] ].
 
 ;;;; Auxiliaries
-;
+
 ;arg-comp-aux := aux-lex & basic-two-arg &
 ;  [ SYNSEM.LOCAL [ CAT.VAL [ SPR < >,
 ;                             SPEC < >,
@@ -457,6 +466,57 @@ determiner-lex := basic-determiner-lex & basic-zero-arg & non-mod-lex-item &
 
 definite-determiner-lex := determiner-lex & no-icons-lex-item.
 indefinite-determiner-lex := determiner-lex & no-icons-lex-item.
+
+;;; Adjectives
+
+adjective-lex := intersective-mod-lex & norm-ltop-lex-item &
+  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL.CAT [ HEAD noun,
+                                                        VAL.SPR cons ] ] > ],
+                       VAL [ SPR < >,
+        			         SUBJ < >,
+                             COMPS < >,
+    				         SPEC < > ] ] ].
+
+adjective-inflected-indef-non-neuter-sg-lex := adjective-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                          LOCAL.CONT [ HOOK.INDEX.PNG [ GEND non-neuter,
+                                                        NUM singular ],
+                                       RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
+
+adjective-ninflected-indef-neuter-sg-lex := adjective-lex &
+ [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                          LOCAL.CONT [ HOOK.INDEX.PNG [ GEND neuter,
+                                                        NUM  singular ],
+                                       RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
+
+adjective-inflected-def-sg-lex := adjective-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                          LOCAL.CONT [ HOOK.INDEX.PNG [ GEND non-neuter,
+                                                        NUM singular ],
+                                       RELS <! [ PRED def_q_rel ] !> ] ] ] > ].
+
+adjective-inflected-def-pl-lex := adjective-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                          LOCAL.CONT [ HOOK.INDEX.PNG [ NUM plural ],
+                                       RELS <! [ PRED def_q_rel ] !> ] ] ] > ].
+
+
+; [ LOCAL.CONT.HOOK.INDEX.
+
+; adj-head-phrase := basic-head-mod-phrase-simple & head-final &
+;   [ SYNSEM [ LOCAL.CAT.POSTHEAD #ph, ; delete
+; 	     MODIFIED lmod & [ PERIPH #periph ], ; delete
+;              LIGHT #light ], ; delete
+;     HEAD-DTR.SYNSEM [ LOCAL.CAT.POSTHEAD #ph, ; delete
+;                       LIGHT #light ], ; delete
+;     NON-HEAD-DTR.SYNSEM [ LOCAL.CAT [ VAL.COMPS < > ], ; delete
+; 			  NON-LOCAL [ SLASH 0-dlist, ; delete
+; 				      REL 0-dlist ], ; delete
+;                           MODIFIED.PERIPH #periph ] ]. ; delete
+;
+; adj-head-int-phrase := adj-head-phrase & isect-mod-phrase &
+;   [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ POSTHEAD - ] ]. ; delete
+
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; LEXICAL RULES
