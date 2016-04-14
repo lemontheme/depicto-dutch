@@ -11,37 +11,81 @@ ik := 1st-sg-pronoun-noun-lex &
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-me_1 := 1st-sg-pronoun-noun-lex &
-  [ STEM < "me" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
-
 je_1 := 2nd-sg-pronoun-noun-lex &
   [ STEM < "je" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-jou_1 := 2nd-sg-pronoun-noun-lex &
-  [ STEM < "jou" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+hij := 3rd-sg-masc-pronoun-noun-lex&
+  [ STEM < "hij" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
-;; accusative
 
-; jou :=  &
-;
+zij_sg := 3rd-sg-fem-pronoun-noun-lex&
+  [ STEM < "zij" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-; hij :=  &
-; zij :=  &
+we_clit := 1st-pl-pronoun-noun-lex &   ; clitic form
+  [ STEM < "we" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-; wij :=  &
+wij_nclit := 1st-pl-pronoun-noun-lex & ; non-clitic form
+  [ STEM < "wij" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
 
 jullie_1 := 2nd-pl-pronoun-noun-lex &
   [ STEM < "jullie" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-; zij
 
+zij_pl := 3rd-pl-pronoun-noun-lex&
+  [ STEM < "zij" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+;; accusative
+
+me_1 := 1st-sg-pronoun-noun-lex &
+  [ STEM < "me" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+jou_1 := 2nd-sg-pronoun-noun-lex &
+  [ STEM < "jou" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+hem := 3rd-sg-masc-pronoun-noun-lex &
+  [ STEM < "zij" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+haar_obj := 3rd-sg-masc-pronoun-noun-lex &
+  [ STEM < "haar" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+ze_pl_obj := 3rd-pl-pronoun-noun-lex&
+  [ STEM < "zij" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+hen_pl_obj := 3rd-pl-pronoun-noun-lex & ; accusative only!
+  [ STEM < "hen" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+jullie_2 := 2nd-pl-pronoun-noun-lex &
+  [ STEM < "jullie" >,
+    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+
+;
 
 hond := femmasc-count-sg-noun-lex &
   [ STEM < "hond" >,
@@ -50,7 +94,6 @@ hond := femmasc-count-sg-noun-lex &
 honden := femmasc-count-pl-noun-lex &
   [ STEM < "honden" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
-
 
 meisje := neutr-count-sg-noun-lex &
   [ STEM < "meisje" >,
@@ -76,6 +119,14 @@ school := no-spr-noun-lex &
   [ STEM < "school" >,
     SYNSEM.LKEYS.KEYREL.PRED "_school_n_rel" ].
 
+zetel_sg := femmasc-count-sg-noun-lex &
+  [ STEM < "zetel" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zetel_n_rel" ].
+
+zetel_pl := femmasc-count-pl-noun-lex &
+  [ STEM < "zetels" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zetel_n_rel" ].
+
 ;;; Adjectives
 
 ;;; Verbs
@@ -99,14 +150,6 @@ blafte := intrans-sg-preterite-lex &
 blaften := intrans-pl-preterite-lex &
  [ STEM < "blaften" >,
    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
-
-;blaf := intrans-verb-lex &
-;  [ STEM < "blaf" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_blaffen_v_rel" ].
-
-;slapen := intrans-verb-lex &
-;  [ STEM < "slaap" >,
-;    SYNSEM.LKEYS.KEYREL.PRED "_slapen_v_rel" ].
 
 slaap := intrans-1st-sg-verb-lex &
  [ STEM < "slaap" >,
@@ -152,12 +195,20 @@ kochten := trans-pl-preterite-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 ;
 
+geef_tr := trans-1st-sg-verb-lex &
+  [ STEM < "geef" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
 geeft_tr := trans-2nd-or-3rd-sg-verb-lex &
   [ STEM < "geeft" >,
     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
 
 geven_tr := trans-pl-verb-lex &
   [ STEM < "geven" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+geef_dtr := ditrans-1st-sg-verb-lex &
+  [ STEM < "geef" >,
     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
 
 geeft_dtr := ditrans-2nd-or-3rd-sg-verb-lex &
@@ -238,9 +289,12 @@ zien := trans-pl-verb-lex &
 
 ;;; Prepositions
 
-naar := prep-lex-item &
+naar_p := prep-lex-item &
   [ STEM < "naar" >,
     SYNSEM.LKEYS.KEYREL.PRED "naar_p_rel" ].
+
+aan_1 := dative-comp-prep-lex &
+  [ STEM < "aan" > ].
 
 ;;; Auxiliaries
 
@@ -249,19 +303,22 @@ naar := prep-lex-item &
 
 ;;; Adjectives
 
-blij_sg := adjective-ninflected-indef-neuter-sg-lex &
+; blij_sg := adjective-ninflected-indef-neuter-sg-lex &
+;   [ STEM < "blij" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
+;
+; blije_sg := adjective-inflected-def-sg-lex &
+;   [ STEM < "blije" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
+;
+; blije_pl := adjective-inflected-def-pl-lex &
+;   [ STEM < "blije" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
+
+
+blij := adjective-lex &
   [ STEM < "blij" >,
-    SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
-
-blije_sg := adjective-inflected-def-sg-lex &
-  [ STEM < "blije" >,
-    SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
-
-blije_pl := adjective-inflected-def-pl-lex &
-  [ STEM < "blije" >,
-    SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
-
-
+    SYNSEM.LKEYS.KEYREL.PRED "_blij_j_rel" ].
 
 ;;; Determiners
 

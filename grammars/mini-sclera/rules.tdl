@@ -23,6 +23,10 @@ sclera-allow-complex-subj+vp-picto-rule := complex-subj+vp-picto-rule.
 ; status: in progress
 ; sclera-allow-complex-vp-picto-rule := complex-vp-picto-rule.
 
+; adj-int-noun-phrase := adj-int-noun-phrase.
+sclera-adj-int-NP-rule := sclera-adj-int-noun-phrase.
+
+
 ;n1-top-coord := n1-top-coord-rule.
 ;
 ;n1-mid-coord := n1-mid-coord-rule.

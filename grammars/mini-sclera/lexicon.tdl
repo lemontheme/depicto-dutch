@@ -63,9 +63,19 @@ love := common-noun-lex &
   [ STEM < "love" >,
     SYNSEM.LKEYS.KEYREL.PRED "_love_n_rel" ].
 
+couch := common-noun-lex &
+  [ STEM < "couch" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_couch_n_rel" ].
+
+
 ;flesje-water-prik := &
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adjectives
+
+happy := adjective-picto &
+  [ STEM < "happy" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_happy_j_rel" ].
+
 
 ; ziek :=  &
 

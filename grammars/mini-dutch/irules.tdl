@@ -8,3 +8,15 @@
 ; finite-lex-rule-suffix :=
 ;   %suffix (* t)
 ;   finite-lex-rule.
+
+adj-inflection-pl :=
+  %suffix (* e)
+  adj-inflection-pl-NP-lex-rule .
+
+adj-inflection-def+sg :=
+  %suffix (* e)
+  adj-inflection-def+sg-NP-lex-rule .
+
+adj-inflection-indef+sg-non-neuter :=
+  %suffix (* e)
+  adj-inflection-indef+sg-non-neuter-NP-lex-rule.

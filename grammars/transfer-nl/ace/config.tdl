@@ -60,8 +60,8 @@ hook-path := .
 
 ; ortho-max-rules := 20.
 
-; enable-icons := yes.
-; mrs-icons-list := ICONS LIST.
+enable-icons := yes.
+mrs-icons-list := ICONS LIST.
 ; icons-left := IARG1.
 ; icons-right := IARG2.
 

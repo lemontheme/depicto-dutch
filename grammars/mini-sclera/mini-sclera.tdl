@@ -3,16 +3,19 @@
 ;; head types
 
 complex-picto := head.
-complex-subj+vp-picto := complex-picto & verb.
-complex-vp-picto := complex-picto & verb.
+complex-S-picto := complex-picto & verb.
+complex-VP-picto := complex-picto & verb.
 
 ; complex-picto :+ [ SCLERA sclera-hooks ].
-; sclera-hooks := avm &
-;  [ N1 ref-ind,
-;    N2 ref-ind,
-;    V1 event,
-;    V2 event ].
 
+sclera-hook := hook &
+ [ SCLERA sclera-hooks ].
+
+sclera-hooks := avm &
+    [ N1 ref-ind,
+      N2 ref-ind,
+      V1 event,
+      V2 event ].
 ;;; complex S-V pictos
 
 ;; experiment 1:
@@ -23,17 +26,20 @@ cat :+ [ COMPLEX bool ].
 
 ;;; lexical types
 
-main-complex-v-picto-lex := lex-item &
+complex-picto-lex := lex-item &
+  [ SYNSEM.LOCAL [ CONT.HOOK sclera-hook,
+                   CAT.COMPLEX + ] ].
+
+main-complex-v-picto-lex := complex-picto-lex &
   [ SYNSEM.LOCAL [ CAT [ VAL  [ SPR < >,
                                 SPEC < >,
-                                COMPS < > ],
-                         COMPLEX + ] ] ].
+                                COMPS < > ] ] ] ].
     ; SYNSEM.LKEYS.KEYREL event-relation ].
 
 ; e.g. "brush_dog"
 ; Rest is taken care of by subject-head rule
 complex-vp-picto-lex := main-complex-v-picto-lex &
-  [ SYNSEM.LOCAL [ CAT  [ HEAD complex-vp-picto,
+  [ SYNSEM.LOCAL [ CAT  [ HEAD complex-VP-picto,
                           VAL.SUBJ < #subject > ],
                    CONT [ HOOK [ LTOP #lbl_head,
                                  INDEX #event,
@@ -49,7 +55,7 @@ complex-vp-picto-lex := main-complex-v-picto-lex &
 
 ; e.g. "dog_bark"
 complex-subj+vp-picto-lex := main-complex-v-picto-lex &
-  [ SYNSEM.LOCAL [ CAT  [ HEAD complex-subj+vp-picto,
+  [ SYNSEM.LOCAL [ CAT  [ HEAD complex-S-picto,
                           VAL.SUBJ < > ],
                    CONT [ HOOK [ LTOP #lbl_head,
                                  INDEX #event],
@@ -64,7 +70,7 @@ complex-subj+vp-picto-lex := main-complex-v-picto-lex &
 
 ; e.g. "dog_bark" -> "the dog barks"
 complex-subj+vp-picto-rule := head-only &
-  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+  [ SYNSEM.LOCAL.CAT [ HEAD complex-S-picto,
                        VAL [ SPR < >,
 			                 SUBJ < >,
 			                 COMPS < >,
@@ -73,7 +79,7 @@ complex-subj+vp-picto-rule := head-only &
     SYNSEM.LOCAL.CONT.HOOK #hook,
     HEAD-DTR lex-item &
         [ SYNSEM.LOCAL [ CONT.HOOK #hook,
-                         CAT [ HEAD complex-subj+vp-picto,
+                         CAT [ HEAD complex-S-picto,
     				           VAL [ SPR < >,
     					             SUBJ < >,
     					             COMPS < > ],
@@ -110,12 +116,13 @@ sclera-bare-np-phrase := basic-bare-np-phrase &
 ; experiment with dotted pair list: < a, b . rest >
 ; delete
 
-; hook :+ [ SCLERA sclera-hooks ].
 ; sclera-hooks := avm &
 ;  [ N1 ref-ind,
 ;    N2 ref-ind,
 ;    V1 event,
 ;    V2 event ].
+
+; hook :+ [ SCLERA sclera-hooks ].
 
 ; some-test-start := phrase &
 ;   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
@@ -149,3 +156,37 @@ sclera-bare-np-phrase := basic-bare-np-phrase &
 ; test-picto := lex-item &
 ;   [ SYNSEM.LOCAL.CAT.HEAD complex-picto,
 ;     SYNSEM.LOCAL.CONT.RELS <! "a", "b", "c" !> ].
+
+test-picto := lex-item &
+  [ SYNSEM.LOCAL.CAT.HEAD complex-picto,
+    SYNSEM.LOCAL.CAT.VAL.COMPS < "a", "b", "c" > ].
+
+
+adjective-picto := basic-intersective-adjective-lex.
+attr-adjective-picto := adjective-picto &
+  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
+                                                          VAL [ SPR < >,
+                                                                COMPS < > ] ],
+                                                    CONT.HOOK [ LTOP #ltop,
+                                                                INDEX #index ] ] ]> ],
+                       VAL [ COMPS < > ] ],
+
+
+    SYNSEM.LOCAL.CONT.RELS <! arg1-ev-relation & [ LBL #ltop, ARG1 #index ] !> ] .
+
+sclera-adjective-noun-phrase := basic-head-mod-phrase-simple &
+  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
+                                    VAL.COMPS #comps ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD noun,
+                                VAL [ SUBJ #subj,
+                                      SPR #spr & < >,
+                                      SPEC #spec ] ],
+    SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+                           SUBJ #subj,
+                           SPR #spr,
+                           SPEC #spec ] ].
+
+; sclera-adjective-bind-complex-picto := basic-head-mod-phrase-simple &
+
+
+sclera-adj-int-noun-phrase := adj-head-int-phrase & sclera-adjective-noun-phrase.

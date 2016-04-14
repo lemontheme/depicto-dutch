@@ -6,6 +6,7 @@
 ;;; based on Matrix customization system version of:
 ;;;     Sun Jan 10 22:56:48 UTC 2016
 ;;;
+
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -25,7 +26,7 @@ noun :+ [ CASE case ].
 
 ; verb :+ [ COMPLEX - ].
 
-+nvcdmo :+  [ MOD < > ].
+; +nvcdmo :+  [ MOD < > ].
 
 inflected :+ [ PERNUM-FLAG luk,
                NUM-FLAG luk,
@@ -54,13 +55,11 @@ verb :+ [ INV bool ].
 ;;;;;;;;;;;;;;
 
 ;;; Case
-
 case := *top*.
 nom := case.  ; nominative
 acc := case.  ; accusative
 
 ;;; Person
-
 person := *top*.
 2nd-or-3rd := person.
 1st := person.
@@ -68,13 +67,11 @@ person := *top*.
 3rd := 2nd-or-3rd.
 
 ;;; Number
-
 number := *top*.
 singular := number.
 plural := number.
 
 ;;; Gender
-
 gender := *top*.
 neuter := gender.
 non-neuter := gender.
@@ -82,48 +79,31 @@ masculine := non-neuter.
 feminine := non-neuter.
 
 ;;; Form
-
 form := *top*.
 nonfinite := form.
 finite := form.
 
 ;;; Tense
-
 past := tense.
 non-past := tense.
 future := non-past.
 present := non-past.
 
 ;;; Aspect
-
 perfective := aspect.
 imperfective := aspect.
 
 ;;; Quantification (test, 28-March-2016)
-
 q_rel_min := predsort.
 def_q_rel := q_rel_min.
 indef_q_rel := q_rel_min.
 exist_q_rel := q_rel_min.
 
-;
-
-;;;;
-; p-form := adp. ; head type (experiment)
-
-;;;;
-
-;;;;;;;;;;;
-
-
-;
-
-
 ;;;;;;;;;;;;;;;;;;;
 ;;; Lexical Types
 ;;;;;;;;;;;;;;;;;;;
 
-;;; Nouns
+;;;; Nouns
 
 noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < #spr &
@@ -133,13 +113,6 @@ noun-lex := basic-noun-lex & basic-one-arg & no-hcons-lex-item & non-mod-lex-ite
                            SPEC < > ],
     ARG-ST < #spr > ].
 
-obl-spr-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT - ] > ].
-
-no-spr-noun-lex := noun-lex &
-  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT + ] > ].
-
-
 ; Nouns which cannot take specifiers mark their SPR requirement
 ; as OPT +.  Making the non-head daughter OPT - in this rule
 ; keeps such nouns out.
@@ -147,20 +120,16 @@ no-spr-noun-lex := noun-lex &
 ; Rules for building NPs.  Note that the Matrix uses SPR for
 ; the specifier of nouns and SUBJ for the subject (specifier) of verbs.
 
+obl-spr-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT - ] > ].
+
+no-spr-noun-lex := noun-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SPR < [ OPT + ] > ].
+
+
+;; common nouns
+
 common-noun-lex := obl-spr-noun-lex.
-
-1st-sg-pronoun-noun-lex := no-spr-noun-lex &
- [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
-                                      NUM singular ] ].
-
-2nd-sg-pronoun-noun-lex := no-spr-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
-                                       NUM singular ]].
-
-2nd-pl-pronoun-noun-lex := no-spr-noun-lex &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
-                                       NUM plural ]].
-
 
 femmasc-count-sg-noun-lex := obl-spr-noun-lex &
   [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ GEND non-neuter,
@@ -192,9 +161,44 @@ neutr-mass-noun-lex := noun-lex &
                                        NUM singular,
                                        PER 3rd ] ].
 
-;;; Verbs
+;; Pronouns
 
-cat :+ [ COMPLEX bool ].
+1st-sg-pronoun-noun-lex := no-spr-noun-lex &
+ [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
+                                      NUM singular ] ].
+
+1st-pl-pronoun-noun-lex := no-spr-noun-lex &
+ [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
+                                      NUM plural ] ].
+
+2nd-sg-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
+                                       NUM singular ]].
+
+2nd-pl-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd,
+                                       NUM plural ]].
+
+3rd-sg-fem-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
+                                       NUM singular,
+                                       GEND feminine ] ].
+
+3rd-sg-masc-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
+                                       NUM singular,
+                                       GEND masculine ] ].
+
+3rd-pl-pronoun-noun-lex := no-spr-noun-lex &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
+                                       NUM plural ]].
+
+
+
+
+;;;; Verbs
+
+; cat :+ [ COMPLEX bool ].
 
 verb-lex := lex-item &
   [ SYNSEM.LOCAL.CAT [ HEAD verb,
@@ -321,7 +325,17 @@ trans-pl-preterite-lex := trans-verb-lex &
                    CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM plural ],
                          HEAD.FORM finite ] ] ].
 
+ditrans-1st-sg-verb-lex := ditrans-verb-lex &
+  [ ARG-ST < [ ],
+             [ ],
+             [ OPT - ] >,
+    SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
+                   CAT [ VAL [ COMPS.FIRST.OPT -,
+                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
+                                                                      NUM singular ] ],
+                         HEAD.FORM finite ] ] ].
 
+         ;; OOOOH FIX THIS REDUNDANCY!!
 
 ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
   [ ARG-ST < [ ],
@@ -343,11 +357,13 @@ ditrans-pl-verb-lex := ditrans-verb-lex &
                                                                       NUM plural ] ],
                          HEAD.FORM finite ] ] ].
 
-;;; Prepositions (experimental)
-;;
+;;;; Prepositions (experimental)
+
 ; added 2016-April-08
 
 prep := adp. ; adp (adposition) is a head type defined in matrix-tdl.
+
+
 ; prep_rel := predsort.
 ; naar_p_rel := prep_rel.
 
@@ -365,21 +381,19 @@ prep-lex-item := basic-adposition-lex & no-hcons-lex-item &
                        CONT [ HOOK.INDEX #index,
                               RELS.LIST.FIRST.ARG0 #index ] ] ] > ].
 
+; argument/case-marking prepositions
+; predicational prep
+
 ;;; experimental: NEW VERB TYPE: intrans + PP
 
 intrans+pp-verb-lex := main-verb-lex & transitive-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
                            SUBJ < #subject >,
                            COMPS < #pp-comp > ],
-    SYNSEM.LOCAL.CONT.RELS <! [
-                                ; LBL #lbl-test,
-                                ; ARG0 #arg0-verb,
-                                ARG2 #index ] !> ,
+    SYNSEM.LOCAL.CONT.RELS <! [ ARG2 #index ] !> ,
     ARG-ST < #subject & [ LOCAL.CAT.HEAD noun & [ CASE nom ] ],
              #pp-comp & [ LOCAL.CAT [ HEAD prep ],
                           LOCAL.CONT.HOOK.INDEX #index ] > ].
-                        ;   LOCAL.CONT.RELS.LIST.FIRST [ LBL #lbl-test,
-                        ;                                ARG1 #arg0-verb ] ] > ] .
 
 intrans+pp-1st-sg-verb-lex := intrans+pp-verb-lex &
    [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
@@ -454,10 +468,9 @@ intrans+pp-pl-preterite-lex := intrans+pp-verb-lex &
 ;  [ SYNSEM.LOCAL.CAT.VAL.COMPS.FIRST.LOCAL.CAT.HEAD.FORM finite ].
 
 
-;;; Others
+;;;; Determiners
 
-;;; Determiners
-;;; SPEC is non-empty, and already specified by basic-determiner-lex.
+;; SPEC is non-empty, and already specified by basic-determiner-lex.
 
 determiner-lex := basic-determiner-lex & basic-zero-arg & non-mod-lex-item &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
@@ -467,64 +480,26 @@ determiner-lex := basic-determiner-lex & basic-zero-arg & non-mod-lex-item &
 definite-determiner-lex := determiner-lex & no-icons-lex-item.
 indefinite-determiner-lex := determiner-lex & no-icons-lex-item.
 
-;;; Adjectives
 
-adjective-lex := intersective-mod-lex & norm-ltop-lex-item &
-  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL.CAT [ HEAD noun,
-                                                        VAL.SPR cons ] ] > ],
-                       VAL [ SPR < >,
-        			         SUBJ < >,
-                             COMPS < >,
-    				         SPEC < > ] ] ].
+;;;; ADJECTIVES (added 2016 April 13)
 
-adjective-inflected-indef-non-neuter-sg-lex := adjective-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                          LOCAL.CONT [ HOOK.INDEX.PNG [ GEND non-neuter,
-                                                        NUM singular ],
-                                       RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
+adjective-lex := basic-intersective-adjective-lex.
 
-adjective-ninflected-indef-neuter-sg-lex := adjective-lex &
- [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                          LOCAL.CONT [ HOOK.INDEX.PNG [ GEND neuter,
-                                                        NUM  singular ],
-                                       RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
-
-adjective-inflected-def-sg-lex := adjective-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                          LOCAL.CONT [ HOOK.INDEX.PNG [ GEND non-neuter,
-                                                        NUM singular ],
-                                       RELS <! [ PRED def_q_rel ] !> ] ] ] > ].
-
-adjective-inflected-def-pl-lex := adjective-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                          LOCAL.CONT [ HOOK.INDEX.PNG [ NUM plural ],
-                                       RELS <! [ PRED def_q_rel ] !> ] ] ] > ].
-
-
-; [ LOCAL.CONT.HOOK.INDEX.
-
-; adj-head-phrase := basic-head-mod-phrase-simple & head-final &
-;   [ SYNSEM [ LOCAL.CAT.POSTHEAD #ph, ; delete
-; 	     MODIFIED lmod & [ PERIPH #periph ], ; delete
-;              LIGHT #light ], ; delete
-;     HEAD-DTR.SYNSEM [ LOCAL.CAT.POSTHEAD #ph, ; delete
-;                       LIGHT #light ], ; delete
-;     NON-HEAD-DTR.SYNSEM [ LOCAL.CAT [ VAL.COMPS < > ], ; delete
-; 			  NON-LOCAL [ SLASH 0-dlist, ; delete
-; 				      REL 0-dlist ], ; delete
-;                           MODIFIED.PERIPH #periph ] ]. ; delete
-;
-; adj-head-int-phrase := adj-head-phrase & isect-mod-phrase &
-;   [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ POSTHEAD - ] ]. ; delete
-
+attributive-adjective-lex := adjective-lex &
+  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
+                                                          VAL.SPR cons ],
+                                                    CONT.HOOK  [ LTOP #ltop,
+                                                                 INDEX #index ] ] ]> ],
+                                    VAL [ COMPS < > ] ],
+    SYNSEM.LOCAL.CONT [ RELS <! arg1-ev-relation & [ LBL #ltop, ARG1 #index ] !> ],
+    INFLECTED.ADJ-INFLECTION-FLAG - ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; LEXICAL RULES
 ;;;;;;;;;;;;;;;;;;;
 
-
 ;; Adjective Incorporation
-;
+
 ;adj_incorporation-lex-rule := add-only-rule &
 ;  [ C-CONT [ RELS <! arg1-ev-relation &
 ;                     [ LBL #ltop,
@@ -568,6 +543,32 @@ finite-lex-rule := pernum-lex-rule-super &
 pl-lex-rule := const-lex-rule & pernum-lex-rule-super &
   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG.NUM plural ].
 
+;;;; Adjectives
+
+adj-inflection-lex-rule-super := add-only-no-ccont-rule &
+  [ INFLECTED.ADJ-INFLECTION-FLAG +,
+    DTR adjective-lex ].
+
+adj-inflection-pl-NP-lex-rule := adj-inflection-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                                  LOCAL.CONT [ HOOK.INDEX.PNG [ NUM plural ] ] ] ] > ].
+
+adj-inflection-def+sg-NP-lex-rule := adj-inflection-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                             LOCAL.CONT [ HOOK.INDEX.PNG [ NUM singular ],
+                                           RELS <! [ PRED def_q_rel ] !> ] ] ] > ] .
+
+adj-inflection-indef+sg-non-neuter-NP-lex-rule := adj-inflection-lex-rule-super & infl-lex-rule &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                               LOCAL.CONT [ HOOK.INDEX.PNG [ GEND non-neuter,
+                                                             NUM singular ],
+                                            RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
+
+adj-inflection-indef+sg-*neuter*-NP-lex-rule := adj-inflection-lex-rule-super & const-lex-rule &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
+                                    LOCAL.CONT [ HOOK.INDEX.PNG [ GEND neuter,
+                                                                  NUM singular ],
+                                     RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
 
 ;; Rule for inverted subject verb order in questions.
 ;; The incompatible SUBJ values on SYNSEM and DTR are
@@ -591,6 +592,37 @@ subj-v-inv-lrule := cat-change-only-lex-rule & same-hc-light-lex-rule & same-pos
                              HEAD verb &
                                   [ FORM #form ] ] ] ].
 
+
+; from Nederlands.tdl
+
+; needs fixing
+dative-shift-lrule := val-change-only-lex-rule & const-lex-rule &
+  [ DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+                               SPR #spr,
+                               SPEC #spec,
+                               COMPS < [ LOCAL [ CONT #cont1,
+                                                 CAT.HEAD noun &
+                                                          [ CASE acc ] ] ],
+                                       [ LOCAL [ CONT #cont2,
+                                                 CAT.HEAD noun &
+                                                          [ CASE acc ] ] ] > ],
+    SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+                           SPR #spr,
+                           SPEC #spec,
+                           COMPS < [ OPT -,
+                                     LOCAL [ CONT #cont2,
+                                             CAT.HEAD noun &
+                                                      [ CASE acc ] ] ],
+                                   [ OPT -,
+                                     LOCAL [ CONT #cont1,
+                                             CAT.HEAD prep &
+                                                      [ FORM aan ] ] ] > ] ].
+pform := form.
+aan := pform.
+
+dative-comp-prep-lex := prep-lex-item &
+  [ SYNSEM.LOCAL.CAT.HEAD.FORM aan ].
+
 ;;;;;;;;;;;;;;;;;;;
 ;;; Phrasal Types
 ;;;;;;;;;;;;;;;;;;;
@@ -606,11 +638,13 @@ head-spec-phrase := basic-head-spec-phrase & head-final &
 [ NON-HEAD-DTR.SYNSEM.OPT - ].
 ; ...</>
 
-
 ;; Constraint on MC used to be part of matrix.tdl
 ;; it applies to all wo implementations, except for v2
 
 head-comp-phrase := basic-head-1st-comp-phrase & head-initial.
+; head-comp-phrase := basic-head-1st-comp-phrase & head-initial &
+;   [ SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+;
 
 subj-head-phrase := decl-head-subj-phrase & head-final &
 [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
@@ -626,6 +660,20 @@ bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED exist_q_rel ] !> ].
 
 
+adjective-noun-phrase := basic-head-mod-phrase-simple &
+  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
+                                    VAL.COMPS #comps ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD noun,
+                                VAL [ SUBJ #subj,
+                                      SPR #spr,
+                                      SPEC #spec ] ],
+    SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+                           SUBJ #subj,
+                           SPR #spr,
+                           SPEC #spec ] ].
+
+adj-int-noun-phrase := adj-head-int-phrase & adjective-noun-phrase.
+
 ; This rule takes [MC na] inverted phrases and licenses them as main clauses with question semantics.
 ;
 
@@ -638,10 +686,6 @@ bare-np-phrase := basic-bare-np-phrase &
 ;                                    [ SUBJ < >,
 ;                                      COMPS < > ] ],
 ;    C-CONT.HOOK.INDEX.SF ques ].
-
-
-
-
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination

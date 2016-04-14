@@ -1,2 +1,6 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
-inv-lr := subj-v-inv-lrule.
+; inv-lr := subj-v-inv-lrule.
+
+adj-infl-indef+sg-*neuter*-NP := adj-inflection-indef+sg-*neuter*-NP-lex-rule.
+
+dative-shift := dative-shift-lrule.

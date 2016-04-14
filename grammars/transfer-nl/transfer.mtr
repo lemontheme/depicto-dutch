@@ -22,12 +22,17 @@ school_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_school_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_school_n_rel" ] > ].
 
-;
+couch_mtr := noun_mtr &
+[ INPUT.RELS < [ PRED "sclera:_couch_n_rel" ] >,
+  OUTPUT.RELS < [ PRED "_zetel_n_rel" ] > ].
+
+;;;
+
 pronoun_mtr := noun_mtr &
  [ INPUT.RELS < [ PRED "sclera:_pronoun_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_pronoun_n_rel" ] > ].
 
-;
+;;;
 
 blaffen_mtr := arg1_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_bark_v_rel" ] >,
@@ -37,11 +42,11 @@ slapen_mtr := arg1_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_sleep_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_slapen_v_rel" ] > ].
 
-kopen_mtr := arg12_v_mtr &
+kopen_mtr := arg123_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_buy_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_kopen_v_rel" ] > ].
 
-geven_mtr := arg1_v_mtr &
+geven_mtr := arg123_v_mtr &
 [ INPUT.RELS < [ PRED "sclera:_give_v_rel" ] >,
   OUTPUT.RELS <[ PRED "_geven_v_rel" ] > ].
 
@@ -73,3 +78,9 @@ locative_naar_mtr := arg12_v_mtr &
 school_n_mtr := noun_mtr &
 [ INPUT.RELS < [ PRED "sclera:_school_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_school_n_rel" ] > ].
+
+;;;
+
+happy_j_mtr := arg1_v_mtr &
+[ INPUT.RELS < [ PRED "sclera:_happy_j_rel" ] >,
+  OUTPUT.RELS < [ PRED "_blij_j_rel" ] > ].
