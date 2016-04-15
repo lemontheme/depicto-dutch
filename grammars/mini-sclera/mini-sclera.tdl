@@ -163,8 +163,10 @@ test-picto := lex-item &
 
 
 adjective-picto := basic-intersective-adjective-lex.
+
 attr-adjective-picto := adjective-picto &
-  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
+  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [
+  ; HEAD noun,
                                                           VAL [ SPR < >,
                                                                 COMPS < > ] ],
                                                     CONT.HOOK [ LTOP #ltop,
@@ -172,7 +174,9 @@ attr-adjective-picto := adjective-picto &
                        VAL [ COMPS < > ] ],
 
 
-    SYNSEM.LOCAL.CONT.RELS <! arg1-ev-relation & [ LBL #ltop, ARG1 #index ] !> ] .
+    SYNSEM.LOCAL.CONT.RELS <! arg1-ev-relation & [
+    ; LBL #ltop,
+                                                   ARG1 #index ] !> ] .
 
 sclera-adjective-noun-phrase := basic-head-mod-phrase-simple &
   [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
@@ -186,7 +190,20 @@ sclera-adjective-noun-phrase := basic-head-mod-phrase-simple &
                            SPR #spr,
                            SPEC #spec ] ].
 
-; sclera-adjective-bind-complex-picto := basic-head-mod-phrase-simple &
+sclera-adjective-complex-picto-N1-phrase := basic-head-mod-phrase-simple &
+  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
+                                    VAL.COMPS #comps ],
+    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD complex-picto,
+                                VAL [ SUBJ #subj,
+                                      SPR #spr,
+                                      SPEC #spec ] ],
+    SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+                           SUBJ #subj,
+                           SPR #spr,
+                           SPEC #spec ] ].
 
+; CONT.HOOK.INDEX.SCLERA.N1 #N1-arg0
 
 sclera-adj-int-noun-phrase := adj-head-int-phrase & sclera-adjective-noun-phrase.
+
+slera-adj-int-noun-phrase-1 := adj-head-int-phrase & sclera-adjective-complex-picto-N1-phrase.

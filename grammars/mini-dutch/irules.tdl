@@ -19,4 +19,4 @@ adj-inflection-def+sg :=
 
 adj-inflection-indef+sg-non-neuter :=
   %suffix (* e)
-  adj-inflection-indef+sg-non-neuter-NP-lex-rule.
+  adj-inflection-indef+sg-non-neuter-NP-lex-rule .

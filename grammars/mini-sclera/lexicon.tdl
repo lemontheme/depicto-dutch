@@ -112,7 +112,8 @@ brush_v := trans-verb-lex &
 
 dog_bark := complex-subj+vp-picto-lex & ; change
     [ STEM < "dog_bark" >,
-      SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_bark_v_rel",
+      SYNSEM.LOCAL.CONT [ HOOK.SCLERA.N1 #subject,
+                          RELS <! [ PRED "_bark_v_rel",
                                     ARG0 #event,
                                     ARG1 #subject ],
                                   [ PRED "_dog_n_rel",
@@ -121,7 +122,7 @@ dog_bark := complex-subj+vp-picto-lex & ; change
                                   [ PRED "q_rel_min",
                                     ARG0 #subject,
                                     RSTR #rstr ] !>,
-                         HCONS <! [ HARG #rstr ,
+                          HCONS <! [ HARG #rstr ,
                                     LARG #noun ] !> ] ].
 
 brush_dog := complex-vp-picto-lex &

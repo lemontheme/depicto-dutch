@@ -488,10 +488,14 @@ adjective-lex := basic-intersective-adjective-lex.
 attributive-adjective-lex := adjective-lex &
   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
                                                           VAL.SPR cons ],
-                                                    CONT.HOOK  [ LTOP #ltop,
+                                                    CONT.HOOK  [
+                                                    ;; LTOP-LBL identification does not seem to be necessary
+                                                    ; LTOP #ltop,
                                                                  INDEX #index ] ] ]> ],
                                     VAL [ COMPS < > ] ],
-    SYNSEM.LOCAL.CONT [ RELS <! arg1-ev-relation & [ LBL #ltop, ARG1 #index ] !> ],
+    SYNSEM.LOCAL.CONT [ RELS <! arg1-ev-relation & [
+    ; LBL #ltop,
+                                ARG1 #index ] !> ],
     INFLECTED.ADJ-INFLECTION-FLAG - ].
 
 ;;;;;;;;;;;;;;;;;;;
@@ -547,28 +551,24 @@ pl-lex-rule := const-lex-rule & pernum-lex-rule-super &
 
 adj-inflection-lex-rule-super := add-only-no-ccont-rule &
   [ INFLECTED.ADJ-INFLECTION-FLAG +,
-    DTR adjective-lex ].
+    DTR attributive-adjective-lex ].
 
 adj-inflection-pl-NP-lex-rule := adj-inflection-lex-rule-super & infl-lex-rule &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                                  LOCAL.CONT [ HOOK.INDEX.PNG [ NUM plural ] ] ] ] > ].
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CONT.HOOK.INDEX.PNG.NUM plural ] > ].
 
 adj-inflection-def+sg-NP-lex-rule := adj-inflection-lex-rule-super & infl-lex-rule &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                             LOCAL.CONT [ HOOK.INDEX.PNG [ NUM singular ],
-                                           RELS <! [ PRED def_q_rel ] !> ] ] ] > ] .
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CAT.VAL.SPR < [ LOCAL.CONT.RELS <! [ PRED def_q_rel ] !> ] >,
+                                          CONT.HOOK.INDEX.PNG [ NUM singular ] ] ] > ].
 
 adj-inflection-indef+sg-non-neuter-NP-lex-rule := adj-inflection-lex-rule-super & infl-lex-rule &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                               LOCAL.CONT [ HOOK.INDEX.PNG [ GEND non-neuter,
-                                                             NUM singular ],
-                                            RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CAT.VAL.SPR < [ LOCAL.CONT.RELS <! [ PRED indef_q_rel ] !> ] >,
+                                          CONT.HOOK.INDEX.PNG [ NUM singular,
+                                                                GEND non-neuter ] ] ] > ].
 
 adj-inflection-indef+sg-*neuter*-NP-lex-rule := adj-inflection-lex-rule-super & const-lex-rule &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT.VAL.SPR.FIRST [
-                                    LOCAL.CONT [ HOOK.INDEX.PNG [ GEND neuter,
-                                                                  NUM singular ],
-                                     RELS <! [ PRED indef_q_rel ] !> ] ] ] > ].
+[ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL [ CAT.VAL.SPR < [ LOCAL.CONT.RELS <! [ PRED indef_q_rel ] !> ] >,
+                                        CONT.HOOK.INDEX.PNG [ NUM singular,
+                                                              GEND neuter ] ] ] > ].
 
 ;; Rule for inverted subject verb order in questions.
 ;; The incompatible SUBJ values on SYNSEM and DTR are
@@ -661,8 +661,8 @@ bare-np-phrase := basic-bare-np-phrase &
 
 
 adjective-noun-phrase := basic-head-mod-phrase-simple &
-  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
-                                    VAL.COMPS #comps ],
+  [ NON-HEAD-DTR [ SYNSEM.LOCAL.CAT [ HEAD adj,
+                                      VAL.COMPS #comps ] ],
     HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD noun,
                                 VAL [ SUBJ #subj,
                                       SPR #spr,
