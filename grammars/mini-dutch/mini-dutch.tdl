@@ -483,20 +483,17 @@ indefinite-determiner-lex := determiner-lex & no-icons-lex-item.
 
 ;;;; ADJECTIVES (added 2016 April 13)
 
-adjective-lex := basic-intersective-adjective-lex.
+adjective-lex := basic-intersective-adjective-lex &
+  [ INFLECTED.ADJ-INFLECTION-FLAG  - ].
 
+; removed LTOP-LBL identification
 attributive-adjective-lex := adjective-lex &
   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
                                                           VAL.SPR cons ],
-                                                    CONT.HOOK  [
-                                                    ;; LTOP-LBL identification does not seem to be necessary
-                                                    ; LTOP #ltop,
-                                                                 INDEX #index ] ] ]> ],
+                                                    CONT.HOOK  [ INDEX #index ] ] ]> ],
                                     VAL [ COMPS < > ] ],
-    SYNSEM.LOCAL.CONT [ RELS <! arg1-ev-relation & [
-    ; LBL #ltop,
-                                ARG1 #index ] !> ],
-    INFLECTED.ADJ-INFLECTION-FLAG - ].
+    SYNSEM.LOCAL.CONT [ RELS <! arg1-ev-relation &
+                                [ ARG1 #index ] !> ] ].
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; LEXICAL RULES
@@ -592,7 +589,6 @@ subj-v-inv-lrule := cat-change-only-lex-rule & same-hc-light-lex-rule & same-pos
                              HEAD verb &
                                   [ FORM #form ] ] ] ].
 
-
 ; from Nederlands.tdl
 
 ; needs fixing
@@ -648,7 +644,6 @@ head-comp-phrase := basic-head-1st-comp-phrase & head-initial.
 
 subj-head-phrase := decl-head-subj-phrase & head-final &
 [ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
-
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.

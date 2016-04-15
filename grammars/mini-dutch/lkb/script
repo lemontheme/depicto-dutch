@@ -45,7 +45,7 @@
 (read-tdl-type-files-aux
 (list
 (lkb-pathname (grandparent-directory) "matrix-main/matrix.tdl")
-; (lkb-pathname (parent-directory) "head-types.tdl")
+  (lkb-pathname (parent-directory) "head-types.tdl")
   (lkb-pathname (parent-directory) "mini-dutch.tdl")
   (lkb-pathname (grandparent-directory) "matrix-main/mtr.tdl")
 ))

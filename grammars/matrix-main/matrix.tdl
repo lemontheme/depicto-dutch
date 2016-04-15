@@ -3056,7 +3056,7 @@ no-mod-lex := no-hcons-lex-item &
 basic-adjective-lex := norm-sem-lex-item &
   [ SYNSEM [ LOCAL [ CAT [ HEAD adj,
                            VAL [ COMPS < >,
-				 SPEC < >,
+				                 SPEC < >,
                                  SPR.FIRST.LOCAL [ CAT.HEAD adv,
 						   CONT.HOOK.XARG #index ] ] ] ],
              LKEYS.KEYREL event-relation &
