@@ -27,7 +27,8 @@ cat :+ [ COMPLEX bool ].
 ;;; lexical types
 
 complex-picto-lex := lex-item &
-  [ SYNSEM.LOCAL [ CONT.HOOK sclera-hook,
+  [ SYNSEM.LOCAL [ CONT.HOOK sclera-hook
+  ,
                    CAT.COMPLEX + ] ].
 
 main-complex-v-picto-lex := complex-picto-lex &
@@ -89,16 +90,16 @@ complex-subj+vp-picto-rule := head-only &
 ; e.g. { dog_n_rel(x) } => { DET(d, x) dog_n_rel(x)}
 sclera-basic-insert-definite-det-rule := head-only &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
-			   SUBJ < >,
-			   COMPS < >,
-			   SPEC < > ],
+			               SUBJ < >,
+                		   COMPS < >,
+            			   SPEC < > ],
     HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun,
-				  VAL [ SPR < [ LOCAL.CAT.HEAD det,
-						OPT - ] >,
-					SUBJ < >,
-					COMPS < > ] ],
-			    CONT.HOOK [ INDEX #index,
-					        LTOP #larg ] ],
+                				  VAL [ SPR < [ LOCAL.CAT.HEAD det,
+                        						OPT - ] >,
+                    					SUBJ < >,
+                    					COMPS < > ] ],
+            			    CONT.HOOK [ INDEX #index,
+            					        LTOP #larg ] ],
     C-CONT [ RELS <! quant-relation &
               [ PRED "q_rel_min",
 		        ARG0 #index,
@@ -107,7 +108,8 @@ sclera-basic-insert-definite-det-rule := head-only &
 		      [ HARG #harg,
 		        LARG #larg ] !>,
 	         ICONS <! !>,
-	         HOOK [ INDEX #index ] ] ].
+	         HOOK [ INDEX #index,
+                    LTOP #larg ] ] ]. ; added ltop identity
 
 sclera-bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED "exist_q_rel" ] !> ].
@@ -116,11 +118,6 @@ sclera-bare-np-phrase := basic-bare-np-phrase &
 ; experiment with dotted pair list: < a, b . rest >
 ; delete
 
-; sclera-hooks := avm &
-;  [ N1 ref-ind,
-;    N2 ref-ind,
-;    V1 event,
-;    V2 event ].
 
 ; hook :+ [ SCLERA sclera-hooks ].
 
@@ -157,53 +154,58 @@ sclera-bare-np-phrase := basic-bare-np-phrase &
 ;   [ SYNSEM.LOCAL.CAT.HEAD complex-picto,
 ;     SYNSEM.LOCAL.CONT.RELS <! "a", "b", "c" !> ].
 
-test-picto := lex-item &
-  [ SYNSEM.LOCAL.CAT.HEAD complex-picto,
-    SYNSEM.LOCAL.CAT.VAL.COMPS < "a", "b", "c" > ].
 
 
-adjective-picto := basic-intersective-adjective-lex.
+adjective-picto := basic-intersective-adjective-lex & no-hcons-lex-item &
+  [ INFLECTED.ADJ-INFLECTION-FLAG na ].
 
-attr-adjective-picto := adjective-picto &
-  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [
-  ; HEAD noun,
-                                                          VAL [ SPR < >,
-                                                                COMPS < > ] ],
-                                                    CONT.HOOK [ LTOP #ltop,
-                                                                INDEX #index ] ] ]> ],
+attr-adjective-picto := basic-intersective-adjective-lex & no-hcons-lex-item &
+  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ VAL [ SPR < >,
+                                                                COMPS < > ],
+                                                          HEAD noun ],
+                                                    CONT.HOOK [ INDEX #index,
+                                                                LTOP #ltop ] ] ] > ],
                        VAL [ COMPS < > ] ],
+    SYNSEM.LOCAL.CONT.RELS.LIST.FIRST [ ARG1 #index,
+                                        LBL #ltop ] ].
 
-
-    SYNSEM.LOCAL.CONT.RELS <! arg1-ev-relation & [
-    ; LBL #ltop,
-                                                   ARG1 #index ] !> ] .
+; attr-adjective-picto := adjective-picto &
+;   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
+;                                                           VAL.SPR cons ],
+;                                                     CONT.HOOK  [ INDEX #index ] ] ] > ],
+;                                     VAL [ COMPS < > ] ],
+;     SYNSEM.LOCAL.CONT [ RELS <! [ ARG1 #index ] !> ] ].
 
 sclera-adjective-noun-phrase := basic-head-mod-phrase-simple &
-  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
-                                    VAL.COMPS #comps ],
-    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD noun,
+  [ NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
+                                      VAL.SPR cons,
+                                      VAL.COMPS #comps ],
+                                CONT.RELS.LIST.FIRST [ ARG1 #index,
+                                                       LBL #ltop  ] ],
+    HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun,
                                 VAL [ SUBJ #subj,
-                                      SPR #spr & < >,
-                                      SPEC #spec ] ],
+                                      SPEC #spec,
+                                      SPR < > ] ],
+                            CONT.HOOK [ INDEX #index,
+                                        LTOP  #ltop ] ],
     SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
                            SUBJ #subj,
-                           SPR #spr,
                            SPEC #spec ] ].
 
-sclera-adjective-complex-picto-N1-phrase := basic-head-mod-phrase-simple &
-  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
-                                    VAL.COMPS #comps ],
-    HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD complex-picto,
-                                VAL [ SUBJ #subj,
-                                      SPR #spr,
-                                      SPEC #spec ] ],
-    SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
-                           SUBJ #subj,
-                           SPR #spr,
-                           SPEC #spec ] ].
+; sclera-adjective-complex-picto-N1-phrase := basic-head-mod-phrase-simple &
+;   [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
+;                                     VAL.COMPS #comps ],
+;     HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD complex-picto,
+;                                 VAL [ SUBJ #subj,
+;                                       SPR #spr,
+;                                       SPEC #spec ] ],
+;     SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+;                            SUBJ #subj,
+;                            SPR #spr,
+;                            SPEC #spec ] ].
 
 ; CONT.HOOK.INDEX.SCLERA.N1 #N1-arg0
 
-sclera-adj-int-noun-phrase := adj-head-int-phrase & sclera-adjective-noun-phrase.
+sclera-adj-int-noun-phrase := sclera-adjective-noun-phrase & adj-head-int-phrase.
 
-slera-adj-int-noun-phrase-1 := adj-head-int-phrase & sclera-adjective-complex-picto-N1-phrase.
+; slera-adj-int-noun-phrase-1 := adj-head-int-phrase & sclera-adjective-complex-picto-N1-phrase.

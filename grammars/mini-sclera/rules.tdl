@@ -23,11 +23,15 @@ sclera-allow-complex-subj+vp-picto-rule := complex-subj+vp-picto-rule.
 ; status: in progress
 ; sclera-allow-complex-vp-picto-rule := complex-vp-picto-rule.
 
-; adj-int-noun-phrase := adj-int-noun-phrase.
-sclera-adj-int-NP-rule := sclera-adj-int-noun-phrase.
+; sclera-adj-int-NP-rule := sclera-adj-int-noun-phrase.
 
 ; experimental. 14 April 2016.
 ; slera-adj-int-noun-phrase-1
+
+; adj-head-int-phrase := adj-head-int-phrase.
+
+sclera-adj-int-noun-phrase := sclera-adj-int-noun-phrase.
+
 
 ;n1-top-coord := n1-top-coord-rule.
 ;

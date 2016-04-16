@@ -1,6 +1,5 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 
-
 head-comp := head-comp-phrase.
 
 subj-head := subj-head-phrase.
@@ -10,11 +9,10 @@ head-spec := head-spec-phrase.
 bare-np := bare-np-phrase.
 
 ; adjective-phrase := adj-head-int-phrase.
-; adj-int-noun-phrase := adj-int-noun-phrase.
+
 adj-int-noun-phrase := adj-int-noun-phrase.
 
-
-
+; adj-head-int := adj-head-int-phrase.
 
 ; ternary-headed-phrase :=  ternary-headed-phrase.
 

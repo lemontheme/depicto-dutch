@@ -26,7 +26,7 @@ noun :+ [ CASE case ].
 
 ; verb :+ [ COMPLEX - ].
 
-; +nvcdmo :+  [ MOD < > ].
++nvcdmo :+  [ MOD < > ].
 
 inflected :+ [ PERNUM-FLAG luk,
                NUM-FLAG luk,
@@ -44,7 +44,7 @@ basic-head-comp-phrase :+ [ SYNSEM.LOCAL.CAT.MC #mc,
     HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
 
 basic-head-mod-phrase-simple :+ [ SYNSEM.LOCAL.CAT.MC #mc,
-    NON-HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
+                                  NON-HEAD-DTR.SYNSEM.LOCAL.CAT.MC #mc ].
 
 ; For the analysis of inverted yes-no questions, we add the feature INV.
 
@@ -326,9 +326,10 @@ trans-pl-preterite-lex := trans-verb-lex &
                          HEAD.FORM finite ] ] ].
 
 ditrans-1st-sg-verb-lex := ditrans-verb-lex &
-  [ ARG-ST < [ ],
-             [ ],
-             [ OPT - ] >,
+  [
+  ; ARG-ST < [ ],
+  ;            [ ],
+  ;            [ OPT - ] >,
     SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
@@ -338,9 +339,10 @@ ditrans-1st-sg-verb-lex := ditrans-verb-lex &
          ;; OOOOH FIX THIS REDUNDANCY!!
 
 ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
-  [ ARG-ST < [ ],
-             [ ],
-             [ OPT - ] >,
+  [
+  ; ARG-ST < [ ],
+  ;            [ ],
+  ;            [ OPT - ] >,
     SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
@@ -348,18 +350,17 @@ ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
                          HEAD.FORM finite ] ] ].
 
 ditrans-pl-verb-lex := ditrans-verb-lex &
-  [ ARG-ST < [ ],
-             [ ],
-             [ OPT - ] >,
+  [
+  ; ARG-ST < [ ],
+  ;            [ ],
+  ;            [ OPT - ] >,
     SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
                                                                       NUM plural ] ],
                          HEAD.FORM finite ] ] ].
 
-;;;; Prepositions (experimental)
-
-; added 2016-April-08
+;;;; PREPOSITIONS (experimental) ; added 2016-April-08
 
 prep := adp. ; adp (adposition) is a head type defined in matrix-tdl.
 
@@ -480,20 +481,36 @@ determiner-lex := basic-determiner-lex & basic-zero-arg & non-mod-lex-item &
 definite-determiner-lex := determiner-lex & no-icons-lex-item.
 indefinite-determiner-lex := determiner-lex & no-icons-lex-item.
 
-
 ;;;; ADJECTIVES (added 2016 April 13)
 
+; intersective-mod-lex introduces no-hcons requirement, without which
+; handle constraints are not appended on the mother phrase.
 adjective-lex := basic-intersective-adjective-lex &
-  [ INFLECTED.ADJ-INFLECTION-FLAG  - ].
+  [ INFLECTED.ADJ-INFLECTION-FLAG - ].
 
 ; removed LTOP-LBL identification
-attributive-adjective-lex := adjective-lex &
-  [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
-                                                          VAL.SPR cons ],
-                                                    CONT.HOOK  [ INDEX #index ] ] ]> ],
-                                    VAL [ COMPS < > ] ],
-    SYNSEM.LOCAL.CONT [ RELS <! arg1-ev-relation &
-                                [ ARG1 #index ] !> ] ].
+; attributive-adjective-lex := adjective-lex & intersective-mod-lex &
+;   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
+;                                                           VAL.SPR cons ],
+;                                                     CONT.HOOK  [ INDEX #index ] ] ] > ],
+;                                     VAL [ COMPS < > ] ],
+;     SYNSEM.LOCAL.CONT [ RELS <! [ ARG1 #index ] !> ] ].
+
+;;;; from mini-eng
+;
+; adj-lex := basic-intersective-adjective-lex.
+;
+regular-adjective-lex := attributive-adjective-lex &
+  [ SYNSEM.LOCAL.CAT [ POSTHEAD -,
+                       VAL.SUBJ < >,
+                       HEAD.PRD + ] ].
+;
+; Basic attributive adjective definition
+attributive-adjective-lex := adjective-lex & intersective-mod-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+                                              VAL.SPR cons ] ] > ].
+;
+;;;;; </>
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; LEXICAL RULES
@@ -654,7 +671,6 @@ subj-head-phrase := decl-head-subj-phrase & head-final &
 bare-np-phrase := basic-bare-np-phrase &
   [ C-CONT.RELS <! [ PRED exist_q_rel ] !> ].
 
-
 adjective-noun-phrase := basic-head-mod-phrase-simple &
   [ NON-HEAD-DTR [ SYNSEM.LOCAL.CAT [ HEAD adj,
                                       VAL.COMPS #comps ] ],
@@ -666,6 +682,22 @@ adjective-noun-phrase := basic-head-mod-phrase-simple &
                            SUBJ #subj,
                            SPR #spr,
                            SPEC #spec ] ].
+
+; adjective-noun-phrase := basic-head-mod-phrase-simple &
+;   [ NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
+;                                       VAL.COMPS #comps ],
+;                                 CONT.RELS.LIST.FIRST [ ARG1 #index,
+;                                                        LBL #ltop  ] ],
+;     HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun,
+;                                 VAL [ SUBJ #subj,
+;                                       SPEC #spec,
+;                                       SPR #spr ] ],
+;                             CONT.HOOK [ INDEX #index,
+;                                         LTOP  #ltop ] ],
+;     SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+;                            SUBJ #subj,
+;                            SPEC #spec,
+;                            SPR #spr ] ].
 
 adj-int-noun-phrase := adj-head-int-phrase & adjective-noun-phrase.
 

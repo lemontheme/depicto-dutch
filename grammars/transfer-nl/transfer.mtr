@@ -84,3 +84,7 @@ school_n_mtr := noun_mtr &
 happy_j_mtr := arg1_v_mtr &
 [ INPUT.RELS < [ PRED "sclera:_happy_j_rel" ] >,
   OUTPUT.RELS < [ PRED "_blij_j_rel" ] > ].
+
+brown_j_mtr := arg1_v_mtr &
+[ INPUT.RELS < [ PRED "sclera:_brown_j_rel" ] >,
+  OUTPUT.RELS < [ PRED "_bruin_j_rel" ] > ].

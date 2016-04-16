@@ -77,9 +77,6 @@ happy := adjective-picto &
     SYNSEM.LKEYS.KEYREL.PRED "_happy_j_rel" ].
 
 
-; ziek :=  &
-
-
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Verbs
 
 sleep := intrans-verb-lex &

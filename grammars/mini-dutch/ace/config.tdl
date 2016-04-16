@@ -30,6 +30,8 @@ diff-list-type            := diff-list.
 
 ;chart-dependencies := .
 
+
+
 deleted-daughters := ARGS HEAD-DTR NON-HEAD-DTR DTR.
 
 parsing-packing-restrictor := STEM RELS HCONS RNAME.
@@ -48,3 +50,11 @@ enable-icons := yes.
 mrs-icons-list := ICONS LIST.
 icons-left := IARG1.
 icons-right := IARG2.
+
+;;; recent additions:
+;; reduce storage requirements for the compiled lexicon when possible
+simplify-lexicon := enabled.
+
+;; faster generation
+;; note: **considerably** faster generation!!
+index-accessibility-filtering := enabled.
