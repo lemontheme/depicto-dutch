@@ -46,6 +46,10 @@ slapen_mtr := arg1_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_sleep_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_slapen_v_rel" ] > ].
 
+see_mtr := arg12_v_mtr &
+ [ INPUT.RELS < [ PRED "sclera:_see_v_rel" ] >,
+   OUTPUT.RELS <[ PRED "_zien_v_rel" ] > ].
+
 kopen_mtr := arg123_v_mtr &
  [ INPUT.RELS < [ PRED "sclera:_buy_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_kopen_v_rel" ] > ].

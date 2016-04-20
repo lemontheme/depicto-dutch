@@ -285,7 +285,7 @@ question-picto := iforce-picto &
                    CONT.HOOK.INDEX.SF ques ] ].
 
 modify-illocution-phrase := basic-head-mod-phrase-simple &
-                                head-initial & isect-mod-phrase & head-compositional &
+                                head-initial & head-compositional &
   [ C-CONT [ HOOK.INDEX.SF #illocution,
              RELS <! !> ],
     NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.HEAD ques-mod,

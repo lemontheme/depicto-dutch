@@ -182,8 +182,8 @@ gap := expressed-non-canonical &
 
 unexpressed := synsem-min &
   [ NON-LOCAL [ SLASH 0-dlist,
-		REL 0-dlist,
-		QUE 0-dlist ] ].
+	         	REL 0-dlist,
+		        QUE 0-dlist ] ].
 
 unexpressed-reg := unexpressed & non-canonical.
 
@@ -358,7 +358,6 @@ noun := +no & +nm & +nd & +nc & +np & +nr & +nj & +nv.
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ; VAL
-
 
 valence-min := avm.
 

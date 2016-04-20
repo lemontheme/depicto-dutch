@@ -125,7 +125,6 @@ pl := number.
 no_number := number.
 
 gender := *top*.
-
 neuter := gender.
 non-neuter := gender.
 masculine := non-neuter.

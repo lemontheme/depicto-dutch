@@ -16,6 +16,9 @@ adverb-verb-phrase-1 := adverb-verb-phrase-1.
 
 sentence-punct-phrase := sentence-punct-phrase.
 
+; decl-cl := decl-cl.
+
+int-cl := int-cl.
 
 ; adj-head-int := adj-head-int-phrase.
 

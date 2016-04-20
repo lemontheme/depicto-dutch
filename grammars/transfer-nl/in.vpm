@@ -50,9 +50,9 @@ PNG.NUM : NUM
 
 PNG.GEND : GEND
   feminine >> feminine
+  masculine >> masculine
   non-neuter >> non-neuter
   neuter >> neuter
-  masculine >> masculine
   * >> *
 
 E.TENSE : TENSE

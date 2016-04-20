@@ -6,7 +6,6 @@
 ;;; based on Matrix customization system version of:
 ;;;     Sun Jan 10 22:56:48 UTC 2016
 ;;;
-
 ;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -633,7 +632,10 @@ adj-inflection-indef+sg-*neuter*-NP-lex-rule := adj-inflection-lex-rule-super & 
 ;; The incompatible SUBJ values on SYNSEM and DTR are
 ;; what keeps this one from spinning.
 
-subj-v-inv-lrule := cat-change-only-lex-rule & same-hc-light-lex-rule & same-posthead-lex-rule & constant-lex-rule &
+subj-v-inv-lrule := cat-change-only-lex-rule &
+                    same-hc-light-lex-rule &
+                    same-posthead-lex-rule &
+                    constant-lex-rule &
   [ SYNSEM [ LKEYS #lkeys,
              LOCAL.CAT [ VAL [ COMPS < #subj . #comps >,
                                SUBJ < >,
@@ -650,10 +652,6 @@ subj-v-inv-lrule := cat-change-only-lex-rule & same-hc-light-lex-rule & same-pos
                                    SPEC #spec ],
                              HEAD verb &
                                   [ FORM #form ] ] ] ].
-
-yes-no-interrogative-lrule := subj-v-inv-lrule &
-  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF ques ].
-
 
 ; from Nederlands.tdl
 ; needs fixing
@@ -697,7 +695,6 @@ dative-comp-prep-lex := prep-lex-item &
 ; <imported from mini-eng>... (See also nederlands.tdl (fokkens, new))
 head-spec-phrase := basic-head-spec-phrase & head-final &
 [ NON-HEAD-DTR.SYNSEM.OPT - ].
-; ...</>
 
 ;; Constraint on MC used to be part of matrix.tdl
 ;; it applies to all wo implementations, except for v2
@@ -706,9 +703,9 @@ head-comp-phrase := basic-head-1st-comp-phrase & head-initial.
 ; head-comp-phrase := basic-head-1st-comp-phrase & head-initial &
 ;   [ SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
 ;
-
 subj-head-phrase := decl-head-subj-phrase & head-final &
-[ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < > ].
+[ HEAD-DTR.SYNSEM.LOCAL.CAT.VAL.COMPS < >,
+  SYNSEM.LOCAL.CAT.HEAD.INV - ].
 
 ; Bare NP phrase.  Consider modifying the PRED value of the quantifier relation
 ; introduced to match the semantic effect of bare NPs in your language.
@@ -735,15 +732,25 @@ adj-int-noun-phrase := adj-head-int-phrase & adjective-noun-phrase.
 
 ; This rule takes [MC na] inverted phrases and licenses them as main clauses with question semantics.
 ;
-; int-cl := interrogative-clause & head-only &
-;  [ SYNSEM.LOCAL.CAT [ HEAD.INV +,
-;                       VAL #val,
-;                       MC + ],
-;    HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
-;                                VAL #val &
-;                                    [ SUBJ < >,
-;                                      COMPS < > ] ],
-;    C-CONT.HOOK.INDEX.SF ques ].
+int-cl := interrogative-clause & head-only &
+ [ SYNSEM.LOCAL.CAT [ HEAD.INV +,
+                      VAL #val,
+                      MC + ],
+   HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD.INV +,
+                               MC na,
+                               VAL #val &
+                                   [ SUBJ < >,
+                                     COMPS < > ] ],
+   C-CONT.HOOK.INDEX.SF ques ].
+
+; decl-cl := declarative-clause & head-only &
+; [ SYNSEM.LOCAL.CAT [ VAL #val,
+;                      MC + ],
+;   HEAD-DTR.SYNSEM.LOCAL.CAT [ MC na,
+;                               VAL #val &
+;                                   [ SUBJ < >,
+;                                     COMPS < > ] ],
+;   C-CONT.HOOK.INDEX.SF prop ].
 
 punct := head.
 punct_form := form.
