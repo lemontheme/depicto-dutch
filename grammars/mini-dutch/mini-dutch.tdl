@@ -20,13 +20,15 @@ non-mod-lex-item := lex-item &
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
 head :+ [ AUX bool,
-          FORM form ].
+          FORM form,
+          COMPLEX bool ].
 
 noun :+ [ CASE case ].
 
 ; verb :+ [ COMPLEX - ].
 
 +nvcdmo :+  [ MOD < > ].
+; +nvpcdmo :+ [ MOD < > ]. ; temporarily specifying adpositions as MOD < >
 
 inflected :+ [ PERNUM-FLAG luk,
                NUM-FLAG luk,
@@ -198,13 +200,10 @@ neutr-mass-noun-lex := noun-lex &
 
 ;;;; Verbs
 
-; cat :+ [ COMPLEX bool ].
-
 verb-lex := lex-item &
-  [ SYNSEM.LOCAL.CAT [ HEAD verb,
+  [ SYNSEM.LOCAL.CAT [ HEAD verb & [ COMPLEX - ],
                        HC-LIGHT - ],
     INFLECTED.PERNUM-FLAG - ].
-    ; SYNSEM.LOCAL.CAT [ COMPLEX - ] ].
 
 main-verb-lex := verb-lex & basic-verb-lex &
   [ SYNSEM.LOCAL [ CAT [ HEAD.AUX -,
@@ -326,10 +325,9 @@ trans-pl-preterite-lex := trans-verb-lex &
                          HEAD.FORM finite ] ] ].
 
 ditrans-1st-sg-verb-lex := ditrans-verb-lex &
-  [
-  ; ARG-ST < [ ],
-  ;            [ ],
-  ;            [ OPT - ] >,
+  [ ARG-ST < [ ],
+             [ ],
+             [ OPT - ] >,
     SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
@@ -339,26 +337,55 @@ ditrans-1st-sg-verb-lex := ditrans-verb-lex &
          ;; OOOOH FIX THIS REDUNDANCY!!
 
 ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
-  [
-  ; ARG-ST < [ ],
-  ;            [ ],
-  ;            [ OPT - ] >,
+  [ ARG-ST < [ ],
+             [ ],
+             [ OPT - ] >,
     SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
-                                                                      NUM singular ] ],
+                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ] ],
                          HEAD.FORM finite ] ] ].
 
 ditrans-pl-verb-lex := ditrans-verb-lex &
-  [
-  ; ARG-ST < [ ],
-  ;            [ ],
-  ;            [ OPT - ] >,
+  [ ARG-ST < [ ],
+             [ ],
+             [ OPT - ] >,
     SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
                    CAT [ VAL [ COMPS.FIRST.OPT -,
                                SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
                                                                       NUM plural ] ],
                          HEAD.FORM finite ] ] ].
+
+ditrans-sg-preterite-lex := ditrans-verb-lex &
+ [ ARG-ST < [ ],
+            [ ],
+            [ OPT - ] >,
+   SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                  CAT [ VAL [ COMPS.FIRST.OPT -,
+                              SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ] ],
+                        HEAD.FORM finite ] ] ].
+
+
+ditrans-pl-preterite-lex := ditrans-verb-lex &
+ [ ARG-ST < [ ],
+            [ ],
+            [ OPT - ] >,
+   SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
+                  CAT [ VAL [ COMPS.FIRST.OPT -,
+                              SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
+                        HEAD.FORM finite ] ] ].
+
+;; experimental lex-rule ------
+; removes second complement from ditransitive verb's ARGS list
+ditrans-drop-indirect-object-lex-rule := val-change-only-lex-rule & const-lex-rule &
+   [ SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+                            COMPS < #DO >,
+                            SPEC #spec,
+                            SPR #spr ],
+     DTR ditrans-verb-lex &
+             [ SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+                                      COMPS < #DO, #IO >,
+                                      SPEC #spec,
+                                      SPR #spr ] ] ].
 
 ;;;; PREPOSITIONS (experimental) ; added 2016-April-08
 
@@ -488,6 +515,19 @@ indefinite-determiner-lex := determiner-lex & no-icons-lex-item.
 adjective-lex := basic-intersective-adjective-lex &
   [ INFLECTED.ADJ-INFLECTION-FLAG - ].
 
+;;;; from mini-eng
+
+; Basic attributive adjective definition
+attributive-adjective-lex := adjective-lex & intersective-mod-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
+                                              VAL.SPR cons ] ] > ].
+
+; adj-lex := basic-intersective-adjective-lex.
+regular-adjective-lex := attributive-adjective-lex &
+  [ SYNSEM.LOCAL.CAT [ POSTHEAD -,
+                       VAL.SUBJ < >,
+                       HEAD.PRD + ] ].
+
 ; removed LTOP-LBL identification
 ; attributive-adjective-lex := adjective-lex & intersective-mod-lex &
 ;   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
@@ -496,21 +536,26 @@ adjective-lex := basic-intersective-adjective-lex &
 ;                                     VAL [ COMPS < > ] ],
 ;     SYNSEM.LOCAL.CONT [ RELS <! [ ARG1 #index ] !> ] ].
 
-;;;; from mini-eng
-;
-; adj-lex := basic-intersective-adjective-lex.
-;
-regular-adjective-lex := attributive-adjective-lex &
-  [ SYNSEM.LOCAL.CAT [ POSTHEAD -,
-                       VAL.SUBJ < >,
-                       HEAD.PRD + ] ].
-;
-; Basic attributive adjective definition
-attributive-adjective-lex := adjective-lex & intersective-mod-lex &
-  [ SYNSEM.LOCAL.CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD noun,
-                                              VAL.SPR cons ] ] > ].
+
 ;
 ;;;;; </>
+
+;; ADVERBS
+
+; +vjr = Ddisjunctive type for verbs, adjectives and adverbs (in
+; head-types.tdl)
+adverb-lex := basic-int-adverb-lex &
+  [ SYNSEM.LOCAL.CAT [ HEAD.MOD < [ LOCAL.CAT.HEAD +vjr ] >,
+                       VAL [ SUBJ < >,
+                             COMPS < >,
+                             SPEC < >,
+                             SPR < > ],
+                       POSTHEAD - ] ].
+
+adverb-verb-phrase-1 := basic-head-mod-phrase-simple & head-initial & isect-mod-phrase &
+  [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD adv ].
+
+
 
 ;;;;;;;;;;;;;;;;;;;
 ;;; LEXICAL RULES
@@ -606,8 +651,11 @@ subj-v-inv-lrule := cat-change-only-lex-rule & same-hc-light-lex-rule & same-pos
                              HEAD verb &
                                   [ FORM #form ] ] ] ].
 
-; from Nederlands.tdl
+yes-no-interrogative-lrule := subj-v-inv-lrule &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.SF ques ].
 
+
+; from Nederlands.tdl
 ; needs fixing
 dative-shift-lrule := val-change-only-lex-rule & const-lex-rule &
   [ DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
@@ -683,28 +731,11 @@ adjective-noun-phrase := basic-head-mod-phrase-simple &
                            SPR #spr,
                            SPEC #spec ] ].
 
-; adjective-noun-phrase := basic-head-mod-phrase-simple &
-;   [ NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
-;                                       VAL.COMPS #comps ],
-;                                 CONT.RELS.LIST.FIRST [ ARG1 #index,
-;                                                        LBL #ltop  ] ],
-;     HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun,
-;                                 VAL [ SUBJ #subj,
-;                                       SPEC #spec,
-;                                       SPR #spr ] ],
-;                             CONT.HOOK [ INDEX #index,
-;                                         LTOP  #ltop ] ],
-;     SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
-;                            SUBJ #subj,
-;                            SPEC #spec,
-;                            SPR #spr ] ].
-
 adj-int-noun-phrase := adj-head-int-phrase & adjective-noun-phrase.
 
 ; This rule takes [MC na] inverted phrases and licenses them as main clauses with question semantics.
 ;
-
-;int-cl := interrogative-clause & head-only &
+; int-cl := interrogative-clause & head-only &
 ;  [ SYNSEM.LOCAL.CAT [ HEAD.INV +,
 ;                       VAL #val,
 ;                       MC + ],
@@ -713,6 +744,28 @@ adj-int-noun-phrase := adj-head-int-phrase & adjective-noun-phrase.
 ;                                    [ SUBJ < >,
 ;                                      COMPS < > ] ],
 ;    C-CONT.HOOK.INDEX.SF ques ].
+
+punct := head.
+punct_form := form.
+period := punct_form.
+q_mark := punct_form.
+
+punctuation-sign := no-rels-hcons-lex-item &
+ [ SYNSEM.LOCAL [ CAT [ HEAD punct & [ MOD < >],
+                        VAL [ SUBJ < >,
+                              COMPS < >,
+                              SPR < >,
+                              SPEC < > ] ],
+                  CONT.RELS <! !> ] ].
+
+sentence-punct-phrase := binary-headed-phrase & head-initial & head-compositional &
+ [ HEAD-DTR declarative-clause & [ SYNSEM.LOCAL [ CAT [ MC +,
+                                                      HEAD verb,
+                                                      VAL [ SUBJ < >,
+                                                            COMPS < >,
+                                                            SPR < > ] ] ] ],
+   NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD punct & [ FORM period ] ].
+
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination

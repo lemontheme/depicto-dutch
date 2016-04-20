@@ -67,6 +67,11 @@ couch := common-noun-lex &
   [ STEM < "couch" >,
     SYNSEM.LKEYS.KEYREL.PRED "_couch_n_rel" ].
 
+headphones := common-noun-lex &
+  [ STEM < "headphones" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_headphones_n_rel" ].
+
+
 
 ;flesje-water-prik := &
 
@@ -75,6 +80,19 @@ couch := common-noun-lex &
 happy := adjective-picto &
   [ STEM < "happy" >,
     SYNSEM.LKEYS.KEYREL.PRED "_happy_j_rel" ].
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adverbs
+
+yesterday := past-tense-operator-picto &
+  [ STEM < "yesterday" >,
+    SYNSEM [ LKEYS.KEYREL.PRED "_yesterday_r_rel" ] ].
+
+
+;;; Temporal
+
+; yesterday := adverb-picto &
+
 
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Verbs
@@ -95,9 +113,9 @@ give_dtr := ditrans-verb-lex &
   [ STEM < "give" >,
     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
 
-give_tr := trans-verb-lex &
-  [ STEM < "give" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
+; give_tr := trans-verb-lex &
+;   [ STEM < "give" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "_give_v_rel" ].
 
 brush_v := trans-verb-lex &
   [ STEM < "brush" >,
@@ -109,11 +127,11 @@ brush_v := trans-verb-lex &
 
 dog_bark := complex-subj+vp-picto-lex & ; change
     [ STEM < "dog_bark" >,
-      SYNSEM.LOCAL.CONT [ HOOK.SCLERA.N1 #subject,
+      SYNSEM.LOCAL.CONT [ HOOK.SCLERA.N1 #N1,
                           RELS <! [ PRED "_bark_v_rel",
                                     ARG0 #event,
                                     ARG1 #subject ],
-                                  [ PRED "_dog_n_rel",
+                                  #N1 & [ PRED "_dog_n_rel",
                                     LBL #noun,
                                     ARG0 #subject ],
                                   [ PRED "q_rel_min",
@@ -124,11 +142,12 @@ dog_bark := complex-subj+vp-picto-lex & ; change
 
 brush_dog := complex-vp-picto-lex &
   [ STEM  < "brush_dog" >,
-    SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_brush_v_rel",
+    SYNSEM.LOCAL.CONT [ HOOK.SCLERA.N1 #N1,
+                        RELS <! [ PRED "_brush_v_rel",
                                   ARG2 #object-handle ],
-                                [ PRED "_dog_n_rel",
-                                  LBL  #noun,
-                                  ARG0 #object-handle ],
+                                #N1 & [ PRED "_dog_n_rel",
+                                        LBL  #noun,
+                                        ARG0 #object-handle ],
                                 [ PRED "q_rel_min",
                                   ARG0 #object-handle,
                                   RSTR #rstr ] !>,
@@ -214,3 +233,8 @@ en := conj-lex &
 ; goeiemorgen/good+morning
 ; hoe-gaat-het-met-je/how+are+you
 ; tot-ziens/see+you
+
+;;;;;;; ifoce operators
+
+question := question-picto &
+  [ STEM < "question" > ].

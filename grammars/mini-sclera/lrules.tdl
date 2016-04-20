@@ -1,2 +1,4 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ; inv-lr := subj-v-inv-lrule.
+
+ditrans-drop-indirect-object := ditrans-drop-indirect-object-lex-rule. ;temporary

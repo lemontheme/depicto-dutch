@@ -26,6 +26,10 @@ couch_mtr := noun_mtr &
 [ INPUT.RELS < [ PRED "sclera:_couch_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_zetel_n_rel" ] > ].
 
+headphones_mtr := noun_mtr &
+[ INPUT.RELS < [ PRED "sclera:_headphones_n_rel" ] >,
+  OUTPUT.RELS < [ PRED "_koptelefoon_n_rel" ] > ].
+
 ;;;
 
 pronoun_mtr := noun_mtr &
@@ -88,3 +92,7 @@ happy_j_mtr := arg1_v_mtr &
 brown_j_mtr := arg1_v_mtr &
 [ INPUT.RELS < [ PRED "sclera:_brown_j_rel" ] >,
   OUTPUT.RELS < [ PRED "_bruin_j_rel" ] > ].
+
+yesterday_r_mtr := arg1_v_mtr &
+[ INPUT.RELS < [ PRED "sclera:_yesterday_r_rel" ] >,
+  OUTPUT.RELS < [ PRED "_gisteren_r_rel" ] > ].

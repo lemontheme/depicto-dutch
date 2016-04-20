@@ -4,3 +4,12 @@
 adj-infl-indef+sg-*neuter*-NP := adj-inflection-indef+sg-*neuter*-NP-lex-rule.
 
 ; dative-shift := dative-shift-lrule.
+
+ditrans-drop-indirect-object := ditrans-drop-indirect-object-lex-rule.
+
+; subject-verb inversions
+; subj-v-inv-lrule := subj-v-inv-lrule.
+
+yes-no-interrogative := yes-no-interrogative-lrule.
+
+;

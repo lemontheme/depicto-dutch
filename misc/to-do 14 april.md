@@ -1,6 +1,5 @@
 # to-do 14 April
 
-
 - get adjectives to work with complex VP and S-pictos.
     + get complex picto's to expose nominal arguments/indices.
 - write first version of modifier rule (e.g. temp-mod phrase) that combines a temporal adverb with a sentence/clause and changes the tense of the sentence according to the tense implied by the temporal adverb.

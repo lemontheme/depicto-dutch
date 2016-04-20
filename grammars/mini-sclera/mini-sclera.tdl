@@ -2,7 +2,9 @@
 
 ;; head types
 
-complex-picto := head.
+complex-picto := head &
+  [ COMPLEX + ].
+
 complex-S-picto := complex-picto & verb.
 complex-VP-picto := complex-picto & verb.
 
@@ -11,25 +13,28 @@ complex-VP-picto := complex-picto & verb.
 sclera-hook := hook &
  [ SCLERA sclera-hooks ].
 
+; sclera-hooks := avm &
+;   [ N1 ref-ind,
+;     N2 ref-ind,
+;     V1 event,
+;     V2 event ].
+
 sclera-hooks := avm &
-    [ N1 ref-ind,
-      N2 ref-ind,
-      V1 event,
-      V2 event ].
+  [ N1 noun-relation,
+    N2 avm,
+    V1 avm,
+    V2 avm ].
+
+;;;
+
+
 ;;; complex S-V pictos
-
-;; experiment 1:
-
-cat :+ [ COMPLEX bool ].
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ;;; lexical types
 
 complex-picto-lex := lex-item &
-  [ SYNSEM.LOCAL [ CONT.HOOK sclera-hook
-  ,
-                   CAT.COMPLEX + ] ].
+  [ SYNSEM.LOCAL [ CONT.HOOK sclera-hook,
+                   CAT [ HEAD complex-picto ] ] ].
 
 main-complex-v-picto-lex := complex-picto-lex &
   [ SYNSEM.LOCAL [ CAT [ VAL  [ SPR < >,
@@ -75,16 +80,14 @@ complex-subj+vp-picto-rule := head-only &
                        VAL [ SPR < >,
 			                 SUBJ < >,
 			                 COMPS < >,
-			                 SPEC < > ],
-                       COMPLEX - ],
+			                 SPEC < > ] ],
     SYNSEM.LOCAL.CONT.HOOK #hook,
-    HEAD-DTR lex-item &
-        [ SYNSEM.LOCAL [ CONT.HOOK #hook,
-                         CAT [ HEAD complex-S-picto,
-    				           VAL [ SPR < >,
-    					             SUBJ < >,
-    					             COMPS < > ],
-                               COMPLEX + ] ] ] ].
+    HEAD-DTR lex-item & [ SYNSEM.LOCAL [ CONT.HOOK #hook,
+                                         CAT [ HEAD complex-S-picto,
+                    				           VAL [ SPR < >,
+                    					             SUBJ < >,
+                    					             COMPS < > ] ] ] ],
+    C-CONT.RELS <! !> ].
 
 ; based on basic-bare-np-phrase (matrix.tdl, 2055)
 ; e.g. { dog_n_rel(x) } => { DET(d, x) dog_n_rel(x)}
@@ -155,26 +158,30 @@ sclera-bare-np-phrase := basic-bare-np-phrase &
 ;     SYNSEM.LOCAL.CONT.RELS <! "a", "b", "c" !> ].
 
 
+; adjective-picto := basic-intersective-adjective-lex & no-hcons-lex-item &
+;   [ INFLECTED.ADJ-INFLECTION-FLAG na ].
+
+; attr-adjective-picto := adjective-picto &
+;   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ VAL [ SPR < >,
+;                                                                 COMPS < >,
+;                                                                 SUBJ < > ] ],
+;                                                     CONT.HOOK [ INDEX #index,
+;                                                                 LTOP #ltop ] ] ] > ],
+;                        VAL [ COMPS < > ] ],
+;     SYNSEM.LOCAL.CONT.RELS.LIST.FIRST [ ARG1 #index,
+;                                         LBL #ltop ] ].
 
 adjective-picto := basic-intersective-adjective-lex & no-hcons-lex-item &
-  [ INFLECTED.ADJ-INFLECTION-FLAG na ].
-
-attr-adjective-picto := basic-intersective-adjective-lex & no-hcons-lex-item &
   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ VAL [ SPR < >,
-                                                                COMPS < > ],
-                                                          HEAD noun ],
+                                                                COMPS < >,
+                                                                SUBJ < > ] ],
                                                     CONT.HOOK [ INDEX #index,
                                                                 LTOP #ltop ] ] ] > ],
-                       VAL [ COMPS < > ] ],
+                       VAL [ COMPS < >,
+                             SUBJ < > ] ],
     SYNSEM.LOCAL.CONT.RELS.LIST.FIRST [ ARG1 #index,
                                         LBL #ltop ] ].
 
-; attr-adjective-picto := adjective-picto &
-;   [ SYNSEM.LOCAL.CAT [ HEAD adj & [ MOD < [ LOCAL [ CAT [ HEAD noun,
-;                                                           VAL.SPR cons ],
-;                                                     CONT.HOOK  [ INDEX #index ] ] ] > ],
-;                                     VAL [ COMPS < > ] ],
-;     SYNSEM.LOCAL.CONT [ RELS <! [ ARG1 #index ] !> ] ].
 
 sclera-adjective-noun-phrase := basic-head-mod-phrase-simple &
   [ NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
@@ -192,20 +199,94 @@ sclera-adjective-noun-phrase := basic-head-mod-phrase-simple &
                            SUBJ #subj,
                            SPEC #spec ] ].
 
-; sclera-adjective-complex-picto-N1-phrase := basic-head-mod-phrase-simple &
-;   [ NON-HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD adj,
-;                                     VAL.COMPS #comps ],
-;     HEAD-DTR.SYNSEM.LOCAL.CAT [ HEAD complex-picto,
-;                                 VAL [ SUBJ #subj,
-;                                       SPR #spr,
-;                                       SPEC #spec ] ],
-;     SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
-;                            SUBJ #subj,
-;                            SPR #spr,
-;                            SPEC #spec ] ].
-
-; CONT.HOOK.INDEX.SCLERA.N1 #N1-arg0
-
 sclera-adj-int-noun-phrase := sclera-adjective-noun-phrase & adj-head-int-phrase.
 
-; slera-adj-int-noun-phrase-1 := adj-head-int-phrase & sclera-adjective-complex-picto-N1-phrase.
+; sclera-adjective-NP1-in-complex-picto-phrase := head-mod-phrase &
+;   [ SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+;                            SUBJ #subj,
+;                            SPEC #spec ],
+;     NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
+;                                       VAL.COMPS #comps ],
+;                                 CONT.RELS.LIST.FIRST [ ARG1 #index,
+;                                                        LBL #ltop ] ],
+;     HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD complex-picto,
+;                                   VAL [ SUBJ #subj,
+;                                         SPR < >,
+;                                         SPEC #spec ] ],
+;                             CONT.HOOK.SCLERA.N1 [ ARG0 #index,
+;                                                   LBL #ltop ] ] ].
+
+; same as above sans isect-mod-phrase
+sclera-adjective-NP1-in-complex-picto-phrase := basic-binary-headed-phrase &
+  [ SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
+                           SUBJ #subj,
+                           SPEC #spec ],
+    NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
+                                      VAL.COMPS #comps ],
+                                CONT.RELS.LIST.FIRST [ ARG1 #index,
+                                                       LBL #ltop ] ],
+    HEAD-DTR lex-item &
+     [ SYNSEM.LOCAL [ CAT [ HEAD complex-picto,
+                                  VAL [ SUBJ #subj,
+                                        SPR < >,
+                                        SPEC #spec ] ],
+                            CONT.HOOK.SCLERA.N1 [ ARG0 #index,
+                                                  LBL #ltop ] ] ],
+    C-CONT.RELS <! !> ].
+
+slera-adj-int-NP-complex-N1-phrase := head-final & head-compositional &
+   sclera-adjective-NP1-in-complex-picto-phrase.
+
+
+;;; Adverbs
+
+; +vjr = Ddisjunctive type for verbs, adjectives and adverbs (in
+; head-types.tdl)
+; ... MOD < [LOCAL.CAT.HEAD +vjr ...
+adverb-picto := basic-int-adverb-lex &
+  [ SYNSEM.LOCAL.CAT [ HEAD.MOD < [ ] >,
+                       VAL [ SUBJ < >,
+                             COMPS < >,
+                             SPEC < >,
+                             SPR < > ],
+                       POSTHEAD - ] ].
+
+temporal-operator-picto := adverb-picto &
+  [ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD verb,
+                                                VAL.SUBJ < > ] ] > ] ].
+
+past-tense-operator-picto := temporal-operator-picto &
+  [ SYNSEM.LOCAL.CONT.HOOK.INDEX.E.TENSE past ].
+
+temp-adverb-verb-phrase := basic-head-mod-phrase-simple &
+                                head-initial & isect-mod-phrase &
+  [ C-CONT.HOOK.INDEX.E.TENSE #tense,
+    NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.HEAD adv,
+                                CONT.HOOK.INDEX.E.TENSE #tense ] ].
+
+;;
+
+; illocutionary operator
+
+operator := head.
+iforce-mod := operator.
+ques-mod := iforce-mod.
+
+iforce-picto := no-rels-hcons-lex-item  &
+  [ SYNSEM.LOCAL.CAT [ HEAD iforce-mod,
+                       VAL [ SUBJ < >,
+                             COMPS < >,
+                             SPR < > ] ] ].
+
+question-picto := iforce-picto &
+  [ SYNSEM.LOCAL [ CAT.HEAD.MOD < [ LOCAL.CAT [ HEAD verb,
+                                                VAL [ SUBJ < >,
+                                                      COMPS < > ] ] ] >,
+                   CONT.HOOK.INDEX.SF ques ] ].
+
+modify-illocution-phrase := basic-head-mod-phrase-simple &
+                                head-initial & isect-mod-phrase & head-compositional &
+  [ C-CONT [ HOOK.INDEX.SF #illocution,
+             RELS <! !> ],
+    NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.HEAD ques-mod,
+                                CONT.HOOK.INDEX.SF #illocution ] ].

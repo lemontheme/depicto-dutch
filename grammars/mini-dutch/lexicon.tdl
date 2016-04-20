@@ -127,6 +127,10 @@ zetel_pl := femmasc-count-pl-noun-lex &
   [ STEM < "zetels" >,
     SYNSEM.LKEYS.KEYREL.PRED "_zetel_n_rel" ].
 
+koptelefoon_sg := femmasc-count-sg-noun-lex &
+  [ STEM < "koptelefoon" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_koptelefoon_n_rel" ].
+
 ;;; Adjectives
 
 ;;; Verbs
@@ -195,17 +199,17 @@ kochten := trans-pl-preterite-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 ;
 
-geef_tr := trans-1st-sg-verb-lex &
-  [ STEM < "geef" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
-
-geeft_tr := trans-2nd-or-3rd-sg-verb-lex &
-  [ STEM < "geeft" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
-
-geven_tr := trans-pl-verb-lex &
-  [ STEM < "geven" >,
-    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+; geef_tr := trans-1st-sg-verb-lex &
+;   [ STEM < "geef" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+;
+; geeft_tr := trans-2nd-or-3rd-sg-verb-lex &
+;   [ STEM < "geeft" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+;
+; geven_tr := trans-pl-verb-lex &
+;   [ STEM < "geven" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
 
 geef_dtr := ditrans-1st-sg-verb-lex &
   [ STEM < "geef" >,
@@ -217,6 +221,14 @@ geeft_dtr := ditrans-2nd-or-3rd-sg-verb-lex &
 
 geven_dtr := ditrans-pl-verb-lex &
   [ STEM < "geven" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+gaf_dtr := ditrans-sg-preterite-lex &
+  [ STEM < "gaf" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
+
+gaven_dtr := ditrans-pl-preterite-lex &
+  [ STEM < "gaven" >,
     SYNSEM.LKEYS.KEYREL.PRED "_geven_v_rel" ].
 
 ;
@@ -232,6 +244,15 @@ borstelt := trans-2nd-or-3rd-sg-verb-lex &
 borstelen := trans-pl-verb-lex &
   [ STEM < "borstelen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+borstelde := trans-sg-preterite-lex &
+[ STEM < "borstelde" >,
+  SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
+borstelden := trans-pl-preterite-lex &
+[ STEM < "borstelden" >,
+  SYNSEM.LKEYS.KEYREL.PRED "_borstelen_v_rel" ].
+
 
 kam := trans-1st-sg-verb-lex &
   [ STEM < "kam" >,
@@ -287,6 +308,15 @@ zien := trans-pl-verb-lex &
   [ STEM < "zien" >,
     SYNSEM.LKEYS.KEYREL.PRED "_zien_v_rel" ].
 
+zag := trans-sg-preterite-lex &
+  [ STEM < "zag" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zien_v_rel" ].
+
+zagen := trans-pl-preterite-lex &
+  [ STEM < "zagen" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_zien_v_rel" ].
+
+
 ;;; Prepositions
 
 naar_p := prep-lex-item &
@@ -295,7 +325,7 @@ naar_p := prep-lex-item &
 
 aan_1 := dative-comp-prep-lex &
   [ STEM < "aan" >,
-    SYNSEM.LKEYS.KEYREL.PRED aan_p_rel ].
+    SYNSEM.LKEYS.KEYREL.PRED "aan_p_rel" ].
 
 ;;; Auxiliaries
 
@@ -304,22 +334,16 @@ aan_1 := dative-comp-prep-lex &
 
 ;;; Adjectives
 
-; blij_sg := adjective-ninflected-indef-neuter-sg-lex &
-;   [ STEM < "blij" >,
-;     SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
-;
-; blije_sg := adjective-inflected-def-sg-lex &
-;   [ STEM < "blije" >,
-;     SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
-;
-; blije_pl := adjective-inflected-def-pl-lex &
-;   [ STEM < "blije" >,
-;     SYNSEM.LKEYS.KEYREL.PRED "blij_j_rel" ].
-
 
 blij := adjective-lex &
   [ STEM < "blij" >,
     SYNSEM.LKEYS.KEYREL.PRED "_blij_j_rel" ].
+
+;;; Adverbs
+
+gisteren := adverb-lex &
+  [ STEM < "gisteren" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_gisteren_r_rel" ].
 
 ;;; Determiners
 
@@ -352,3 +376,9 @@ en := conj-lex &
   [ STEM < "en" >,
     SYNSEM.LKEYS.KEYREL.PRED "_and_coord_rel",
     CFORM "1" ].
+
+;;; Punctuation
+
+period-punct := punctuation-sign &
+  [ STEM < "." >,
+    SYNSEM.LOCAL.CAT.HEAD.FORM period ].

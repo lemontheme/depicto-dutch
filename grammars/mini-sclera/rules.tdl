@@ -32,9 +32,18 @@ sclera-allow-complex-subj+vp-picto-rule := complex-subj+vp-picto-rule.
 
 sclera-adj-int-noun-phrase := sclera-adj-int-noun-phrase.
 
+;
+slera-adj-int-NP-complex-N1 := slera-adj-int-NP-complex-N1-phrase.
+
+; adverb-verb-phrase-1 := adverb-verb-phrase-1.
+
+temp-adverb-verb-phrase := temp-adverb-verb-phrase.
+
+modify-illocution-phrase := modify-illocution-phrase.
+
 
 ;n1-top-coord := n1-top-coord-rule.
-;
+
 ;n1-mid-coord := n1-mid-coord-rule.
 ;
 ;n1-bottom-coord := n1-bottom-coord-rule.

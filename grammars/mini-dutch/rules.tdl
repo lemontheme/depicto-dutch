@@ -12,6 +12,11 @@ bare-np := bare-np-phrase.
 
 adj-int-noun-phrase := adj-int-noun-phrase.
 
+adverb-verb-phrase-1 := adverb-verb-phrase-1.
+
+sentence-punct-phrase := sentence-punct-phrase.
+
+
 ; adj-head-int := adj-head-int-phrase.
 
 ; ternary-headed-phrase :=  ternary-headed-phrase.
