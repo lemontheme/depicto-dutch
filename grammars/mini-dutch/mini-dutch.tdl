@@ -265,124 +265,104 @@ intrans-verb-lex := nom-intransitive-verb-lex.
 trans-verb-lex := nom-acc-transitive-verb-lex.
 ditrans-verb-lex := nom-acc-acc-ditransitive-verb-lex.
 
+;;;
+
+agreement-lex := verb-lex &
+  [ SYNSEM.LOCAL.CAT.HEAD.FORM finite ]. ; This probably isn't the right place
+;                     \                  ; for this constraint.
+1st-verb-lex-min := agreement-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st ] ].
+
+2nd-or-3rd-verb-lex-min := agreement-lex &
+  [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd ] ].
+
+sg-verb-lex-min := agreement-lex &
+   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ] ].
+
+pl-verb-lex-min := agreement-lex &
+   [ SYNSEM.LOCAL.CAT.VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ].
+
+non-past-lex-min := agreement-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past ] ].
+
+preterite-lex-min := agreement-lex &
+  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past ] ].
+
+;;;
+
 intrans-1st-sg-verb-lex := intrans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
-                                                                    NUM singular ],
-                         HEAD.FORM finite ] ] ].
+                           1st-verb-lex-min &
+                           sg-verb-lex-min &
+                           non-past-lex-min.
 
 intrans-2nd-or-3rd-sg-verb-lex := intrans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
-                                                                    NUM singular ],
-                         HEAD.FORM finite ] ] ].
+                                  2nd-or-3rd-verb-lex-min &
+                                  sg-verb-lex-min &
+                                  non-past-lex-min.
 
 intrans-pl-verb-lex := intrans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ],
-                         HEAD.FORM finite ] ] ].
+                       pl-verb-lex-min &
+                       non-past-lex-min.
 
 intrans-sg-preterite-lex := intrans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM singular ],
-                         HEAD.FORM finite ] ] ].
+                            sg-verb-lex-min &
+                            preterite-lex-min.
 
 intrans-pl-preterite-lex := intrans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM plural ],
-                         HEAD.FORM finite ] ] ].
+                            pl-verb-lex-min &
+                            preterite-lex-min.
 
+trans-1st-sg-verb-lex := trans-verb-lex & 1st-verb-lex-min &
+                            sg-verb-lex-min & non-past-lex-min &
+  [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ]. ; not sure what about
+                                                          ; the function of this
+                                                          ; optionality con-
+                                                          ; straint
 
-trans-1st-sg-verb-lex := trans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
-                                                                      NUM singular ] ],
-                         HEAD.FORM finite ] ] ].
+trans-2nd-or-3rd-sg-verb-lex := trans-verb-lex & 2nd-or-3rd-verb-lex-min &
+                                    sg-verb-lex-min & non-past-lex-min &
+  [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-trans-2nd-or-3rd-sg-verb-lex := trans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 2nd-or-3rd,
-                                                                      NUM singular ] ],
-                         HEAD.FORM finite ] ] ].
+trans-pl-verb-lex := trans-verb-lex & pl-verb-lex-min & non-past-lex-min &
+  [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-trans-pl-verb-lex := trans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
-                         HEAD.FORM finite ] ] ].
+trans-sg-preterite-lex := trans-verb-lex & sg-verb-lex-min &
+                            preterite-lex-min &
+  [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-trans-sg-preterite-lex := trans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM singular ],
-                         HEAD.FORM finite ] ] ].
+trans-pl-preterite-lex := trans-verb-lex & pl-verb-lex-min &
+                            preterite-lex-min &
+  [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-trans-pl-preterite-lex := trans-verb-lex &
-  [ SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
-                   CAT [ VAL.SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [  NUM plural ],
-                         HEAD.FORM finite ] ] ].
+ditrans-1st-sg-verb-lex := ditrans-verb-lex & 1st-verb-lex-min &
+                              sg-verb-lex-min & non-past-lex-min &
+  [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-ditrans-1st-sg-verb-lex := ditrans-verb-lex &
-  [ ARG-ST < [ ],
-             [ ],
-             [ OPT - ] >,
-    SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 1st,
-                                                                      NUM singular ] ],
-                         HEAD.FORM finite ] ] ].
+ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex & 2nd-or-3rd-verb-lex-min &
+                                    sg-verb-lex-min & non-past-lex-min &
+    [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-         ;; OOOOH FIX THIS REDUNDANCY!!
+ditrans-pl-verb-lex := ditrans-verb-lex & pl-verb-lex-min & non-past-lex-min &
+    [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-ditrans-2nd-or-3rd-sg-verb-lex := ditrans-verb-lex &
-  [ ARG-ST < [ ],
-             [ ],
-             [ OPT - ] >,
-    SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ] ],
-                         HEAD.FORM finite ] ] ].
+ditrans-sg-preterite-lex := ditrans-verb-lex & sg-verb-lex-min &
+                              preterite-lex-min &
+   [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
-ditrans-pl-verb-lex := ditrans-verb-lex &
-  [ ARG-ST < [ ],
-             [ ],
-             [ OPT - ] >,
-    SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE non-past,
-                   CAT [ VAL [ COMPS.FIRST.OPT -,
-                               SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ PER 3rd,
-                                                                      NUM plural ] ],
-                         HEAD.FORM finite ] ] ].
-
-ditrans-sg-preterite-lex := ditrans-verb-lex &
- [ ARG-ST < [ ],
-            [ ],
-            [ OPT - ] >,
-   SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
-                  CAT [ VAL [ COMPS.FIRST.OPT -,
-                              SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM singular ] ],
-                        HEAD.FORM finite ] ] ].
-
-
-ditrans-pl-preterite-lex := ditrans-verb-lex &
- [ ARG-ST < [ ],
-            [ ],
-            [ OPT - ] >,
-   SYNSEM.LOCAL [ CONT.HOOK.INDEX.E.TENSE past,
-                  CAT [ VAL [ COMPS.FIRST.OPT -,
-                              SUBJ.FIRST.LOCAL.CONT.HOOK.INDEX.PNG [ NUM plural ] ],
-                        HEAD.FORM finite ] ] ].
+ditrans-pl-preterite-lex := ditrans-verb-lex & pl-verb-lex-min &
+                              preterite-lex-min &
+   [ SYNSEM.LOCAL [ CAT [ VAL [ COMPS.FIRST.OPT - ] ] ] ].
 
 ;; experimental lex-rule ------
 ; removes second complement from ditransitive verb's ARGS list
-ditrans-drop-indirect-object-lex-rule := val-change-only-lex-rule & const-lex-rule &
+ditrans-drop-indirect-object-lex-rule := const-val-change-only-lex-rule &
    [ SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
                             COMPS < #DO >,
                             SPEC #spec,
                             SPR #spr ],
      DTR ditrans-verb-lex &
              [ SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
-                                      COMPS < #DO, #IO >,
+                                      COMPS < #DO, ... >,
                                       SPEC #spec,
                                       SPR #spr ] ] ].
 
@@ -656,16 +636,7 @@ subj-v-inv-lrule := cat-change-only-lex-rule &
 ; from Nederlands.tdl
 ; needs fixing
 dative-shift-lrule := val-change-only-lex-rule & const-lex-rule &
-  [ DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
-                               SPR #spr,
-                               SPEC #spec,
-                               COMPS < [ LOCAL [ CONT #cont1,
-                                                 CAT.HEAD noun &
-                                                          [ CASE acc ] ] ],
-                                       [ LOCAL [ CONT #cont2,
-                                                 CAT.HEAD noun &
-                                                          [ CASE acc ] ] ] > ],
-    SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+  [ SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
                            SPR #spr,
                            SPEC #spec,
                            COMPS < [ OPT -,
@@ -674,12 +645,35 @@ dative-shift-lrule := val-change-only-lex-rule & const-lex-rule &
                                                       [ CASE acc ] ] ],
                                    [ OPT -,
                                      LOCAL [ CONT #cont1,
-                                             CAT.HEAD prep &
-                                                      [ FORM aan ] ] ] > ] ].
+                                             CAT.HEAD adp &
+                                                      [ FORM aan ] ] ] > ],
+    DTR.SYNSEM.LOCAL.CAT.VAL [ SUBJ #subj,
+                               SPR #spr,
+                               SPEC #spec,
+                               COMPS < [ LOCAL [ CONT #cont1,
+                                                 CAT.HEAD noun &
+                                                     [ CASE acc ] ] ],
+                                        [ LOCAL [ CONT #cont2,
+                                                  CAT.HEAD noun &
+                                                        [ CASE acc ] ] ] > ] ].
+
+
 pform := form.
 aan := pform.
 
-dative-comp-prep-lex := prep-lex-item &
+case-marking-adp-lex := basic-one-arg & raise-sem-lex-item &
+  [ SYNSEM.LOCAL.CAT [ HEAD adp &
+                            [ MOD < > ],
+                       VAL [ SPR < >,
+                             SUBJ < >,
+                             COMPS < #comps >,
+                             SPEC < > ] ],
+    ARG-ST < #comps &
+             [ LOCAL.CAT [ HEAD noun &
+                                [ CASE acc ],
+                           VAL.SPR < > ] ] > ].
+
+dative-comp-adp-lex := case-marking-adp-lex &
   [ SYNSEM.LOCAL.CAT.HEAD.FORM aan ].
 
 ;;;;;;;;;;;;;;;;;;;
@@ -752,6 +746,7 @@ int-cl := interrogative-clause & head-only &
 ;                                     COMPS < > ] ],
 ;   C-CONT.HOOK.INDEX.SF prop ].
 
+;;; EXPERIMENTAL !!!
 punct := head.
 punct_form := form.
 period := punct_form.
@@ -772,7 +767,7 @@ sentence-punct-phrase := binary-headed-phrase & head-initial & head-compositiona
                                                             COMPS < >,
                                                             SPR < > ] ] ] ],
    NON-HEAD-DTR.SYNSEM.LOCAL.CAT.HEAD punct & [ FORM period ] ].
-
+;;; !!!!
 
 ;;;;;;;;;;;;;;;;;;
 ;;; Coordination
@@ -780,25 +775,25 @@ sentence-punct-phrase := binary-headed-phrase & head-initial & head-compositiona
 
 ;;; Coordination Strategy 1
 
-;n1-top-coord-rule := basic-n-top-coord-rule & monopoly-top-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;n1-mid-coord-rule := basic-n-mid-coord-rule & monopoly-mid-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;n1-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;;;; Coordination Strategy 1
-;
-;np1-top-coord-rule := basic-np-top-coord-rule & monopoly-top-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;np1-mid-coord-rule := basic-np-mid-coord-rule & monopoly-mid-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+n1-top-coord-rule := basic-n-top-coord-rule & monopoly-top-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+n1-mid-coord-rule := basic-n-mid-coord-rule & monopoly-mid-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+n1-bottom-coord-rule := conj-first-bottom-coord-rule & n-bottom-coord-phrase &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+;;; Coordination Strategy 1
+
+np1-top-coord-rule := basic-np-top-coord-rule & monopoly-top-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+np1-mid-coord-rule := basic-np-mid-coord-rule & monopoly-mid-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 ;
 ;;;; Coordination Strategy 1
 ;

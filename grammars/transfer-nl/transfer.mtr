@@ -1,102 +1,102 @@
 quant_mtr := quantifier_mtr  &
- [ INPUT.RELS < [ PRED "sclera:q_rel_min" ] >,
+ [ INPUT.RELS < [ PRED "q_rel_min" ] >,
    OUTPUT.RELS < [ PRED q_rel_min ] > ].
 
 exist_mtr := quantifier_mtr &
- [ INPUT.RELS < [ PRED "sclera:exist_q_rel" ] >,
+ [ INPUT.RELS < [ PRED "exist_q_rel" ] >,
    OUTPUT.RELS < [ PRED exist_q_rel ] > ].
 
 hond_mtr := noun_mtr &
- [ INPUT.RELS < [ PRED "sclera:_dog_n_rel" ] >,
+ [ INPUT.RELS < [ PRED "_dog_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_hond_n_rel" ] > ].
 
 meisje_mtr := noun_mtr &
- [ INPUT.RELS < [ PRED "sclera:_girl_n_rel" ] >,
+ [ INPUT.RELS < [ PRED "_girl_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_meisje_n_rel" ] > ].
 
 kusje_mtr := noun_mtr &
- [ INPUT.RELS < [ PRED "sclera:_kiss_n_rel" ] >,
+ [ INPUT.RELS < [ PRED "_kiss_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_kus_n_rel" ] > ].
 
 school_mtr := noun_mtr &
- [ INPUT.RELS < [ PRED "sclera:_school_n_rel" ] >,
+ [ INPUT.RELS < [ PRED "_school_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_school_n_rel" ] > ].
 
 couch_mtr := noun_mtr &
-[ INPUT.RELS < [ PRED "sclera:_couch_n_rel" ] >,
+[ INPUT.RELS < [ PRED "_couch_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_zetel_n_rel" ] > ].
 
 headphones_mtr := noun_mtr &
-[ INPUT.RELS < [ PRED "sclera:_headphones_n_rel" ] >,
+[ INPUT.RELS < [ PRED "_headphones_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_koptelefoon_n_rel" ] > ].
 
 ;;;
 
 pronoun_mtr := noun_mtr &
- [ INPUT.RELS < [ PRED "sclera:_pronoun_n_rel" ] >,
+ [ INPUT.RELS < [ PRED "_pronoun_n_rel" ] >,
    OUTPUT.RELS < [ PRED "_pronoun_n_rel" ] > ].
 
 ;;;
 
 blaffen_mtr := arg1_v_mtr &
- [ INPUT.RELS < [ PRED "sclera:_bark_v_rel" ] >,
+ [ INPUT.RELS < [ PRED "_bark_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_blaffen_v_rel" ] > ].
 
 slapen_mtr := arg1_v_mtr &
- [ INPUT.RELS < [ PRED "sclera:_sleep_v_rel" ] >,
+ [ INPUT.RELS < [ PRED "_sleep_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_slapen_v_rel" ] > ].
 
 see_mtr := arg12_v_mtr &
- [ INPUT.RELS < [ PRED "sclera:_see_v_rel" ] >,
+ [ INPUT.RELS < [ PRED "_see_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_zien_v_rel" ] > ].
 
 kopen_mtr := arg123_v_mtr &
- [ INPUT.RELS < [ PRED "sclera:_buy_v_rel" ] >,
+ [ INPUT.RELS < [ PRED "_buy_v_rel" ] >,
    OUTPUT.RELS <[ PRED "_kopen_v_rel" ] > ].
 
 geven_mtr := arg123_v_mtr &
-[ INPUT.RELS < [ PRED "sclera:_give_v_rel" ] >,
+[ INPUT.RELS < [ PRED "_give_v_rel" ] >,
   OUTPUT.RELS <[ PRED "_geven_v_rel" ] > ].
 
 borstelen_mtr := arg12_v_mtr &
-[ INPUT.RELS < [ PRED "sclera:_brush_v_rel" ] >,
+[ INPUT.RELS < [ PRED "_brush_v_rel" ] >,
   OUTPUT.RELS <[ PRED "_borstelen_v_rel" ] > ].
 
 ;; Prepositions
 
 ; experiment (zero abstraction)
 ; go_1_mtr := arit_mtr &
-;  [ INPUT.RELS < [ PRED "sclera:_go_v_rel",
+;  [ INPUT.RELS < [ PRED "_go_v_rel",
 ;                   ARG2 #locative ],
-;                 [ PRED "sclera:locative_rel",
+;                 [ PRED "locative_rel",
 ;                   ARG1 #locative ],
-;                 [ PRED "sclera:_school_n_rel",
+;                 [ PRED "_school_n_rel",
 ;                   ARG0 #locative ] >,
 ;    OUTPUT.RELS < [ PRED "_gaan_v_rel"],
 ;                   PRED > ].
 
 go_1_mtr := arg12_v_mtr &
- [ INPUT.RELS < [ PRED "sclera:_go_v_rel" ] >,
+ [ INPUT.RELS < [ PRED "_go_v_rel" ] >,
    OUTPUT.RELS < [ PRED "_gaan_v_rel"] > ].
 
 locative_naar_mtr := arg12_v_mtr &
- [ INPUT.RELS < [ PRED "sclera:locative_rel" ] >,
+ [ INPUT.RELS < [ PRED "locative_rel" ] >,
    OUTPUT.RELS < [ PRED "naar_p_rel" ] > ].
 
 school_n_mtr := noun_mtr &
-[ INPUT.RELS < [ PRED "sclera:_school_n_rel" ] >,
+[ INPUT.RELS < [ PRED "_school_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_school_n_rel" ] > ].
 
 ;;;
 
 happy_j_mtr := arg1_v_mtr &
-[ INPUT.RELS < [ PRED "sclera:_happy_j_rel" ] >,
+[ INPUT.RELS < [ PRED "_happy_j_rel" ] >,
   OUTPUT.RELS < [ PRED "_blij_j_rel" ] > ].
 
 brown_j_mtr := arg1_v_mtr &
-[ INPUT.RELS < [ PRED "sclera:_brown_j_rel" ] >,
+[ INPUT.RELS < [ PRED "_brown_j_rel" ] >,
   OUTPUT.RELS < [ PRED "_bruin_j_rel" ] > ].
 
 yesterday_r_mtr := arg1_v_mtr &
-[ INPUT.RELS < [ PRED "sclera:_yesterday_r_rel" ] >,
+[ INPUT.RELS < [ PRED "_yesterday_r_rel" ] >,
   OUTPUT.RELS < [ PRED "_gisteren_r_rel" ] > ].

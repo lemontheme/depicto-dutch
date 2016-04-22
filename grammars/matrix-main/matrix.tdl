@@ -2408,7 +2408,7 @@ hcons-lex-item := norm-hook-lex-item & single-rel-lex-item.
 
 raise-sem-lex-item := no-hcons-lex-item &
   [ SYNSEM.LOCAL [ CONT [ RELS <! !>,
-			  HOOK #hook ],
+			              HOOK #hook ],
 		   CAT.VAL.COMPS < [ LOCAL.CONT.HOOK #hook ] , ... > ]].
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

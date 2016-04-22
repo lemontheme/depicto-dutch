@@ -323,9 +323,13 @@ naar_p := prep-lex-item &
   [ STEM < "naar" >,
     SYNSEM.LKEYS.KEYREL.PRED "naar_p_rel" ].
 
-aan_1 := dative-comp-prep-lex &
-  [ STEM < "aan" >,
-    SYNSEM.LKEYS.KEYREL.PRED "aan_p_rel" ].
+; aan_1 := dative-comp-prep-lex &
+;   [ STEM < "aan" >,
+;     SYNSEM.LKEYS.KEYREL.PRED "aan_p_rel" ].
+
+; from nederlands.tdl
+aan-dat-shift := dative-comp-adp-lex &
+  [ STEM < "aan" > ].
 
 ;;; Auxiliaries
 

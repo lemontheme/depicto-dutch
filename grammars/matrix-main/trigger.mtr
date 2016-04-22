@@ -4,3 +4,8 @@
 is_gr := arg0e_gtr &
   [ CONTEXT.RELS <! [ PRED "non_existing_rel" ] !>,
     FLAGS.TRIGGER "is" ].
+    
+; yay, this works!
+dative_comp_aan_gr := arg0e_gtr &
+[ CONTEXT.RELS <! arg123-relation !>,
+  FLAGS.TRIGGER "aan-dat-shift" ].
