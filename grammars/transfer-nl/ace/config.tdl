@@ -65,4 +65,4 @@ mrs-icons-list := ICONS LIST.
 ; icons-left := IARG1.
 ; icons-right := IARG2.
 
-; input-relation-prefix := "sclera:".
+input-relation-prefix := "sclera:".

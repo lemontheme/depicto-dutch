@@ -62,7 +62,8 @@ complex-vp-picto-lex := main-complex-v-picto-lex &
 ; e.g. "dog_bark"
 complex-subj+vp-picto-lex := main-complex-v-picto-lex &
   [ SYNSEM.LOCAL [ CAT  [ HEAD complex-S-picto,
-                          VAL.SUBJ < > ],
+                          VAL.SUBJ < >,
+                          MC - ],
                    CONT [ HOOK [ LTOP #lbl_head,
                                  INDEX #event],
                           RELS.LIST.FIRST [ ARG0 event & #event,
@@ -75,18 +76,20 @@ complex-subj+vp-picto-lex := main-complex-v-picto-lex &
 ;;; rules
 
 ; e.g. "dog_bark" -> "the dog barks"
-complex-subj+vp-picto-rule := head-only &
+complex-subj+vp-picto-rule := head-only & declarative-clause &
   [ SYNSEM.LOCAL.CAT [ HEAD complex-S-picto,
                        VAL [ SPR < >,
 			                 SUBJ < >,
 			                 COMPS < >,
-			                 SPEC < > ] ],
+			                 SPEC < > ],
+                       MC + ],
     SYNSEM.LOCAL.CONT.HOOK #hook,
     HEAD-DTR lex-item & [ SYNSEM.LOCAL [ CONT.HOOK #hook,
                                          CAT [ HEAD complex-S-picto,
                     				           VAL [ SPR < >,
                     					             SUBJ < >,
-                    					             COMPS < > ] ] ] ],
+                    					             COMPS < > ],
+                                               MC - ] ] ],
     C-CONT.RELS <! !> ].
 
 ; based on basic-bare-np-phrase (matrix.tdl, 2055)
@@ -217,10 +220,11 @@ sclera-adj-int-noun-phrase := sclera-adjective-noun-phrase & adj-head-int-phrase
 ;                                                   LBL #ltop ] ] ].
 
 ; same as above sans isect-mod-phrase
-sclera-adjective-NP1-in-complex-picto-phrase := basic-binary-headed-phrase &
+sclera-adjective-NP1-in-complex-picto-phrase := basic-binary-headed-phrase & declarative-clause &
   [ SYNSEM.LOCAL.CAT.VAL [ COMPS #comps,
                            SUBJ #subj,
                            SPEC #spec ],
+    SYNSEM.LOCAL.CAT.MC -,
     NON-HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD adj,
                                       VAL.COMPS #comps ],
                                 CONT.RELS.LIST.FIRST [ ARG1 #index,
@@ -260,9 +264,11 @@ past-tense-operator-picto := temporal-operator-picto &
 
 temp-adverb-verb-phrase := basic-head-mod-phrase-simple &
                                 head-initial & isect-mod-phrase &
-  [ C-CONT.HOOK.INDEX.E.TENSE #tense,
+  [ C-CONT.HOOK #hook & [ INDEX.E.TENSE #tense ],
     NON-HEAD-DTR.SYNSEM.LOCAL [ CAT.HEAD adv,
-                                CONT.HOOK.INDEX.E.TENSE #tense ] ].
+                                CONT.HOOK.INDEX.E.TENSE #tense ],
+    HEAD-DTR.SYNSEM.LOCAL [ CONT.HOOK #hook,
+                            CAT.MC + ] ].
 
 ;;
 
