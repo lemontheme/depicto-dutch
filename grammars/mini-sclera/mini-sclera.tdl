@@ -25,9 +25,6 @@ sclera-hooks := avm &
     V1 avm,
     V2 avm ].
 
-;;;
-
-
 ;;; complex S-V pictos
 
 ;;; lexical types
@@ -79,16 +76,16 @@ complex-subj+vp-picto-lex := main-complex-v-picto-lex &
 complex-subj+vp-picto-rule := head-only & declarative-clause &
   [ SYNSEM.LOCAL.CAT [ HEAD complex-S-picto,
                        VAL [ SPR < >,
-			                 SUBJ < >,
-			                 COMPS < >,
-			                 SPEC < > ],
+                             SUBJ < >,
+                             COMPS < >,
+                             SPEC < > ],
                        MC + ],
     SYNSEM.LOCAL.CONT.HOOK #hook,
     HEAD-DTR lex-item & [ SYNSEM.LOCAL [ CONT.HOOK #hook,
                                          CAT [ HEAD complex-S-picto,
-                    				           VAL [ SPR < >,
-                    					             SUBJ < >,
-                    					             COMPS < > ],
+                                               VAL [ SPR < >,
+                                                     SUBJ < >,
+                                                     COMPS < > ],
                                                MC - ] ] ],
     C-CONT.RELS <! !> ].
 
@@ -96,25 +93,25 @@ complex-subj+vp-picto-rule := head-only & declarative-clause &
 ; e.g. { dog_n_rel(x) } => { DET(d, x) dog_n_rel(x)}
 sclera-basic-insert-definite-det-rule := head-only &
   [ SYNSEM.LOCAL.CAT.VAL [ SPR < >,
-			               SUBJ < >,
-                		   COMPS < >,
-            			   SPEC < > ],
+                           SUBJ < >,
+                           COMPS < >,
+                           SPEC < > ],
     HEAD-DTR.SYNSEM.LOCAL [ CAT [ HEAD noun,
-                				  VAL [ SPR < [ LOCAL.CAT.HEAD det,
-                        						OPT - ] >,
-                    					SUBJ < >,
-                    					COMPS < > ] ],
-            			    CONT.HOOK [ INDEX #index,
-            					        LTOP #larg ] ],
+                                  VAL [ SPR < [ LOCAL.CAT.HEAD det,
+                                                OPT - ] >,
+                                        SUBJ < >,
+                                        COMPS < > ] ],
+                            CONT.HOOK [ INDEX #index,
+                                        LTOP #larg ] ],
     C-CONT [ RELS <! quant-relation &
               [ PRED "q_rel_min",
-		        ARG0 #index,
-		        RSTR #harg ] !>,
-	         HCONS <! qeq &
-		      [ HARG #harg,
-		        LARG #larg ] !>,
-	         ICONS <! !>,
-	         HOOK [ INDEX #index,
+                ARG0 #index,
+                RSTR #harg ] !>,
+             HCONS <! qeq &
+              [ HARG #harg,
+                LARG #larg ] !>,
+             ICONS <! !>,
+             HOOK [ INDEX #index,
                     LTOP #larg ] ] ]. ; added ltop identity
 
 sclera-bare-np-phrase := basic-bare-np-phrase &

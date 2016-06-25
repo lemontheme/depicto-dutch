@@ -797,22 +797,22 @@ np1-bottom-coord-rule := conj-first-bottom-coord-rule & np-bottom-coord-phrase &
 ;
 ;;;; Coordination Strategy 1
 ;
-;vp1-top-coord-rule := basic-vp-top-coord-rule & monopoly-top-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;vp1-mid-coord-rule := basic-vp-mid-coord-rule & monopoly-mid-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;vp1-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;;;; Coordination Strategy 1
+vp1-top-coord-rule := basic-vp-top-coord-rule & monopoly-top-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
 
-;s1-top-coord-rule := basic-s-top-coord-rule & monopoly-top-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;s1-mid-coord-rule := basic-s-mid-coord-rule & monopoly-mid-coord-rule &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
-;
-;s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
-;  [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+vp1-mid-coord-rule := basic-vp-mid-coord-rule & monopoly-mid-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+vp1-bottom-coord-rule := conj-first-bottom-coord-rule & vp-bottom-coord-phrase &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+;;; Coordination Strategy 1
+
+s1-top-coord-rule := basic-s-top-coord-rule & monopoly-top-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+s1-mid-coord-rule := basic-s-mid-coord-rule & monopoly-mid-coord-rule &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
+
+s1-bottom-coord-rule := conj-first-bottom-coord-rule & s-bottom-coord-phrase &
+ [ SYNSEM.LOCAL.COORD-STRAT "1" ].
