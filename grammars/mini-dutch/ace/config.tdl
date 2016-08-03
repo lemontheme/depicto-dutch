@@ -53,7 +53,7 @@ icons-right := IARG2.
 
 ;;; recent additions:
 ;; reduce storage requirements for the compiled lexicon when possible
-simplify-lexicon := enabled.
+; simplify-lexicon := enabled.
 
 ;; faster generation
 ;; note: **considerably** faster generation!!

@@ -1,12 +1,14 @@
-;;; -*- Mode: TDL; Coding: utf-8 -*-
+;;; -*- Mode: TDL; Coding: ISO 8859-1 -*-
 
 ;; head types
 
 complex-picto := head &
   [ COMPLEX + ].
 
-complex-S-picto := complex-picto & verb.
-complex-VP-picto := complex-picto & verb.
+complex-verb-picto-min := complex-picto & verb.
+
+complex-S-picto := complex-verb-picto-min.
+complex-VP-picto := complex-verb-picto-min.
 
 ; complex-picto :+ [ SCLERA sclera-hooks ].
 

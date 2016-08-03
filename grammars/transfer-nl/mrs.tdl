@@ -331,12 +331,12 @@ flags := *top* &
   RANK string,
   COUNT string ].
 
-mrs_transfer_rule :=  *top* &
-[ FILTER mrs,
-  CONTEXT mrs,
-  INPUT mrs,
-  OUTPUT mrs,
-  FLAGS flags ].
+; mrs_transfer_rule :=  *top* &
+; [ FILTER mrs,
+;   CONTEXT mrs,
+;   INPUT mrs,
+;   OUTPUT mrs,
+;   FLAGS flags ].
 
 ;;;
 ;;; the *top*-level entry point for (grammar-specific) predicate hierarchies

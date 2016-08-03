@@ -16,12 +16,12 @@ je_1 := 2nd-sg-pronoun-noun-lex &
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-hij := 3rd-sg-masc-pronoun-noun-lex&
+hij := 3rd-sg-masc-pronoun-noun-lex &
   [ STEM < "hij" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-zij_sg := 3rd-sg-fem-pronoun-noun-lex&
+zij_sg := 3rd-sg-fem-pronoun-noun-lex &
   [ STEM < "zij" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
@@ -43,7 +43,7 @@ jullie_1 := 2nd-pl-pronoun-noun-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 
-zij_pl := 3rd-pl-pronoun-noun-lex&
+zij_pl := 3rd-pl-pronoun-noun-lex &
   [ STEM < "zij" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
@@ -61,16 +61,16 @@ jou_1 := 2nd-sg-pronoun-noun-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 hem := 3rd-sg-masc-pronoun-noun-lex &
-  [ STEM < "zij" >,
+  [ STEM < "hem" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE acc,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-haar_obj := 3rd-sg-masc-pronoun-noun-lex &
+haar_obj := 3rd-sg-fem-pronoun-noun-lex &
   [ STEM < "haar" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE acc,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-ze_pl_obj := 3rd-pl-pronoun-noun-lex&
+ze_pl_obj := 3rd-pl-pronoun-noun-lex &
   [ STEM < "zij" >,
     SYNSEM.LOCAL.CAT.HEAD.CASE acc,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
@@ -94,6 +94,14 @@ hond := femmasc-count-sg-noun-lex &
 honden := femmasc-count-pl-noun-lex &
   [ STEM < "honden" >,
     SYNSEM.LKEYS.KEYREL.PRED "_hond_n_rel" ].
+
+bus := femmasc-count-pl-noun-lex &
+  [ STEM < "bus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bus_n_rel" ].
+
+bussen := femmasc-count-pl-noun-lex &
+  [ STEM < "bussen" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bus_n_rel" ].
 
 meisje := neutr-count-sg-noun-lex &
   [ STEM < "meisje" >,
@@ -274,6 +282,16 @@ wandelt := intrans+pp-2nd-or-3rd-sg-verb-lex &
     SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
 wandelen := intrans+pp-pl-verb-lex &
   [ STEM < "wandelen" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
+
+loop := intrans+pp-1st-sg-verb-lex  &
+  [ STEM < "loop" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
+loopt := intrans+pp-2nd-or-3rd-sg-verb-lex &
+  [ STEM < "loopt" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
+lopen := intrans+pp-pl-verb-lex &
+  [ STEM < "lopen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_wandelen_v_rel" ].
 
 ga := intrans+pp-1st-sg-verb-lex  &

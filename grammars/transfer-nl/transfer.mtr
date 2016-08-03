@@ -26,6 +26,10 @@ couch_mtr := noun_mtr &
 [ INPUT.RELS < [ PRED "sclera:_couch_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_zetel_n_rel" ] > ].
 
+bus_mtr := noun_mtr &
+[ INPUT.RELS < [ PRED "sclera:_bus_n_rel" ] >,
+  OUTPUT.RELS < [ PRED "_bus_n_rel" ] > ].
+
 headphones_mtr := noun_mtr &
 [ INPUT.RELS < [ PRED "sclera:_headphones_n_rel" ] >,
   OUTPUT.RELS < [ PRED "_koptelefoon_n_rel" ] > ].

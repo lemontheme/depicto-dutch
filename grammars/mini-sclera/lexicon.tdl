@@ -11,56 +11,56 @@
 
 I := 1st-sg-pronoun-noun-lex &
   [ STEM < "I" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 you_sg_1 := 2nd-sg-pronoun-noun-lex &
-  [ STEM < "you" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+  [ STEM < "you_sg" >,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 you_pl_1 :=  2nd-pl-pronoun-noun-lex &
-  [ STEM < "you" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+  [ STEM < "you_pl" >,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 he := 3rd-sg-masc-pronoun-noun-lex &
   [ STEM < "he" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 she := 3rd-sg-fem-pronoun-noun-lex &
   [ STEM < "she" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 we := 1st-pl-pronoun-noun-lex &   ; clitic form
   [ STEM < "we" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 they := 3rd-pl-pronoun-noun-lex&
   [ STEM < "they" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE nom,
+    ; SYNSEM.LOCAL.CAT.HEAD.CASE nom,
     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 ;; Acc
 
 
-me := 1st-sg-pronoun-noun-lex &
-  [ STEM < "me" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+; me := 1st-sg-pronoun-noun-lex &
+;   [ STEM < "me" >,
+;     ; SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+;     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-him := 3rd-sg-masc-pronoun-noun-lex &
-  [ STEM < "he" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+; him := 3rd-sg-masc-pronoun-noun-lex &
+;   [ STEM < "he" >,
+;     SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+;     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
-her := 3rd-sg-fem-pronoun-noun-lex &
-  [ STEM < "she" >,
-    SYNSEM.LOCAL.CAT.HEAD.CASE acc,
-    SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
+; her := 3rd-sg-fem-pronoun-noun-lex &
+;   [ STEM < "she" >,
+;     SYNSEM.LOCAL.CAT.HEAD.CASE acc,
+;     SYNSEM.LKEYS.KEYREL.PRED "_pronoun_n_rel" ].
 
 
 ; you_acc :=  &
@@ -94,6 +94,10 @@ girl := common-noun-lex &
   [ STEM < "girl" >,
     SYNSEM.LKEYS.KEYREL.PRED "_girl_n_rel" ].
 
+bus := common-noun-lex &
+  [ STEM < "bus" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bus_n_rel" ].
+
 kiss_1 := common-noun-lex &
   [ STEM < "kiss" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kiss_n_rel" ].
@@ -115,11 +119,15 @@ headphones := common-noun-lex &
 ;flesje-water-prik := &
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adjectives
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adjectives
 
 happy := adjective-picto &
   [ STEM < "happy" >,
     SYNSEM.LKEYS.KEYREL.PRED "_happy_j_rel" ].
 
+brown := adjective-picto &
+  [ STEM < "brown" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_brown_j_rel" ].
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Adverbs
 
@@ -144,7 +152,7 @@ bark := intrans-verb-lex &
   [ STEM < "bark" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bark_v_rel" ].
 
-buy := trans-verb-lex &
+buy := ditrans-verb-lex &
   [ STEM < "buy" >,
     SYNSEM.LKEYS.KEYREL.PRED "_buy_v_rel" ].
 
@@ -201,11 +209,12 @@ brush_dog := complex-vp-picto-lex &
 
 go_school := complex-vp-picto-lex &
   [ STEM < "go_school" >,
-    SYNSEM.LOCAL.CONT [ RELS <! [ PRED "_go_v_rel",
+    SYNSEM.LOCAL.CONT [ HOOK.SCLERA.N1 #N1,
+                        RELS <! [ PRED "_go_v_rel",
                                 ;   LBL  #test, ;crucial
                                 ;   ARG0 #verb-arg0, ; crucial
                                   ARG2 #locative-comp ],
-                                [ PRED "_school_n_rel",
+                                #N1 & [ PRED "_school_n_rel",
                                   LBL  #noun,     ; LARG handle
                                   ARG0 #locative-comp ],
                                 [ PRED "locative_rel",
