@@ -1,1 +1,0 @@
-- *pictoparse* could be made to be language-agnostic. However, this would require the order in which elements appear to be insignificant, which has the side effect of increasing the amount of work the parser needs to do. As a matter of fact (although I have yet to check this), the LKB may not allow for such a requirement.
