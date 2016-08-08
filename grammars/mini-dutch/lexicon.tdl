@@ -186,23 +186,23 @@ sliepen := intrans-pl-preterite-lex &
 
 ;
 
-koop := trans-1st-sg-verb-lex &
+koop := ditrans-1st-sg-verb-lex &
   [ STEM < "koop" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
-koopt := trans-2nd-or-3rd-sg-verb-lex &
+koopt := ditrans-2nd-or-3rd-sg-verb-lex &
   [ STEM < "koopt" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
-kopen := trans-pl-verb-lex &
+kopen := ditrans-pl-verb-lex &
   [ STEM < "kopen" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
-kocht := trans-sg-preterite-lex &
+kocht := ditrans-sg-preterite-lex &
   [ STEM < "kocht" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 
-kochten := trans-pl-preterite-lex &
+kochten := ditrans-pl-preterite-lex &
   [ STEM < "kochten" >,
     SYNSEM.LKEYS.KEYREL.PRED "_kopen_v_rel" ].
 ;
