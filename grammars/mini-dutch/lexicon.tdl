@@ -361,6 +361,11 @@ blij := adjective-lex &
   [ STEM < "blij" >,
     SYNSEM.LKEYS.KEYREL.PRED "_blij_j_rel" ].
 
+bruin_j := adjective-lex &
+  [ STEM < "bruin" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_bruin_j_rel" ].
+
+
 ;;; Adverbs
 
 gisteren := adverb-lex &
