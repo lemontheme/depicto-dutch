@@ -1,0 +1,267 @@
+\input avm.sty
+
+\font\tensc=cmcsc10
+\newfam\scfam
+\textfont\scfam=\tensc
+\def\sc{\fam\scfam\tensc}
+
+\font\sevenit=cmti7
+\avmfont{\sc}
+\avmsortfont{\sevenit}
+
+%\avmalign{b}
+
+{\tt avm-test.tex} -- this is the test suite for {\tt avm.sty} running
+under (plain) \TeX.
+
+{
+Testing at 1.0 ex/em:
+\avmhskip{1em}
+\avmbskip{1ex}
+\avmvskip{1ex}
+\avm
+\[ aa & \[ bb & cc \] \\
+   dd & \[ ee & ff \\
+	   gg & hh \]\\
+   ii & jj \]
+\endavm
+
+Testing at 0.2 ex/em:
+\avmhskip{0.2em}
+\avmbskip{0.2ex}
+\avmvskip{0.2ex}
+\avm
+\[ aa & \[ bb & cc \] \\
+   dd & \[ ee & ff \\
+	   gg & hh \]\\
+   ii & jj \]
+\endavm
+
+Testing at 0.0 ex/em:
+\avmhskip{0.0em}
+\avmbskip{0.0ex}
+\avmvskip{0.0ex}
+\avm
+\[ aa & \[ bb & cc \] \\
+   dd & \[ ee & ff \\
+	   gg & hh \]\\
+   ii & jj \]
+\endavm
+
+Testing at -0.2 ex/em:
+\avmhskip{-0.2em}
+\avmbskip{-0.2ex}
+\avmvskip{-0.2ex}
+\avm
+\[ aa & \[ bb & cc \] \\
+   dd & \[ ee & ff \\
+	   gg & hh \]\\
+   ii & jj \]
+\endavm
+
+Testing at -1.0 ex/em:
+\avmhskip{-1.0em}
+\avmbskip{-1.0ex}
+\avmvskip{-1.0ex}
+\avm
+\[ aa & \[ bb & cc \] \\
+   dd & \[ ee & ff \\
+	   gg & hh \]\\
+   ii & jj \]
+\endavm
+
+}
+
+Checking that an AVM doesn't put extra space around itself, even in
+text mode.
+
+x$\left[x\right]$x
+
+{
+%\tracingall
+%\avmoptions{active}%
+x%
+\avm
+\[ \]%
+\endavm x
+}
+
+{
+%\tracingall
+%\avmoptions{active}%
+x%
+\avm
+\[ a b \\
+c d \]%
+\endavm x
+}
+
+Some other tests
+
+\avm
+\[ b & b \\
+   b & b \\
+   b & \[ b & b \\
+          b & b \\
+   b & \[ b & b \\
+          b & b \\
+   b & \[ b & b \\
+          b & b \\
+   b & \[ b & b \\
+          b & b \\
+   b & \[ b & b \\
+          b & b \]\]\]\]\]\]
+\endavm
+          
+
+{
+\avmhskip{0em}
+\avm
+\[ a & b \\ c & d \]
+\endavm
+\
+\avmhskip{1em}
+\avm
+\[ a & b \\ c & d \]
+\endavm
+\
+\avmhskip{3em}
+\avm
+\[ a & b \\ c & d \]
+\endavm
+}
+
+\avm
+\[  a & \q< b \q> & \q\{ c \q\} \\
+   d   &    e    &     f \]
+\endavm
+
+
+{\avmoptions{active}
+\avm
+ \{ [ \q\{ a \q\} & \q< b \q> & c \\
+abracadabra & b & cadaver \\
+x & y & z], [ e & f ] \}
+\endavm
+
+\avm
+[ {[ [ [ [ a & e ]]]]} \\
+  {[ [ [ [ f & g ]]]]}
+]
+\endavm
+% \nodecurve[r]{a}[r]{b}{30pt}
+
+\avm
+[ [ [ [ [ a & e ] ] ] ] \\
+  [ [ [ [ f & g ] ] ] ]
+]
+\endavm
+
+\avm
+\sort{synsem}{
+[ subj \sort{f-s}{[ pers & 3	\\
+         num  & @2 sg	\\
+         gend & masc$_{@3}$	\\
+         pred & \rm `pro' ]}	\\
+
+  pred \rm `eat\<SUBJ, OBJ\>'	\\
+
+  obj  \osort{sign}{[ pers 3	\\
+	 num pl	\\
+         gend fem	\\
+         pred \rm `pro' ]}
+]}
+\endavm
+%
+} % end active mode
+%
+\hskip1in
+{%\tracingmacros=1
+\avm
+\sort{f-s}{\[ pers & 3	\\
+         num  & \@2 sg	\\
+         gend & masc$_{\@3}$	\\
+         pred & \rm `pro' \]}
+\endavm
+}
+
+{\avmoptions{active}
+qW\avm
+{[ subj & [ pers & 3	\\
+         num &      sg	\\
+         gend    & masc	\\
+         pred & \rm `pro' ]	\\
+  pred  & \rm `eat\<SUBJ, OBJ\>'	\\
+  obj  & {[ pers & 3	\\
+	 num &  pl	\\
+         gend &  fem	\\
+         pred &  \rm `pro' ]}
+]}
+\endavm}qW
+
+{X\avmoptions{active,bottom}Y}
+
+qW\avm
+{\[ subj & \[ pers & 3	\\
+         num &      sg	\\
+         gend    & masc	\\
+         pred & \rm `pro' \]	\\
+  pred  & \rm `eat\q<SUBJ, OBJ\q>'	\\
+  obj  & \[ pers & 3	\\
+	 num &  pl	\\
+         gend &  fem	\\
+         pred &  \rm `pro' \]
+\]}
+\endavm qW
+
+M{M}M
+M\avm{M}\endavm M
+M\avm{M}\endavm M
+
+trying [a bit] to see [[if it's broken]].
+
+\avm
+\[ node &   \begingroup\avm \( a & b \\ c & d \) \endavm\endgroup \]
+\endavm
+
+Testing fonts: font=it, sortfont=sevenit valfont=none: 
+\avmfont{\it}
+\avmsortfont{\sevenit}
+\avm
+\sort{hi}{\[ a & b & c \]}
+\endavm
+
+\avmfont{}
+\avmvalfont{\it}
+\avmsortfont{\sc}
+Testing fonts: font=none, sortfont=sc valfont=it: 
+\avm
+\sort{hi}{\[ a & b & c \]}
+\endavm
+
+\avmfont{\sc}
+\avmvalfont{\it}
+\avmsortfont{}
+Testing fonts: font=sc, sortfont=none valfont=it: 
+\avm
+\sort{hi}{\[ a & b & c \]}
+\endavm
+
+\avmfont{\sc}
+\avmvalfont{}
+\avmsortfont{}
+Testing fonts: font=sc, sortfont=none valfont=none: 
+\avm
+\sort{hi}{\[ a & b & c \]}
+\endavm
+
+\avmfont{}
+\avmvalfont{}
+\avmsortfont{}
+Testing fonts: font=none, sortfont=none valfont=none: 
+\avm
+\sort{hi}{\[ a & b & c \]}
+\endavm
+
+\bye
+

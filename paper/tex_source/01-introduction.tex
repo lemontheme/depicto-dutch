@@ -1,0 +1,475 @@
+%!TEX root = depicto-top.tex
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Introduction
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \documentclass{standalone}
+% \begin{document}
+%-----------------------------------------------------------------------------
+
+\chapter{Introduction}
+\label{chap:Introduction}
+
+% In this thesis, I introduce the depicto system... \cref{sec:intro:depicto}
+
+\section{Motivation \& goals}
+
+There can be little doubt that, with its ever increasing reach, the digital
+(i.e., online) world has redefined what it means to be a participating member
+of society. At the same time, while it continues to make good on many of its
+promises of connectedness, social inclusion and equality, its expansion has yet
+to significantly benefit those members of society for whom its primary mode of
+information sharing, viz., written text, is inaccessible, resulting in a form
+of social exclusion. One group where much progress still needs to be made
+consists of individuals who, due to some \emph{Intellectual Disability} (ID),
+are unable to comprehend or produce written (or spoken) natural language in a
+form that is sufficiently well-formed to be intelligible to other members of
+the language community (a language impairment which we will generally refer to
+as \emph{aphasia} or \emph{dysphasia}, depending on the severity of the
+condition) and, in many cases, are unable to use ICT independently altogether
+as a result. Prone to social isolation, as well its effects, including
+loneliness and depression, this group stands to benefit tremendously from
+improved access to remote communication facilities such as instant messaging,
+social media, and email, which could enable its members to communicate with
+(non-impaired) family members, friends, caregivers, even employers, as well as
+to seek out contact with those who perhaps understand them best, i.e.,
+individuals in similar situations. Indeed, opening up online communication
+services to persons with ID not only represents a necessary step in the
+realization of a socially non-exclusive internet, but has the potential of
+significantly increasing the quality of life experienced by these individuals.
+To this end, there is a need for alternative interfaces that make the tasks of
+comprehending and producing text online more accessible. Here, we \emph{focus
+on the task of text production}.
+
+Previous work on \emph{Alternative and Augmentative Communication} (AAC), a
+well-established field of research concerning the development of assistive
+tools and resources (both no/low-tech and high-tech) for a \emph{wide} range of
+communication disabilities, shows \emph{pictographs} (or `pictures', `symbols',
+`pictograms', `pictos', `icons') to be particularly well-suited as an
+alternative to spoken and written communication \citep{steele1989computer}. For
+individuals with a language impairment (i.e., as opposed to a motoric and/or
+speech impairment), the advantages of pictograph-based communication are (a)
+that symbols, in contrast to natural language words, provide a direct visual
+cue as to their meaning; (b) that they belong to a relatively small and
+easy-to-learn symbol set; and (c) that they tend to be structurally simple,
+expressing \emph{essential} `lexical' meaning only (i.e., without any
+grammatical adornment) and, by default, imposing few to no syntagmatic
+constraints when used to express a complex of meaning.
+
+\emph{Pictograph-enabled writing tools} allow users to `write' (and verbalize)
+natural language text using only pictographs. Essentially, they are an
+application of \emph{Machine Translation} (MT) and \emph{Natural Language
+Generation} (NLG), providing an interface between pictographs and text. Over
+the past two decades, a number of approaches to mediating this interface have
+been proposed. With the exception of a number of recent newcomers, such as
+\citet{sevens2015natural}, none of the these approaches \emph{specifically}
+target persons with ID (the needs associated with which are generally
+backgrounded by those of users with speech and/or motion impairments), but they
+are each unique in the way that they deal with the \emph{challenges} posed by
+the pictographic input to regular machine translation methods, as the mixed
+selection of approaches discussed in \cref{sec:related-work} makes clear.
+Within the European Union alone, ID-sensitive assistive writing tools could
+benefit an estimated 2 to 5 million people \citep{keskinen2012symbolchat}.
+
+The main \emph{challenges for pictograph-to-text translation} stem from
+precisely those features that make pictographic communication so attractive in
+the first place. In the first place, in order to remain simple, pictographs
+tend to be \emph{underspecified} both semantically and grammatically. That is,
+they individually encode for \emph{less} information than do corresponding
+words in natural language. The precise degree of underspecification varies
+among different sets of pictographic symbols. In the second place, pictographs
+can in principle be used in any order, with the result that, in the worst case,
+the input to translation is unpredictable and potentially ambiguous. Further,
+since there are no `corpora' of pictographic language use, traditional
+statistical translation methods are unsuitable.
+
+In the context of this thesis, we have set out to design and implement a
+working prototype for an open-source machine translation pipeline that, when
+combined with a hypothetical user interface, enables \emph{users with ID in
+particular} to compose grammatically precise (written) natural language
+utterances based on a sequence of freely selected pictographic symbols.
+Presented under its working name, the result is the \emph{DePicTo} system:
+\emph{De-Pictofication Tool}, which is re-written as \depicto\ for aesthetic
+purposes. The core of this system, the first version of which has been built
+for use by members of a Dutch-speaking language community, differs from that
+found in alternatives in that it is an implementation of a \emph{rule-based}
+(or more precisely, \emph{transfer-based}) approach to machine translation. The
+motivation for this approach, along with a more detailed description of the
+system, is given in \cref{sec:intro:depicto}. For now, the goals of the work presented in this thesis can be summarised as follows:
+
+\begin{itemize}
+    \item  Design and implement an \emph{actual working} pictograph-to-text
+           translation system that can deal with the challenges
+           posed by the pictographic input (supra) -- without restricting
+           the method of user input.
+    \item  Get a sense of the costs of developing and extending the
+           system (rule-based approaches to translation are notorious for its
+           reliance on expensive language resources), and minimize these
+           costs by adopting a modular design that ensures the re-usability of
+           shared components. (We will elaborate on this in
+           \cref{sec:intro:depicto}.)
+\end{itemize}
+
+\section{Related work: Approaches}
+\label{sec:related-work}
+
+Since the early 1990s, a number of systems have been proposed that provide
+automatic mediation in the interface between AAC symbols on the one hand and
+natural languages on the other. Focusing on the subset that takes pictographic
+input to yield natural language output, this section briefly (and
+non-exhaustively) discusses three systems that have been designed to aid people
+with communication disabilities in the production of syntactically well-formed
+textual content. Although each largely unique in their approach to the
+challenges of translating from pictographs, they reflect a fundamental
+commitment to the needs of their users, including the reality of their
+socio-economic situation, with accessibility and affordability forming
+important design factors throughout. In that regard, they are the closest
+`allies' of the \depicto\ system, although the approaches they take contrast
+with \depicto's old-school, rule-based simplicity. For one thing, all three
+systems include at least one statistical component; for another, they treat
+their immediate pictographic input in very different ways. To make this second
+point clear, they are classified here as employing either \emph{semantic
+frames} or \emph{shallow} methods to analyze their input. These classes are not
+mutually exclusive, as the first system in the \emph{semantic frame} class
+demonstrates, but they are sufficient to highlight the fundamental difference
+between the first and second systems' orientation to semantics and the third
+system's more token-oriented approach. Note, however, that many other
+classification systems would have been possible, depending on which parts of
+the individual approaches we wish to compare.
+
+\subsection{Semantic frames}
+
+\subsubsection{Prothèse Vocale Intelligente (1998)}
+
+An older example, the Prothèse Vocale Intelligente (PVI) system for
+French \citep{vaillant1998interpretation} stems from hands-on research
+involving people with cerebral palsy. This disorder causes neuromotor problems
+and cognitive deficits, which are manifested, linguistically, in difficulty
+with syntax -- so-called `agrammatism' -- and a preference for short,
+telegraphic-style communication.
+
+The PVI system's user interface is compatible with a number of input devices,
+suitable for various levels of motoric ability. Users can select pictographs
+from a grid using a computer mouse, a switch (for limited motoric ability), or
+a specialized keyboard. Once composed, input sequences are passed to an
+analysis module, where they are parsed semantically. This process, which
+ultimately yields a conceptual graph of the sequence's meaning, falls into
+three steps. First, the identifiers associated with the individual pictographs
+are retrieved, and predicative items, that is, those items with one or more
+selectional restrictions, e.g., verbs, are singled out. In the same step, the
+system moves on to the remaining pictographs and picks out the best candidates
+for each of the predicate's argument slots, choosing between different possible
+readings on the basis of a `semantic harmonization' metric. Second, a lexical
+choice component which maps icons into French words prepares the resulting
+conceptual graph for the generation phase, adding uninstantiated
+morphosyntactic variables where appropriate. Third, and finally, the conceptual
+graph, now complete, is passed to a generator based on the Tree-Adjoining
+Grammar (TAG) formalism \citep{joshi1997tree}. Using lexicalized subtrees
+consisting of anchors and slot-fillers, this step builds up syntactic trees
+corresponding to one more French sentences, which are given as output.
+
+To its credit, the PVI system makes no assumptions about the internal order of
+pictographic sequences, leaving a great deal of expressive power up to the
+user. However, in order for this to work, the selectional restrictions used to
+disambiguate between all possible readings, are made rather strict. As a
+result, elliptical sequences, i.e., consisting of single pictographs or an
+incomplete predicative frame, are not accepted. On a more practical level, the
+PVI system does not seem to have been extended to other languages. This may
+have been due to the fact that the system relies on a visual language mapped
+specially to French words, requires a language-specific case grammar knowledge
+database for analysis, as well as a (again, language-specific) tree-adjoining
+grammar for generation. Nevertheless, for the \depicto\ system, in its current
+form 100\% rule-based, the PVI system forms both a tale of caution and, with
+its commitment to free ordering on the input, a source of inspiration.
+
+\subsubsection{Sanyog (2009)}
+
+India is a large country that is home to a proportionally large number of
+individuals with speech and motion impairments. Stressing the need for
+computer-mediated AAC systems that, unlike other options available at the time,
+are tailored to Indian languages and, perhaps most important, are affordable,
+\citet{bhattacharya2009design} introduce Sanyog, a picture-based communication
+aid that coverts pictographic input into grammatically correct sentences in
+Bengali or Hindi. Developing for these languages did not prove to be easy, and
+the developers' account of how they were eventually forced to revise their
+system, designing in the process a novel way of eliciting input at the user
+interface, is very instructive.
+
+The original design of the Sanyog system made use of the `compansion' approach.
+In this approach, pictographs selected through interaction with a grid-like
+interface undergo a preliminary phase of word order parsing. Words are grouped
+into sentence-sized chunks and part-of-speech information is gathered. The
+resulting augmented chunks are passed to the analysis module, where they are
+parsed semantically to form the basis of an instantiated semantic frame.
+Finally, in the generation step, this semantic frame is filled out through
+combination of syntactic and semantic constraints as well as the application of
+a series of preference rules, adding, among other, prepositions, determiners
+and morphological modification to the output.
+
+However, the linguistic knowledge databases (e.g., WordNet and Framenet) and
+preference rules required for compansion to work do not exist in a sufficient
+form for Hindi and Bengali. Therefore, the developers adopt a new strategy for
+frame instantiation: `cogeneration' \citep{copestake1997augmented}, which can
+best be described as an extension of compansion in that it still makes
+essential use of semantic frames, but uses statistical information about the
+input, as well as n-gram word collocation information about the output, to
+assign frame roles to the most likely words.
+
+There is one problem, though. While the cogeneration approach is effective once
+semantic parsing has completed, getting there unambiguously requires a
+reliable language model of the input, for which no available text corpus of
+Hindi or Bengali is entirely suitable. As an alternative solution,
+\citet{bhattacharya2009design} develop the QR (Query-Response) model, a novel
+user-computer interface. Rather than giving the user full reign over the
+internal composition of pictographic sequences, the QR model expects users to
+select a verb first and then answer a series of (pictographically conveyed)
+queries relating to the roles associated with the semantic frame of the verb.
+The QR interface also includes a small set of optional markers with which users
+can specify different modalities (e.g., assertive, interrogative, as well as
+`wishing' and `requesting'), negation, and tense and aspect.
+
+The developers report that the system is already deployed at several
+institutions across India, and that the results of user testing are positive.
+The QR approach is experienced as intuitive and user friendly, and the quality
+of translation is satisfactory.
+
+\subsection{Shallow analysis}
+
+\subsubsection{Picto2Text (2015)}
+\label{sub:picto2text}
+
+The third and final system to be discussed in this section is Picto2Text,
+currently being being developed at the University of Leuven by
+\citet{sevens2015natural}. The system is part of a larger family of homegrown
+picto-based AAC technologies targeting social inclusion in the digital world.
+In fact, in terms of functionality, it is the complement of the previously
+developed Text2Picto system, which, as the name suggests, translates text into
+pictographic sequences \citep{vandeghinste2015translating}. Like the latter,
+which was designed with the aim of facilitating online reading comprehension
+for people with ID, Picto2Text is designed in close co-operation with the
+WAI-NOT online communication platform\footnote{http://www.wai-not.be/} (for
+speakers of Dutch), where it will eventually be used, among other, as an
+assistive tool for email and instant message composition. Situated within the
+EU Able-to-Include framework, the project emphasises extensibility to as many
+European languages as possible. Currently, the system supports generation in
+Dutch, English, and -- more recently -- Spanish. Finally, of the three systems
+discussed in this section, Picto2Text relies the most on statistical models for
+its translation strategy.
+
+In terms of both its user interface and its translation engine, the Picto2Text
+system is still under active development. In the version of the system
+described in \citet{sevens2015natural}, users can choose between two input
+methods. In the first, related pictographs are grouped into stacks based on
+topic similarity and frequency, and user navigates through these stacks to find
+the desired pictograph. In the second, a dynamic pictograph prediction tool
+allows users to quickly compose frequent utterances by selecting from a list of
+likely next pictograph candidates. At the moment, the choice between these two
+input methods is not exclusive, and users have complete freedom in the
+selection and ordering of pictographs. Sequences of selected pictographs are
+translated into the target language in real time, i.e., as they are composed.
+At the heart of the translation engine is a database of WordNet
+\citep{miller1995wordnet} links and an n-gram language model. This works as
+follows. Pictograph identifiers are linked to language-specific WordNet synsets
+(the result of previous work on the Text2Picto system
+\citep{vandeghinste2014linking}), such that when a pictograph is selected the
+synonyms from its associated synset are retrieved. These synonyms undergo
+reverse lemmatization. Each of the resulting surface forms represents a
+hypothesis for the language model. Since closed-class lexemes do not appear in
+the WordNet database, a series of additional rules ensure that pronouns (which
+do exist in the pictographic language used) are instantiated on these
+hypotheses. Similarly, nouns undergo a process of rule application that adds
+articles based on part-of-speech information. Next, hypotheses are passed to a
+language model where Viterbi-decoding based on a trigram model determines the
+most likely candidate permutation for output. In the Dutch version, this model
+has been trained on both written and spoken corpora.
+
+In several ways the Picto2Text system is an interesting newcomer in the field
+of icon-aided communication. At the interface level, its dynamic pictograph
+prediction tool is the first of its kind and may, once refined, open the way to
+greater ease of composition as well as increased accuracy, without sacrificing
+freedom of expression (as in, e.g., the Sanyog system). The translation engine,
+further, requires a minimal set of resources (i.e., a WordNet database linked
+to a pictographic language, and a number of corpora), and has a result scaled
+nicely to include other European languages. At the same time, in its current
+form, the system does suffer from a number of important limitations. The first
+relates to accuracy of translation, which is currently too low for practical
+usage. The second is that the pictographic input is expected to resemble the
+structure of the target language (a consequence of the fact that no corpus of
+pictographic data exists with which to tune the language model). The third
+limitation is that the WordNet database with which the best scoring version of
+the system is currently linked (The Cornetto database of Dutch
+\citep{vossen2007cornetto}) has recently been made proprietary. This is
+arguably not a limitation of the system itself, especially since the its
+developers are already working on a possible migration to the open-source Open
+Dutch WordNet \citep{postma2014open}, but it may form a problem for sustained
+development in the future, which is why it is mentioned here. Nevertheless, as
+the online demo\footnote{http://picto.ccl.kuleuven.be/DemoP2T.html} shows,
+Picto2Text is a promising system, whose developers are already considering
+hybridization options involving analysing the input sequence semantically by
+means of rule-based parsing, and using semantic transfer for a more
+generation-heavy approach.
+
+And this is where the \depicto\ system comes in.
+
+%-----------------------------------------------------------------------------
+
+\section{The \depicto\ system}
+\label{sec:intro:depicto}
+
+The \depicto\ system is a \emph{proof-of-concept} implementation of a
+semantics-oriented, rule-based approach to pictograph-to-text translation that
+treats the source language utterance as a structured whole that can be analysed
+by `deep' parsing methods (i.e., syntactically and semantically), rather than
+as a `shallow' string of tokens. In the context of this thesis, the system aims
+(implicitly) to explore the feasibility of developing a rule-based pipeline
+that could, hypothetically, serve as a complement to the probabilistic core of
+the \emph{Picto2Text} system (above) in future hybrids. As a standalone system,
+\depicto\ additionally aims to show that, while purely rule-based approaches to
+translation are out of vogue nowadays \citep{chan2014routledge}, they provide a
+powerful means for overcoming both the sparsity of data of pictographic usage
+(above) and the semantically underspecified character of pictographic
+`languages' in general, such that, by incorporating linguistic intuition
+(captured as rules), an approach of this kind is able to translate a
+pictographic source utterance in a way that is not only 100\% consistent, but
+derives \emph{as much meaning as possible} from the pictographic input. A
+working demo of the system can be obtained by following the instructions in
+Appendix~\ref{app:settingupdepicto}.
+
+The general architecture of the \depicto\ system, presented in
+Figure~\ref{fig:intro:architecture}, consists of three consecutive
+\emph{modules}. The first module, which is described in \cref{chap:pipeline1},
+employs a constraint-based grammar of the pictographic source language to
+perform a \emph{deep analysis} on an input sequence of symbol identifiers. The
+output of this stage is a (potentially enriched) representation of the semantic
+structure of the source sequence. The second module, introduced in the first
+half of \cref{chap:pipelineii}, uses a series of rewrite rules stored in a
+so-called \emph{transfer grammar} to adapt this semantic representation so as
+to make it compatible with the target language. The result of this step is
+passed to the the third module, where, as described in the second half of
+\cref{chap:pipelineii}, it is used to generate surface strings based on a
+grammar model of the target language that is written in the same formalism and
+framework as the grammar used by the first module. Currently, the output of the
+pipeline is an exhaustive, i.e., unfiltered, \emph{list} of grammatically
+possible surface realizations. The analysis, transfer and generation modules
+are each operationalised by a different mode of the \emph{Answer Constraint
+Engine} (\ace) processor. The visible input and output of the pipeline are
+strings. The intermediate data structures, visualised here as parallelograms,
+constitute semantic representations, which are formalized within the
+\emph{Minimal Recursion Semantics} (\mrs) framework. More information is
+provided in the next chapter.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[node distance=2cm]
+    \node (in) [sys-io] {Sequence of \sclera\ symbol \textbf{identifiers}};
+    \node (analysis-mod)
+        [process, below of=in] {Analysis module};
+        \node (sl-grammar)
+            [database, right of=analysis-mod, xshift=4cm] {Grammar model of pictographic source language (i.c. \sclera)};
+        \node (analysis-out)
+            [io, below of=analysis-mod]
+            {Semantic representation (as \mrs)};
+    \node (transfer-mod)
+        [process, below of=analysis-out] {Transfer module};
+        \node (transfer-grammar)
+        [database, right of=transfer-mod, xshift=4cm]
+        {\logon\ transfer grammar for specific \sclera-X language pairs};
+        \node (transfer-out)
+            [io, below of=transfer-mod]
+            {`Translated' semantic representation (as \mrs)};
+    \node (generation-mod)
+        [process, below of=transfer-out] {Generation module};
+        \node (target-grammar)
+            [database, right of=generation-mod, xshift=4cm]
+            {Grammar model of target language};
+        \node (generation-out)
+            [sys-io, below of=generation-mod]
+            {\textbf{List} of target language surface realizations};
+        \draw [arrow] (in) -- (analysis-mod);
+        \draw [arrow] (analysis-mod) -- (analysis-out);
+        \draw [arrow] (analysis-out) -- (transfer-mod);
+        \draw [arrow] (transfer-mod) -- (transfer-out);
+        \draw [arrow] (transfer-out) -- (generation-mod);
+        \draw [arrow] (generation-mod) -- (generation-out);
+        % grammar labels
+        \draw [arrow] (sl-grammar) -- (analysis-mod);
+        \draw [arrow] (transfer-grammar) -- (transfer-mod);
+        \draw [arrow] (target-grammar) -- (generation-mod);
+        % ACE
+        \node (ace)
+               [processor, left of=transfer-mod, xshift=-3cm, align=center]
+               {ACE processor \\ (black box)};
+        \draw [arrow] (ace) |- (analysis-mod);
+        \draw [arrow] (ace) -- (transfer-mod);
+        \draw [arrow] (ace) |- (generation-mod);
+    \end{tikzpicture}
+    \caption{Architecture of the \depicto\ pipeline}
+    \label{fig:intro:architecture}
+\end{figure}
+
+The design of the \depicto\ system has been guided by two main criteria:
+\emph{user-sensitivity} and \emph{extensibility}.
+
+The first, \emph{user-sensitivity}, requires that the system stay true to the
+needs of its intended users. Like other assistive communication tools, the
+system's success will ultimately be measured by its usability, which, in this
+case, amounts to whether it can handle the communicative `behaviour' of
+dysphasic users, e.g., unpredictability with regard to word order. As we see
+further on, the current version of the system has difficulty meeting this
+criterion completely. Nonetheless, it forms an important backdrop to the
+process of modelling the grammar used by the analysis module.
+
+The criterion of \emph{extensibility} requires that it be possible (if not
+easy) to extend the system to other target languages than Dutch. This forms the
+basis not only for \depicto's modular design, which, in any case, is very
+similar to that used by other transfer-based systems \citep{chan2014routledge},
+but also for a second layer of modularity concerning the language resources
+required by the system's modules themselves, which we refer to as the
+\emph{Principle of modularity}. According to this principle, the grammars of
+the (pictographic) source language and target language must be self-contained,
+i.e., independent of the other parts of the system. In other words, the
+successful operation of the system should not depend on any overlap between
+these two grammars. If adhered to, this principle makes it possible to
+incorporate, or `plug in', other pre-existing target language grammars without
+having to make any changes to them. Meanwhile, the source language grammar is
+designed to be language independent (although semantic representations use an
+English-based metalanguage). Thus, in the ideal case, incorporating a new
+target grammar requires only the development of a new transfer grammar. This is
+easy enough to do, provided developers are somewhat familiar with the lexicon
+used by the target language grammar. Under the same criterion of extensibility,
+the design of the \depicto\ system uses only open-source resources and hopes to
+attract collaboration.
+
+\section{Thesis overview}
+
+\textbf{Chapter 2} introduces and contextualizes all third-party
+\emph{resources} used by the \depicto\ system. These include the pictographic
+symbol set, \sclera, toward which \depicto's analysis module is geared; the
+formalisms (\delphin-style \emph{Typed Feature Structures}, \emph{Minimal
+Recursion Semantics}), frameworks (\emph{Head-driven Phrase Structure
+Grammar}), and grammar resources (the \emph{LinGO Grammar Marix}) upon which
+\depicto's source and target language grammars depend, as well as the parsing
+and generation tool responsible for processing these grammars (i.e., the
+\emph{Answer Constraint Engine}); and, finally, the (\logon-style) rewrite formalism used by \depicto's transfer grammar.
+
+\textbf{Chapter 3} describes the development of \depicto's analysis module.
+After a brief characterization of the input, the focus shifts to modelling the
+pictographic source language within a constraint-based framework. To start off,
+we show how \sclera\ can be analyzed as a natural language. Next, a simple
+grammar model is set up. We show how this model can be extended in a way
+\sclera-idiomatic way so as to increase its coverage as well as its precision
+with regard to the detection of illocutionary force and tense. Finally, we walk
+through an example of the output of the analysis module.
+
+\textbf{Chapter 4} describes the development of the other two modules in the
+pipeline. In \cref{sec:Semantictransfer}, we show how we set up a (very) basic
+transfer grammar for a \emph{pictograph-to-Dutch} language pair. In
+\cref{sec:generation}, we design a toy grammar of Dutch that can be used as a
+target language in the \depicto\ system and show how this grammar is used by
+the third module to produce an exhaustive list of grammatical surface strings.
+
+Finally, \textbf{Chapter 5} summarizes \emph{progress} made on the \depicto\
+system; presents a brief \emph{evaluation} of the system, the second half of
+which involves a comparison with the \emph{Picto2Text} system; draws a number
+of \emph{conclusions} relating to the main goals and design criteria of the
+system; and, finally, looks ahead in terms of three areas of potential future
+work.

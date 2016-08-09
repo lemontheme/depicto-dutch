@@ -1,0 +1,66 @@
+%!TEX root = depicto-top.tex
+\addcontentsline{toc}{chapter}{Summary}
+\chapter*{Summary}
+% max. 3000 chars ≈ 450 words.
+
+In recent years, increasing attention has been paid to the potential of using
+pictographs to open up the online world, so that users with intellectual
+disabilities can benefit from the same tools for remote communication (email,
+instant messaging, social media) which define so much of what it means to be a
+socially active member of society nowadays. This thesis describes the
+development of an automatic translation system that aims to enable
+language-impaired, intellectually disabled individuals to compose written
+messages simply by selecting a sequence of pictographic images.
+
+By way of contrast with existing approaches for pictograph-to-text translation,
+the system that we develop here, \depicto, takes a 100% rule-based
+approach. That is, all stages in the translation process make use of linguistic
+rules, as opposed to statistical data. On paper, such an approach has several
+advantages over data-driven alternatives. In particular, it makes it possible
+to encode elegant generalizations about the pictographic input, such that
+translation is maximally expressive, the output is consistent, and one of the
+main challenges for statistical methods is overcome, i.e., that there is no
+data on which to train a model of the pictographic input. Rule-based approaches
+are also costly, though, requiring resources developed in large part by hand.
+Thus, aside from the obvious objective of testing whether this approach can be
+realized (i.e., by getting \depicto\ to work), we also explore how development
+can be made more \emph{feasible}. In addition, we set two design criteria:
+first, the system must be \emph{sensitive} to the needs of its users; second,
+it must be possible to \emph{extend} to other target languages. (Currently, the
+system translates to Dutch.)
+
+In \cref{chap:Background}, we introduce all third-party resources used by the
+system. In \cref{chap:pipeline1} we show how the pictographic symbol set
+\sclera\ can be analysed as a natural language and how this language can be
+modelled by a constraint-based grammar. This grammar is written in an
+implemented variant of the \hpsg\ framework and forms the core of the first of
+\depicto's three modules: the analysis module. In the first half of
+\cref{chap:pipelineii}, we see the semantic structure of analysed pictographic
+sequences is converted, or \emph{transferred}, so as to be compatible with the
+input expected by the target language grammar. This happens in the second
+module in the \depicto\ chain. In the second half of \cref{chap:pipelineii}, we
+describe a basic grammar model of Dutch and show how this is used to
+\emph{generate} well-formed sentences based on the translated semantic
+structure yielded by the second module. Next, in the first half of
+\cref{chap:Conclusion}, we evaluate the system as a whole. We argue that both
+its precision, i.e., ability to produce well-formed output, and performance are
+high, but are forced to concede that its coverage is limited. We also show how
+the \depicto\ system fares when pitted against a fundamentally statistical
+system, namely, the \emph{Picto2Text} system (\citep{sevens2015natural}).
+
+All in all, we conclude that \depicto\ is able to successfully translate (a
+very limited subset of) pictographic sequences into well-formed natural
+language sentences. Moreover, by adopting an explicitly modular design, we try
+to make the system as appealing as possible to developers dealing with other
+target languages. At the same time, while modularity certainly helps, extending
+\depicto's analysis module remains a costly task. Whether such costliness is an
+adequate trade-off for the indisputably high quality of the system's output
+will be determined by future work. As a \emph{translation system}, \depicto\
+can be considered a success. As an \emph{assistive writing tool}, however, it
+needs improvement. Its analysis module imposes overly stringent constraints on
+the order of elements on the pictographic input, and its generation module is
+set to output every single sentence that is well-formed according to the
+grammar of the target language. In future work, we will focus on minimizing the
+first limitation and removing the second altogether. This will involve exciting
+experiments in hybridizing \depicto's rule-based core with other, more
+statistical approaches to translation/generation.

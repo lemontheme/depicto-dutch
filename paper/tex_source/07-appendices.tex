@@ -1,0 +1,223 @@
+%!TEX root = depicto-top.tex
+    % \begin{appendices}
+
+\appendix
+\chapter{Demoing \depicto}
+\label{app:settingupdepicto}
+
+This appendix provides instructions for obtaining and using the version of the
+\depicto\ system developed in this thesis. This version takes a relatively
+small set of \sclera\ pictograph identifiers as input and produces well-formed
+\textbf{Dutch} sentences as output. For a complete list of currently accepted
+pictograph identifiers, please see Appendix~\ref{app:sclera-lexicon}.
+
+\section*{Requirements}
+
+The \depicto\ system supports 64-bit versions of both GNU/Linux and Mac OS X.
+It has been tested on Ubuntu (verions 15.10 and 16.04.1) and on Mac OS X
+10.11.5 (El Capitan).
+
+\section*{Setting up}
+
+The grammars used by the \ace\ processor need to be compiled from source. The
+source code of the individual grammars, as well as up-to-date \ace\ processor
+binaries (for each of the two supported OSs), a shell script wrapper, and some
+very preliminary documentation, is available as a GitHub repository.
+
+\subsection*{Getting the code}
+
+To obtain the repository, \textbf{either} ...
+
+\begin{enumerate}
+    \item Visit the main page of the repository at
+          \url{https://github.com/lemontheme/depicto-dutch},
+    \item Click \textbf{Clone or download} >
+          \textbf{Download Zip}
+    \item Extract the Zip archive
+\end{enumerate}
+
+\textbf{or}, if Git is installed (preferred method), ...
+
+\begin{enumerate}
+    \item Open Terminal
+    \item Change the current working directory (\texttt{cd}) to the location
+          where you want the repository to be downloaded,
+    \item Type:
+    \begin{verbatim}
+$ git clone https://github.com/lemontheme/depicto-dutch
+    \end{verbatim}
+    \vspace{-0.5cm}
+    \item Press \textbf{Enter}.
+\end{enumerate}
+
+\subsection*{Compiling the grammars}
+
+The most important directories in the downloaded repository are
+\texttt{ace-app} and \texttt{grammars}. The \texttt{ace-app} directory contains
+OS-specific \ace\ binaries, shell script wrappers, and compiled grammar images
+(as \texttt{.dat} files). The \texttt{grammars} directory contains those files
+which constitute the `code' (\texttt{.tdl} files) from which the individual
+grammars are compiled. The subdirectories under \texttt{grammars} are as
+follows:
+
+\begin{itemize}
+    \item \texttt{mini-dutch}  = Grammar of Dutch
+    \item \texttt{mini-sclera} = Grammar of \sclera
+    \item \texttt{matrix-main} = Resources shared by both
+                                 \texttt{mini-dutch} and \texttt{mini-sclera}
+    \item \texttt{transfer-nl} = Sclera-Dutch transfer grammar
+\end{itemize}
+
+To compile the grammars, follow the steps below.
+
+\begin{enumerate}
+    \item In Terminal, navigate to the subdirectory of \texttt{ace-app/}
+          whose name corresponds to that of the current operating system, e.g.:
+  \begin{verbatim}
+$ cd depicto-dutch/ace-app/osx #(on OS X)
+  \end{verbatim}
+  \vspace{-0.5cm}
+    or
+  \begin{verbatim}
+$ cd depicto-dutch/ace-app/linux #(on Linux)
+  \end{verbatim}
+  \vspace{-0.5cm}
+    \item Run the \texttt{compile-all} shell script:
+  \begin{verbatim}
+$ sh compile-all_osx.sh
+  \end{verbatim}
+  \vspace{-0.5cm}
+    or
+  \begin{verbatim}
+$ sh compile-all_linux.sh
+  \end{verbatim}
+  \vspace{-0.5cm}
+  (\texttt{compile-all_{}.sh} is a simple wrapper containing three individual
+   compilation calls to \ace\ processor.)
+\end{enumerate}
+
+\section*{Usage}
+
+For ease of testing, the \depicto\ demo includes a second wrapper that calls
+all three stages of the pipeline in order, invoking \ace\ plus an appropriate
+grammar image for each, and `piping' the output of preceding stages forward.
+This wrapper, which is broken down in \cref{ex:conc:eval:time}, represents only
+one of many ways in which the \depicto\ can be implemented. For instance, while
+it relies on interactive user input itself, a slightly modified script could
+just as easily read input from a test file, or from any other kind of input
+stream.
+
+\begin{enumerate}
+    \item When starting a new session, open Terminal and
+          \texttt{cd} to the subdirectory of \texttt{ace-app/}
+          whose name corresponds to that of the current operating system.
+    \item Initialize the \depicto\ pipeline, with...
+  \begin{verbatim}
+$ sh test-pipeline_osx.sh
+  \end{verbatim}
+  \vspace{-0.5cm}
+    or
+  \begin{verbatim}
+$ sh test-pipeline_linux.sh
+  \end{verbatim}
+  \vspace{-0.5cm}
+        This opens up new line below,
+        from which \depicto\ (or the \ace\ processor, to be precise)
+        waits to read its input.
+  \item Enter a sequence of pictograph identifiers, seperated by any
+        number of spaces, and press \textbf{Enter}. For example:
+  \begin{verbatim}
+$ sh test-pipeline_linux.sh
+dog see bus yesterday #<Enter>
+  \end{verbatim}
+  \vspace{-0.5cm}
+        If the input is covered by the system, this step results in
+        a complete list of translation hypotheses, as described in \cref{subs:generation}.
+
+        Whether successful or not, the pipeline returns a new
+        user input line, so that this step can be repeated infinitely.
+
+    \item To exit the pipeline, type \texttt{<CTRL-C>}.
+
+\end{enumerate}
+
+% \subsection{Note to Linux users in particular!}
+
+% export TMPDIR=$HOME/tmp
+
+% \appendix
+% \vspace{-5cm}
+\chapter{\sclera-grammar lexicon}
+\label{app:sclera-lexicon}
+
+\begin{figure}[h!]
+\centering
+\small
+\begin{tabular}{ | p{3.5cm} | p{3.5cm} | p{3.5cm} | p{3.5cm} | }
+    \hline
+    \textbf{Picto identifier} & \textbf{Approx. PoS} & \textbf{Main relation} & \textbf{Other relation(s)} \\
+    \hline
+    I          & (pro)\textbf{n}oun (nom/acc) &   \texttt{`\_pronoun\_n\_rel'}       &        \\
+    you\_sg        & (pro)\textbf{n}oun (nom/acc) &    \texttt{`\_pronoun\_n\_rel'}      &        \\
+    you\_pl        & (pro)\textbf{n}oun (nom/acc)  &   \texttt{`\_pronoun\_n\_rel'}       &        \\
+    he         & (pro)\textbf{n}oun (nom/acc) & \texttt{`\_pronoun\_n\_rel'}         &        \\
+    she        & (pro)\textbf{n}oun (nom/acc)  & \texttt{`\_pronoun\_n\_rel'}         &        \\
+    we         & (pro)\textbf{n}oun (nom/acc) & \texttt{`\_pronoun\_n\_rel'}         &        \\
+    they       & (pro)\textbf{n}oun (nom/acc)  & \texttt{`\_pronoun\_n\_rel'}         &        \\
+    dog        & count \textbf{n}oun & \texttt{`\_dog\_n\_rel'}         &        \\
+    girl       & count \textbf{n}oun & \texttt{`\_girl\_n\_rel'}         &        \\
+    bus        & count \textbf{n}oun & \texttt{`\_bus\_n\_rel'}         &        \\
+    kiss       & count \textbf{n}oun & \texttt{`\_kiss\_n\_rel'}         &        \\
+    love       & mass \textbf{n}oun & \texttt{`\_love\_n\_rel'}         &        \\
+    couch      & count \textbf{n}oun & \texttt{`\_couch\_n\_rel'}         &        \\
+    headphones & plural \textbf{n}oun & \texttt{`\_headphones\_n\_rel'}         &        \\
+    happy      & ad\textbf{j}ective     & \texttt{`\_happy\_j\_rel'}         &        \\
+    brown      & ad\textbf{j}ective     & \texttt{`\_brown\_j\_rel'}         &        \\
+    yesterday  & temp. adve\textbf{r}b     & \texttt{`\_yesterday\_r\_rel'}         &        \\
+    sleep      & \textbf{v}erb     & \texttt{`\_sleep\_v\_rel'}         &        \\
+    bark       & \textbf{v}erb     & \texttt{`\_bark\_v\_rel'}         &        \\
+    buy        & \textbf{v}erb     & \texttt{`\_buy\_v\_rel'}         &        \\
+    see        & \textbf{v}erb     & \texttt{`\_see\_v\_rel'}         &        \\
+    give       & \textbf{v}erb     & \texttt{`\_give\_v\_rel'}         &        \\
+    brush      & \textbf{v}erb     &         \texttt{`\_brush\_v\_rel'} &        \\
+    dog\_bark  & complex-verb & \texttt{`\_bark\_v\_rel'} & \texttt{`\_dog\_n\_rel'}, \texttt{`q\_rel\_min'}          \\
+    brush\_dog & complex-verb & \texttt{`\_brush\_v\_rel'} & \texttt{`\_dog\_n\_rel'}, \texttt{`q\_rel\_min'}      \\
+    go\_school & complex-verb & \texttt{`\_go\_v\_rel'}   & \texttt{`locative\_rel'}, \texttt{`\_school\_v\_rel'}, \texttt{`exist\_q\_rel'} \\
+    question   & illoc. `operator' &  (none)   &   \\
+    \hline
+\end{tabular}
+
+\end{figure}
+
+%  picto identii
+%
+%
+%
+
+
+\chapter{Example test sentences}
+
+\begin{verbatim}
+
+dog see bus
+dog see bus yesterday
+dog see bus yesterday question
+brown dog see bus yesterday question
+dog sleep
+dog_bark
+brown dog_bark
+i buy headphones
+i give you_sg headphones
+girl go_school
+she go_school yesterday
+happy dog_bark
+happy girl buy brown dog
+i brown brush_dog
+i brown brush_dog yesterday
+you_sg give i kiss question
+they see i yesterday
+i see you_pl yesterday
+
+\end{verbatim}
+
+% \end{appendices}
