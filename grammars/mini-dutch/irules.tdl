@@ -1,6 +1,9 @@
 ;;; -*- Mode: TDL; Coding: utf-8 -*-
 ;;; Inflecting Lexical Rule Instances
 
+%(letter-set (!v aeiou ))
+%(letter-set (!b aeiou ))
+%(letter-set (!c bcdfghjklmnpqrstvxzwy))
 ; finite-lex-rule-suffix :=
 ; %suffix (* t)
 ; finite-lex-rule.
@@ -10,13 +13,13 @@
 ;   finite-lex-rule.
 
 adj-inflection-pl :=
-  %suffix (* e)
+  %suffix (* e) (!v!v!c !v!ce) (!v!vs !vze) (!v!vf !vve) (!v!bf !v!bve)
   adj-inflection-pl-NP-lex-rule .
 
 adj-inflection-def+sg :=
-  %suffix (* e)
+  %suffix (* e) (!v!v!c !v!ce) (!v!vs !vze) (!v!vf !vve) (!v!bf !v!bve)
   adj-inflection-def+sg-NP-lex-rule .
 
 adj-inflection-indef+sg-non-neuter :=
-  %suffix (* e)
+  %suffix (* e) (!v!v!c !v!ce) (!v!vs !vze) (!v!vf !vve) (!v!bf !v!bve)
   adj-inflection-indef+sg-non-neuter-NP-lex-rule .

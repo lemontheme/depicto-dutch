@@ -365,6 +365,17 @@ bruin_j := adjective-lex &
   [ STEM < "bruin" >,
     SYNSEM.LKEYS.KEYREL.PRED "_bruin_j_rel" ].
 
+lief_j := adjective-lex &
+  [ STEM < "lief" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_lief_j_rel" ].
+
+aangenaam_j := adjective-lex &
+  [ STEM < "aangenaam" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_aangenaam_j_rel" ].
+
+duur_j := adjective-lex &
+  [ STEM < "duur" >,
+    SYNSEM.LKEYS.KEYREL.PRED "_duur_j_rel" ].
 
 ;;; Adverbs
 
